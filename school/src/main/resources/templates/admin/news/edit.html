@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: html_head}">
+</head>
+<body>
+	<div class="container text-center" th:replace="~{fragments :: header}">
+		
+	</div>
+	
+	<div class="container">
+		<div class="row px-4 py-2">
+
+			<div class="col-12">
+			
+				<h4 class="h4 pb-3">News (Edit)</h4>
+				
+				<div class="alert alert-warning" role="alert" th:text="${message}" th:if="${message != null }"></div>
+				
+				<div class="row pb-3">
+					<div class="col-12">
+						<div class="d-grid gap-2 d-md-block">
+							<a class="btn btn-primary btn-sm" role="button" th:href="@{/admin/news/list/current}">&lt;&lt; Back To List</a>
+						</div>
+					</div>
+				</div>
+				
+				<form th:action= "${servletRequest.requestURI}" th:object="${news}" method="POST">
+
+					<input type="hidden" th:field="*{id}"/>
+					
+					<div class="row mb-3">
+						<label class="col-sm-2 col-form-label text-primary" th:text="#{news.title}"></label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control required" th:field="*{title}" th:placeholder="#{news.title}" autofocus >
+							<ul><li class="cooperror" th:errors="*{title}" /></ul>
+						</div>
+					</div>
+					<div class="row mb-3">
+						<label class="col-sm-2 col-form-label text-primary" th:text="#{news.content}"></label>
+						<div class="col-sm-10">
+							<textarea class="form-control required" rows="5" th:field="*{content}" th:placeholder="#{news.content}"></textarea>
+							<ul><li class="cooperror" th:errors="*{content}" /></ul>
+						</div>
+					</div>
+					<div class="row mb-3">
+						<div class="offset-sm-2">
+							<button type="submit" class="btn btn-sm btn-primary">Submit</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container" th:replace="~{fragments :: footer}">
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#content').summernote({height: 200});
+		});
+    </script>
+</body>	
+</html>

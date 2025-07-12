@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: html_head}">
+</head>
+<body>
+	<div class="container text-center" th:replace="~{fragments :: header}">
+		
+	</div>
+	
+	<div class="container">
+		<div class="row px-4 py-2">
+
+			<div class="col-12">
+			
+				<h4 class="h4 pb-3" th:text="'Register Attendance'"></h4>
+				
+				<div class="alert alert-warning" role="alert" th:text="${message}" th:if="${message != null }"></div>
+				
+				<div class="row pb-3">
+					<div class="col-12">
+						<div class="d-grid gap-2 d-md-block">
+							<a class="btn btn-primary btn-sm" role="button" th:href="@{/dashboard/session/details}">&lt;&lt; Back To Session Details</a>
+						</div>
+					</div>
+				</div>
+			
+				<form th:action="${servletRequest.requestURI}" th:object="${attendanceForm}" method="POST">
+				
+					<input type="hidden" class="form-control" th:field="*{sessionDetailId}">
+
+					<div class="row mb-3">
+						<label class="col-sm-2 col-form-label text-primary" th:text="#{attendanceForm.date}"></label>
+					   	<div class="col-sm-2">
+							<input type="date" class="form-control required" th:field="*{date}" th:placeholder="#{attendanceForm.date}" autofocus >
+					    	<ul><li class="cooperror" th:errors="*{date}" /></ul>
+					    </div>
+					</div>
+					<table class="table table-sm small table-bordered table-striped">
+						<thead>
+							<tr>
+								<th class="col-sm-1" th:text="'S/N'"></th>
+								<th class="col-sm-2" th:text="#{student.studentId}"></th>
+								<th class="col-sm-2" th:text="#{student.name}"></th>
+								<th class="col-sm-2" th:text="#{attendanceForm.status}"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="ob,iterator : ${listSessionDetailStudent}">
+								<td th:text="${iterator.index + 1}"></td>
+								<td th:text="${ob.student.studentId}"></td>
+								<td th:text="${ob.student.name}"></td>
+								<td>
+					   				<input type="hidden" class="form-control" th:field="*{data[__${iterator.index}__][0]}" >
+									<select class="form-select required" th:field="*{data[__${iterator.index}__][1]}">
+										<option class="text-primary" value="Absent" label="Absent"></option>
+										<option value="Present" label="Present"></option>
+										<option value="Late" label="Late"></option>
+										<option value="Leave" label="Leave"></option>
+									</select>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="row mb-3">
+						<div class="col-sm-4">
+							<button type="reset" class="btn btn-sm btn-primary">Reset</button>
+							<button type="submit" class="btn btn-sm btn-primary" onclick="return confirm('Are you sure?')" >Submit</button>
+						</div>
+					</div>
+				</form>
+				
+			</div>
+		</div>
+	</div>
+	
+	<div class="container" th:replace="~{fragments :: footer}">
+	</div>
+</body>	
+</html>

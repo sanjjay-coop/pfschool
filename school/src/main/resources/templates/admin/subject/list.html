@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: html_head}">
+</head>
+<body>
+	<div class="container text-center" th:replace="~{fragments :: header}">
+		
+	</div>
+	
+	<div class="container">
+		<div class="row px-4 py-2">
+
+			<div class="col-12">
+				
+				<h4 class="h4 pb-3">Subject (List)</h4>
+				
+				<div class="alert alert-warning" role="alert" th:text="${message}" th:if="${message != null }"></div>
+
+				<div class="row pb-3">
+					<div class="col-12">
+						<div class="d-grid gap-2 d-md-block">
+							<a class="btn btn-primary btn-sm" role="button" th:href="@{/admin/subject/addNew}">Add New Subject</a>
+						</div>
+					</div>
+				</div>
+				
+				<div class="h5" th:text="'Total Records: ' + ${totalRecords}"></div>
+				<table class="table table-sm small table-bordered table-striped">
+				
+					<thead>
+						<tr>
+							<th class="col-sm-1" style="width: 75px;" th:text="'S/N'"></th>
+							<th class="col-sm-2" th:text="#{subject.code}"></th>
+							<th class="col-sm-4" th:text="#{subject.name}"></th>
+							<th th:text="#{subject.books}"></th>
+							<th style="width: 15px;"></th>
+							<th style="width: 15px;"></th>
+						</tr>
+					</thead>
+					
+					<tbody>
+						<tr th:each="ob,iterator : ${listSubject}">
+        					<td th:text="${20 * (currentPage - 1) + iterator.index + 1}"></td>
+        					<td th:text="${ob.code}"></td>
+        					<td th:text="${ob.name}"></td>
+        					<td th:text="${ob.books}"></td>
+        					<td>
+        						<a class="nav-link" th:href="@{/admin/subject/edit/{orderId}(orderId=${ob.id})}" title="Edit Record">
+						          	<img th:src="@{/images/bootstrap-icons/pencil-square.svg}"/>
+						        </a>
+        					</td>
+        					<td>
+		        				<a class="nav-link" th:href="@{/admin/subject/delete/{orderId}(orderId=${ob.id})}" onclick="return confirm('Are you sure?')" title="Delete Record">
+						          	<img th:src="@{/images/bootstrap-icons/trash-fill.svg}"/>
+						        </a>
+        					</td>
+						</tr>
+					</tbody>
+				</table>
+				<nav aria-label="Page navigation example" th:if="${totalPages > 0}">
+					<ul class="pagination">
+						<li class="page-item" th:if="${!firstPage}"><a class="page-link" th:href="@{/admin/subject/list}">First</a></li>
+						<li class="page-item" th:if="${!firstPage}"><a class="page-link" th:href="@{/admin/subject/list/previous}">Previous</a></li>
+						<li class="page-item"><a class="page-link" th:text="${currentPage + '... of ...' + totalPages}"></a></li>
+						<li class="page-item" th:if="${!lastPage}"><a class="page-link" th:href="@{/admin/subject/list/next}">Next</a></li>
+						<li class="page-item" th:if="${!lastPage}"><a class="page-link" th:href="@{/admin/subject/list/last}">Last</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container" th:replace="~{fragments :: footer}">
+	</div>
+</body>
+</html>

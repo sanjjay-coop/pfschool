@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: html_head}">
+</head>
+<body>
+	<div class="container text-center" th:replace="~{fragments :: header}">
+		
+	</div>
+	
+	<div class="container">
+		<div class="row px-4 py-2">
+
+			<div class="col-12">
+				
+				<div class="h3 text-primary pb-2 px-4" th:text="${article.title}"></div>
+				
+				<div class="h6 pb-3" th:text="${article.author}"></div>
+				
+				<div class="px-4" th:utext="${article.content}"></div>
+				
+				<div class="small px-4 pb-3" th:text="${'Last Update: ' + article.recordUpdateDate}"></div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container" th:replace="~{fragments :: footer}">
+	</div>
+</body>
+</html>

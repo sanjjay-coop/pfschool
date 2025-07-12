@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: html_head}">
+</head>
+<body>
+	<div class="container text-center" th:replace="~{fragments :: header}">
+		
+	</div>
+	
+	<div class="container">
+		<div class="row px-4 py-2">
+
+			<div class="col-12">
+			
+				<h4 class="h4 pb-3">Title Type (Add New)</h4>
+				
+				<div class="alert alert-warning" role="alert" th:text="${message}" th:if="${message != null }"></div>
+				
+				<form th:action= "${servletRequest.requestURI}" th:object="${titleType}" method="POST">
+
+					<div class="row mb-3">
+						<label class="col-sm-2 col-form-label text-primary" th:text="#{titleType.name}"></label>
+				    	<div class="col-sm-4">
+							<input type="text" class="form-control required" th:field="*{name}" th:placeholder="#{titleType.name}" autofocus >
+				      		<ul><li class="cooperror" th:errors="*{name}" /></ul>
+				    	</div>
+				    </div>
+					<div class="row mb-3">
+						<div class="offset-sm-2">
+							<button type="submit" class="btn btn-sm btn-primary">Submit</button>
+						</div>
+					</div>
+				</form>
+				
+				<br/>
+				
+				<h4 class="h4 pb-3">Title Type (List All)</h4>
+				
+				<table class="table table-sm small table-bordered table-striped">
+				
+					<thead>
+						<tr>
+							<th class="col-sm-1" th:text="'S/N'"></th>
+							<th th:text="#{titleType.name}"></th>
+							<th style="width: 15px;"></th>
+							<th style="width: 15px;"></th>
+						</tr>
+					</thead>
+					
+					<tbody>
+						<tr th:each="ob,iterator : ${listTitleType}">
+        					<td th:text="${iterator.index + 1}"></td>
+        					<td th:text="${ob.name}"></td>
+        					<td>
+        						<a class="nav-link" th:href="@{/library/titleType/edit/{orderId}(orderId=${ob.id})}" title="Edit Record">
+						          	<img th:src="@{/images/bootstrap-icons/pencil-square.svg}"/>
+						        </a>
+        					</td>
+        					<td>
+		        				<a class="nav-link" th:href="@{/library/titleType/delete/{orderId}(orderId=${ob.id})}" onclick="return confirm('Are you sure?')" title="Delete Record">
+						          	<img th:src="@{/images/bootstrap-icons/trash-fill.svg}"/>
+						        </a>
+        					</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container" th:replace="~{fragments :: footer}">
+	</div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: html_head}">
+</head>
+<body>
+	<div class="container text-center" th:replace="~{fragments :: header}">
+		
+	</div>
+	
+	<div class="container">
+		<div class="row px-4 py-2">
+
+			<div class="col-12">
+			
+				<h4 class="h4 pb-3">Session Detail - Register Subject &amp; Teacher</h4>
+				
+				<div class="alert alert-warning" role="alert" th:text="${message}" th:if="${message != null }"></div>
+				
+				<div class="row pb-3">
+					<div class="col-12">
+						<div class="d-grid gap-2 d-md-block">
+							<a class="btn btn-primary btn-sm" role="button" th:href="@{/admin/sessionDetail/list/current}">&lt;&lt; Back To List</a>
+							<a class="btn btn-primary btn-sm" role="button" th:href="@{/admin/sessionDetail/view/{orderId}(orderId=${sessionDetailSubjectTeacher.sessionDetail.id})}">Back to Session Detail View</a>
+						</div>
+					</div>
+				</div>
+
+				<form th:action= "${servletRequest.requestURI}" th:object="${sessionDetailSubjectTeacher}" method="POST" >
+
+					<input type="hidden" th:field="*{sessionDetail}"/>
+					
+					<div class="row mb-3">
+						<label class="col-sm-2 col-form-label text-primary" th:text="#{sessionDetail.session}"></label>
+						<div class="col-sm-4">
+							<span class="form-control border-light" th:text="${sessionDetailSubjectTeacher.sessionDetail.session.label}"></span>
+						</div>
+						<label class="col-sm-2 col-form-label text-primary" th:text="#{sessionDetail.schoolClass}"></label>
+						<div class="col-sm-4">
+							<span class="form-control border-light" th:utext="${sessionDetailSubjectTeacher.sessionDetail.schoolClass.label}"></span>
+						</div>
+					</div>
+	
+					<div class="row mb-3">
+						<label class="col-sm-2 col-form-label text-primary" th:text="#{academicSession.startDate}"></label>
+						<div class="col-sm-4">
+							<span class="form-control border-light" th:text="${#dates.format(sessionDetailSubjectTeacher.sessionDetail.session.startDate, 'dd-MM-yyyy')}"></span>
+						</div>
+						<label class="col-sm-2 col-form-label text-primary" th:text="#{academicSession.endDate}"></label>
+						<div class="col-sm-4">
+							<span class="form-control border-light" th:utext="${#dates.format(sessionDetailSubjectTeacher.sessionDetail.session.endDate, 'dd-MM-yyyy')}"></span>
+						</div>
+					</div>
+					
+					<div class="row mb-3">
+						<label class="col-sm-2 col-form-label text-primary" th:text="#{subject}"></label>
+						<div class="col-sm-4">
+							<select class="form-select required" th:field="*{subject}">
+					            <option th:each="p : ${listSubject}" th:value="${p.id}" th:text="${p.code + ' : ' + p.name}" />
+					        </select>
+							<ul><li class="cooperror" th:errors="*{subject}" /></ul>
+						</div>
+					</div>
+					
+					<div class="row mb-3">
+						<label class="col-sm-2 col-form-label text-primary" th:text="#{sessionDetailSubjectTeacher.teacher}"></label>
+						<div class="col-sm-8">
+							<select class="form-select required" th:field="*{teacher}">
+					            <option th:each="p : ${listStaff}" th:value="${p.id}" th:text="${p.staffId + ' : ' + p.label}" />
+					        </select>
+							<ul><li class="cooperror" th:errors="*{teacher}" /></ul>
+						</div>
+					</div>
+					<div class="row mb-3">
+						<div class="offset-sm-2">
+							<button type="submit" class="btn btn-sm btn-primary">Submit</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container" th:replace="~{fragments :: footer}">
+	</div>
+</body>	
+</html>

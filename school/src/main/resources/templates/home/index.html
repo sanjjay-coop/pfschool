@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: html_head}">
+</head>
+<body>
+	<div class="container text-center" th:replace="~{fragments :: header}">
+		
+	</div>
+	
+	<div class="container">
+		<div class="row px-4 py-2">
+
+			<div class="col-12">
+				
+				<div class="alert alert-warning" role="alert" th:text="${message}" th:if="${message != null }"></div>
+
+				<div class="row">
+					<div class="col-md-5 p-2 border border-light rounded-0" >
+						<div class="card" style="max-height: 500px; min-height: 500px;">
+							<h5 class="card-header">Latest News</h5>
+						  	<div class="card-body overflow-auto">
+								<div class="text-center p-2 g-2 m-2 border border-light rounded-1" th:each="obj : ${listNewsLatest}">
+									<div class="text-primary h5" >
+										<a class="text-decoration-none" th:href="@{/home/news/list}" th:text="${obj.title}"></a>
+									</div>							
+									<small class="text-secondary" th:utext="${obj.content}"></small>
+								</div>
+						  	</div>
+						  	<div class="card-footer">
+						  		<a class="btn btn-secondary btn-sm" role="button" th:href="@{/home/news/list}">News List All</a>
+						  	</div>
+						</div>
+					</div>
+					<div class="col-md-7 p-2 border border-light rounded-0">
+						<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+						  	<div class="carousel-indicators">
+						    	<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+						    	<button type="button" th:each="obj,iterator : ${listCarouselDisplay}" 
+									data-bs-target="#carouselExampleCaptions" th:data-bs-slide-to="${iterator.index + 1}" 
+									th:aria-label="Slide + ' ' + ${iterator.index + 2}"></button>
+						  	</div>
+						  	<div class="carousel-inner" th:if="${carouselActive} ne null">
+						    	<div class="carousel-item active">
+						      		<img th:src="@{/home/carousel/download/{orderId}(orderId=${carouselActive.id})}" style="height: 500px;" class="d-block w-100 rounded-2" alt="...">
+						      		<div class="carousel-caption d-none d-md-block">
+						        		<h5 th:text="${carouselActive.title}"></h5>
+						        		<p th:text="${carouselActive.description}"></p>
+						      		</div>
+						   	 	</div>
+						    	<div class="carousel-item" th:each="obj : ${listCarouselDisplay}">
+						      		<img th:src="@{/home/carousel/download/{orderId}(orderId=${obj.id})}" style="height: 500px;" class="d-block w-100 rounded-2" alt="...">
+						      		<div class="carousel-caption d-none d-md-block">
+										<h5 th:text="${obj.title}"></h5>
+										<p th:text="${obj.description}"></p>
+						      		</div>
+						    	</div>
+						  	</div>
+						  	<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+						    	<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						    	<span class="visually-hidden">Previous</span>
+						  	</button>
+						  	<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+						    	<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						    	<span class="visually-hidden">Next</span>
+						  	</button>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3 p-2 rounded-0">
+						<div class="card h-100">
+							<h5 class="card-header text-center">Classes Running</h5>
+						  	<div class="card-body overflow-auto">
+								<div class="text-center" th:text="${classesRunning}"></div>
+						  	</div>
+						</div>
+					</div>
+					<div class="col-md-3 p-2 rounded-0">
+						<div class="card h-100">
+							<h5 class="card-header text-center">Documents in Library</h5>
+						  	<div class="card-body overflow-auto">
+								<div class="text-center" th:text="${countTitles}"></div>
+						  	</div>
+						</div>
+					</div>
+					<div class="col-md-3 p-2 rounded-0">
+						<div class="card h-100">
+							<h5 class="card-header text-center">No. of Staff</h5>
+						  	<div class="card-body overflow-auto">
+								<div class="text-center" th:text="${countStaff}"></div>
+						  	</div>
+						</div>
+					</div>
+					<div class="col-md-3 p-2 rounded-0">
+						<div class="card h-100">
+							<h5 class="card-header text-center">No. of Students</h5>
+						  	<div class="card-body overflow-auto">
+								<div class="text-center" th:text="${countStudents}"></div>
+						  	</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="card p-2 mb-2 border-light mt-2">
+					  	<div class="card-body">
+							<p th:utext="${params?.about}"></p>
+					  	</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+	
+	<div class="container" th:replace="~{fragments :: footer}">
+	</div>
+</body>
+</html>

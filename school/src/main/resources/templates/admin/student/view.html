@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: html_head}">
+</head>
+<body>
+	<div class="container text-center" th:replace="~{fragments :: header}">
+		
+	</div>
+	
+	<div class="container">
+		<div class="row px-4 py-2">
+
+			<div class="col-12">
+			
+				<h4 class="h4 pb-3">Student (View Record)</h4>
+				
+				<div class="alert alert-warning" role="alert" th:text="${message}" th:if="${message != null }"></div>
+				
+				<div class="row pb-3">
+					<div class="col-12">
+						<div class="d-grid gap-2 d-md-block">
+							<a class="btn btn-primary btn-sm" role="button" th:href="@{/admin/student/list/current}">Back To List</a>
+							<a class="btn btn-primary btn-sm" role="button" th:href="@{/admin/student/edit/{orderId}(orderId=${student.id})}">Edit Record</a>
+							<a class="btn btn-primary btn-sm" role="button" th:href="@{/admin/student/delete/{orderId}(orderId=${student.id})}" onclick="return confirm('Are you sure?')" >Delete Record</a>
+						</div>
+					</div>
+				</div>
+			
+				<div class="row mb-3 mt-3">
+					<div class="col-sm-2">
+						<img th:if="${student.fileData != null}" class="rounded mx-auto d-block text-center pb-3" style="max-width: 150px;" th:src="@{/home/student/photo/download/{orderId}(orderId=${student.id})}"/>
+					</div>
+					<div class="col-sm-10">
+						<div class="row mb-3">
+							<label class="col-sm-2 col-form-label text-primary" th:text="#{student.studentId}"></label>
+							<div class="col-sm-4">
+								<span class="form-control border-light" th:text="${student.studentId}"></span >
+							</div>
+						</div>
+						<div class="row mb-3">
+							<label class="col-sm-2 col-form-label text-primary" th:text="#{student.name}"></label>
+							<div class="col-sm-4">
+								<span class="form-control border-light" th:text="${student.name}"></span >
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row mb-3">
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{student.dateOfAdmission}"></label>
+					<div class="col-sm-4">
+						<span class="form-control border-light" th:text="${student.dateOfAdmission}"></span >
+					</div>
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{student.admissionClass}"></label>
+					<div class="col-sm-4">
+						<span class="form-control border-light" th:text="${student.admissionClass.name}"></span >
+					</div>
+				</div>
+				<div class="row mb-3">
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{student.dateOfBirth}"></label>
+					<div class="col-sm-4">
+						<span class="form-control border-light" th:text="${student.dateOfBirth}"></span >
+					</div>
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{student.placeOfBirth}"></label>
+					<div class="col-sm-4">
+						<span class="form-control border-light" th:text="${student.placeOfBirth}"></span >
+					</div>
+				</div>
+				<div class="row mb-3">
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{student.category}"></label>
+					<div class="col-sm-4">
+						<span class="form-control border-light" th:text="${student.category.name}"></span >
+					</div>
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{student.gender}"></label>
+					<div class="col-sm-4">
+						<span class="form-control border-light" th:text="${student.gender.name}"></span >
+					</div>
+				</div>
+				<div class="row mb-3">
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{student.bloodGroup}"></label>
+					<div class="col-sm-4">
+						<span class="form-control border-light" th:text="${student.bloodGroup}"></span >
+					</div>
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{student.aadhaar}"></label>
+					<div class="col-sm-4">
+						<span class="form-control border-light" th:text="${student.aadhaar}"></span >
+					</div>
+				</div>
+				<div class="row mb-3">
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{student.nameOfFather}"></label>
+					<div class="col-sm-4">
+						<span class="form-control border-light" th:text="${student.nameOfFather}"></span >
+					</div>
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{student.nameOfMother}"></label>
+					<div class="col-sm-4">
+						<span class="form-control border-light" th:text="${student.nameOfMother}"></span >
+					</div>
+				</div>
+				<div class="row mb-3">
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{student.officeAddressOfParent}"></label>
+					<div class="col-sm-10">
+						<span class="form-control border-light" th:text="${student.officeAddressOfParent}"></span >
+					</div>
+				</div>
+				<div class="row mb-3">
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{student.residenceAddress}"></label>
+					<div class="col-sm-10">
+						<span class="form-control border-light" th:text="${student.residenceAddress}"></span >
+					</div>
+				</div>
+				<div class="row mb-3">
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{student.phoneOffice}"></label>
+					<div class="col-sm-4">
+						<span class="form-control border-light" th:text="${student.phoneOffice}"></span >
+					</div>
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{student.phoneResidence}"></label>
+					<div class="col-sm-4">
+						<span class="form-control border-light" th:text="${student.phoneResidence}"></span >
+					</div>
+				</div>
+				<div class="row mb-3">
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{student.mobile}"></label>
+					<div class="col-sm-4">
+						<span class="form-control border-light" th:text="${student.mobile}"></span >
+					</div>
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{student.email}"></label>
+					<div class="col-sm-4">
+						<span class="form-control border-light" th:text="${student.email}"></span >
+					</div>
+				</div>
+				<div class="row mb-3">
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{student.motherTongue}"></label>
+					<div class="col-sm-4">
+						<span class="form-control border-light" th:text="${student.motherTongue}"></span >
+					</div>
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{student.emergencyContact}"></label>
+					<div class="col-sm-4">
+						<span class="form-control border-light" th:text="${student.emergencyContact}"></span >
+					</div>
+				</div>
+				<div class="row mb-3">
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{student.identificationMarkOne}"></label>
+					<div class="col-sm-4">
+						<span class="form-control border-light" th:text="${student.identificationMarkOne}"></span >
+					</div>
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{student.identificationMarkTwo}"></label>
+					<div class="col-sm-4">
+						<span class="form-control border-light" th:text="${student.identificationMarkTwo}"></span >
+					</div>
+				</div>
+				<div class="row mb-3">
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{student.remarks}"></label>
+					<div class="col-sm-10">
+						<span class="form-control border-light" th:text="${student.remarks}"></span >
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container" th:replace="~{fragments :: footer}">
+	</div>
+</body>	
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: html_head}">
+</head>
+<body>
+	<div class="container text-center" th:replace="~{fragments :: header}">
+		
+	</div>
+	
+	<div class="container">
+		<div class="row px-4 py-2">
+
+			<div class="col-12">
+				
+				<h3 class="h3 mb-3">Initialize Database</h3>
+				
+				<div class="alert alert-warning" role="alert" th:text="${message}" th:if="${message != null }"></div>
+				
+				<form th:action="${servletRequest.requestURI}" th:object="${staff}" method="POST">
+					
+					<ul><li class="cooperror" th:errors="*{all}" /></ul>
+					
+					<div class="row mb-3">
+						<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.staffId}"></label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control required" th:field="*{staffId}" th:placeholder="#{staff.staffId}" autofocus >
+							<ul><li class="cooperror" th:errors="*{staffId}" /></ul>
+						</div>
+						<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.password}"></label>
+						<div class="col-sm-4">
+							<input type="password" class="form-control required" th:field="*{password}" th:placeholder="#{staff.password}" >
+							<ul><li class="cooperror" th:errors="*{password}" /></ul>
+						</div>
+					</div>
+					
+					<div class="row mb-3">
+						<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.name}"></label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control required" th:field="*{name}" th:placeholder="#{staff.name}" >
+							<ul><li class="cooperror" th:errors="*{name}" /></ul>
+						</div>
+						<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.spouseName}"></label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" th:field="*{spouseName}" th:placeholder="#{staff.spouseName}" >
+							<ul><li class="cooperror" th:errors="*{spouseName}" /></ul>
+						</div>
+					</div>
+					
+					<div class="row mb-3">
+						<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.dateOfBirth}"></label>
+						<div class="col-sm-4">
+							<input type="date" class="form-control text-end required" th:field="*{dateOfBirth}" th:placeholder="#{staff.dateOfBirth}" >
+							<ul><li class="cooperror" th:errors="*{dateOfBirth}" /></ul>
+						</div>
+					</div>
+					
+					<div class="row mb-3">
+						<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.residenceAddress}"></label>
+						<div class="col-sm-4">
+							<textarea class="form-control required" rows="5" th:field="*{residenceAddress}" th:placeholder="#{staff.residenceAddress}"></textarea>
+				      		<ul><li class="cooperror" th:errors="*{residenceAddress}" /></ul>
+						</div>
+						<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.permanentAddress}"></label>
+						<div class="col-sm-4">
+							<textarea class="form-control" rows="5" th:field="*{permanentAddress}" th:placeholder="#{staff.permanentAddress}"></textarea>
+				      		<ul><li class="cooperror" th:errors="*{permanentAddress}" /></ul>
+						</div>
+					</div>
+					
+					<div class="row mb-3">
+						<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.aadhaar}"></label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" th:field="*{aadhaar}" th:placeholder="#{staff.aadhaar}" >
+							<ul><li class="cooperror" th:errors="*{aadhaar}" /></ul>
+						</div>
+						<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.pan}"></label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" th:field="*{pan}" th:placeholder="#{staff.pan}" >
+							<ul><li class="cooperror" th:errors="*{pan}" /></ul>
+						</div>
+					</div>
+					
+					<div class="row mb-3">
+						<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.phone}"></label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control text-end" th:field="*{phone}" th:placeholder="#{staff.phone}" >
+							<ul><li class="cooperror" th:errors="*{phone}" /></ul>
+						</div>
+						<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.mobile}"></label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control text-end required" th:field="*{mobile}" th:placeholder="#{staff.mobile}" >
+							<ul><li class="cooperror" th:errors="*{mobile}" /></ul>
+						</div>
+					</div>
+					
+					<div class="row mb-3">
+						<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.email}"></label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control required" th:field="*{email}" th:placeholder="#{staff.email}" >
+							<ul><li class="cooperror" th:errors="*{email}" /></ul>
+						</div>
+					</div>
+					
+					<div class="row mb-3">
+						<div class="col-sm-2"></div>
+						<button type="reset" class="btn btn-primary col-sm-1 m-3">Reset</button>
+						<button type="submit" class="btn btn-primary col-sm-1 m-3">Submit</button>
+					</div>
+				</form>
+			</div>
+			
+		</div>
+	</div>
+	
+	<div class="container" th:replace="~{fragments :: footer}">
+	</div>
+</body>
+</html>

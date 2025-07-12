@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: html_head}">
+</head>
+<body>
+	<div class="container text-center" th:replace="~{fragments :: header}">
+		
+	</div>
+	
+	<div class="container">
+		<div class="row px-4 py-2">
+
+			<div class="col-12">
+			
+				<h4 class="h4 pb-3" th:text="'Session Details (' + ${sessionDetail.session.title} + ')'">Session Details (View)</h4>
+				
+				<div class="alert alert-warning" role="alert" th:text="${message}" th:if="${message != null }"></div>
+				
+				<div class="row pb-3">
+					<div class="col-12">
+						<div class="d-grid gap-2 d-md-block">
+							<a class="btn btn-primary btn-sm" role="button" th:href="@{/dashboard/session/details}">&lt;&lt; Back To Session Details</a>
+						</div>
+					</div>
+				</div>
+			
+				<div class="h4 pt-3 pb-3" th:text="'Students of class: ' + ${sessionDetail.schoolClass.label}"></div>
+				<table class="table table-sm small table-bordered table-striped">
+				
+					<thead>
+						<tr>
+							<th class="col-sm-1" th:text="'S/N'"></th>
+							<th class="col-sm-1" th:text="#{student.studentId}"></th>
+							<th th:text="#{student.name}"></th>
+							<th class="col-sm-2" th:text="#{student.nameOfFather}"></th>
+							<th class="col-sm-2" th:text="#{student.nameOfMother}"></th>
+							<th class="col-sm-1" th:text="#{student.mobile}"></th>
+							<th style="width: 15px;"></th>
+						</tr>
+					</thead>
+					
+					<tbody>
+						<tr th:each="ob,iterator : ${listSessionDetailStudent}">
+        					<td th:text="${iterator.index + 1}"></td>
+        					<td th:text="${ob.student.studentId}"></td>
+        					<td th:text="${ob.student.name}"></td>
+        					<td th:text="${ob.student.nameOfFather}"></td>
+        					<td th:text="${ob.student.nameOfMother}"></td>
+        					<td th:text="${ob.student.mobile}"></td>
+        					<td>
+        						<a class="nav-link" th:href="@{/dashboard/class/student/attendance/{orderId}/{orderId1}/{orderId2}/{orderId3}(orderId=${ob.student.id}, orderId1=${currentMonth}, orderId2=${currentYear}, orderId3=${sessionDetail.id})}" title="See Attendance">
+								   	<img th:src="@{/images/bootstrap-icons/person-raised-hand.svg}" alt="See Attendance"/>
+								</a>
+        					</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container" th:replace="~{fragments :: footer}">
+	</div>
+</body>	
+</html>

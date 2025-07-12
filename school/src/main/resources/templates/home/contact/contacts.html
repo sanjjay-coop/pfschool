@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: html_head}">
+</head>
+<body>
+	<div class="container text-center" th:replace="~{fragments :: header}">
+		
+	</div>
+	
+	<div class="container">
+		<div class="row px-4 py-2">
+			<div class="col-12">
+				
+				<h4 class="h4 pb-3">Contacts</h4>
+				
+				<div class="alert alert-warning" role="alert" th:text="${message}" th:if="${message != null }"></div>
+				
+				<div class="row py-2">
+					<div class="col-4 my-2" th:each="ob : ${listContact}">
+						<div class="card h-100">
+							<h5 class="card-header" th:text="${ob.name}"></h5>
+						  	<div class="card-body text-center">
+						  		<img th:if="${ob.fileData != null}" class="rounded mx-auto d-block text-center pb-3" style="width: 150px;" th:src="@{/home/contact/photo/{orderId}(orderId=${ob.id})}"/>
+						  		<div class="pb-3" th:text="${ob.post}"></div>
+						  		<div class="pb-3" th:text="${ob.phone}"></div>
+						  		<div class="pb-3" th:text="${ob.email}"></div>						  					  		
+						  	</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container" th:replace="~{fragments :: footer}">
+	</div>
+</body>
+</html>

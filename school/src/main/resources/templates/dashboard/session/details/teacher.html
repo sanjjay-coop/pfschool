@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: html_head}">
+</head>
+<body>
+	<div class="container text-center" th:replace="~{fragments :: header}">
+		
+	</div>
+	
+	<div class="container">
+		<div class="row px-4 py-2">
+
+			<div class="col-12">
+			
+				<h4 class="h4 pb-3">Academic Session Details</h4>
+				
+				<div class="alert alert-warning" role="alert" th:text="${message}" th:if="${message != null }"></div>
+			
+				<div class="row">
+					<div class="col-md-12 p-2 mb-2 border border-light rounded-0" >
+						<div class="card h-100">
+							<h5 class="card-header">My Classes as Class Teacher</h5>
+						  	<div class="card-body overflow-auto">
+								<table class="table table-sm small table-bordered table-striped">
+									<thead>
+										<tr>
+											<th th:text="#{academicSession.title}"></th>
+											<th th:text="#{academicSession.startDate}"></th>
+											<th th:text="#{academicSession.endDate}"></th>
+											<th th:text="#{schoolClass.name}"></th>
+											<th style="width: 15px;"></th>
+											<th style="width: 15px;"></th>
+										</tr>
+									</thead>
+									
+									<tbody>
+										<tr th:each="ob,iterator : ${listSessionDetail}">
+				        					<td th:text="${ob.session.title}"></td>
+				        					<td th:text="${#dates.format(ob.session.startDate, 'dd-MM-yyyy')}"></td>
+				        					<td th:text="${#dates.format(ob.session.endDate, 'dd-MM-yyyy')}"></td>
+				        					<td th:text="${ob.schoolClass.name}"></td>
+				        					<td>
+						        				<a class="nav-link" th:href="@{/dashboard/class/student/list/{orderId}(orderId=${ob.id})}" title="List Students">
+										          	<img th:src="@{/images/bootstrap-icons/folder2-open.svg}"/>
+										        </a>
+				        					</td>
+				        					<td>
+						        				<a class="nav-link" th:href="@{/dashboard/class/student/mark/attendance/{orderId}(orderId=${ob.id})}" title="Mark Attendance">
+										          	<img th:src="@{/images/bootstrap-icons/person-raised-hand.svg}" alt="Mark Attendance"/>
+										        </a>
+				        					</td>
+										</tr>
+									</tbody>
+								</table>
+						  	</div>
+						</div>
+					</div>
+					
+					<div class="col-md-12 p-2 mb-2 border border-light rounded-0" >
+						<div class="card h-100">
+							<h5 class="card-header">My Subject Classes</h5>
+						  	<div class="card-body overflow-auto">
+								<table class="table table-sm small table-bordered table-striped">
+									<thead>
+										<tr>
+											<th th:text="#{academicSession.title}"></th>
+											<th th:text="#{academicSession.startDate}"></th>
+											<th th:text="#{academicSession.endDate}"></th>
+											<th th:text="#{subject.name}"></th>
+											<th th:text="#{schoolClass.name}"></th>
+											<th style="width: 15px;"></th>
+										</tr>
+									</thead>
+									
+									<tbody>
+										<tr th:each="ob,iterator : ${listSessionDetailSubjectTeacher}">
+				        					<td th:text="${ob.sessionDetail.session.title}"></td>
+				        					<td th:text="${#dates.format(ob.sessionDetail.session.startDate, 'dd-MM-yyyy')}"></td>
+				        					<td th:text="${#dates.format(ob.sessionDetail.session.endDate, 'dd-MM-yyyy')}"></td>
+				        					<td th:text="${ob.subject.name}"></td>
+				        					<td th:text="${ob.sessionDetail.schoolClass.name}"></td>
+				        					<td>
+						        				<a class="nav-link" th:href="@{/dashboard/subject/student/list/{orderId}(orderId=${ob.id})}" title="List Students">
+										          	<img th:src="@{/images/bootstrap-icons/folder2-open.svg}"/>
+										        </a>
+				        					</td>
+										</tr>
+									</tbody>
+								</table>
+						  	</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container" th:replace="~{fragments :: footer}">
+	</div>
+</body>	
+</html>

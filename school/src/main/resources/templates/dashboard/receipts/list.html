@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: html_head}">
+</head>
+<body>
+	<div class="container text-center" th:replace="~{fragments :: header}">
+		
+	</div>
+	
+	<div class="container">
+		<div class="row px-4 py-2">
+
+			<div class="col-12">
+			
+				<h4 class="h4 pb-3">Details of Amounts Received</h4>
+				
+				<div class="alert alert-warning" role="alert" th:text="${message}" th:if="${message != null }"></div>
+								
+				<table class="table table-sm small table-bordered table-striped">
+				
+					<thead>
+						<tr>
+							<th class="col-sm-1"  th:text="'S/N'"></th>
+							<th class="col-sm-1" th:text="#{id}"></th>
+							<th class="col-sm-1 text-end" th:text="#{expenditure.transactionDate}"></th>
+							<th class="col-sm-1 text-end" th:text="#{expenditure.amount}"></th>
+							<th th:text="#{expenditure.towards}"></th>
+							<th th:text="#{expenditure.narration}"></th>
+							<th class="col-sm-2" th:text="#{expenditure.voucherInvoiceNumber}"></th>
+						</tr>
+					</thead>
+					
+					<tbody>
+						<tr th:each="ob,iterator : ${listExpenditure}">
+							<td th:text="${iterator.index + 1}"></td>
+        					<td th:text="${ob.id}"></td>
+							<td class="text-end" th:text="${#dates.format(ob.transactionDate, 'dd/MM/yyyy')}"></td>
+							<td class="text-end" th:text="${ob.amount}"></td>
+        					<td th:text="${ob.towards}"></td>
+        					<td th:text="${ob.narration}"></td>
+							<td th:text="${ob.voucherInvoiceNumber}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container" th:replace="~{fragments :: footer}">
+	</div>
+</body>
+</html>

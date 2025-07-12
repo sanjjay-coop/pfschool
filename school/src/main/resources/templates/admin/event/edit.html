@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: html_head}">
+</head>
+<body>
+	<div class="container text-center" th:replace="~{fragments :: header}">
+		
+	</div>
+	
+	<div class="container">
+		<div class="row px-4 py-2">
+
+			<div class="col-12">
+			
+				<h4 class="h4">Event (Add New)</h4>
+				
+				<div class="alert alert-warning" role="alert" th:text="${message}" th:if="${message != null }"></div>
+				
+				<div class="row pb-3">
+					<div class="col-12">
+						<div class="d-grid gap-2 d-md-block">
+							<a class="btn btn-primary btn-sm" role="button" th:href="@{/admin/event/list/current}">&lt;&lt; Back To List</a>
+						</div>
+					</div>
+				</div>
+				
+				<form th:action= "${servletRequest.requestURI}" th:object="${event}" method="POST">
+
+					<input type="hidden" th:field="*{id}"/>
+
+					<div class="row mb-3">
+						<label class="col-sm-2 col-form-label text-primary" th:text="#{event.title}"></label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control required" th:field="*{title}" th:placeholder="#{event.title}" autofocus >
+							<ul><li class="cooperror" th:errors="*{title}" /></ul>
+						</div>
+					</div>
+					<div class="row mb-3">
+						<label class="col-sm-2 col-form-label text-primary" th:text="#{event.description}"></label>
+						<div class="col-sm-10">
+							<textarea class="form-control required" rows="5" th:field="*{description}" th:placeholder="#{event.description}"></textarea>
+							<ul><li class="cooperror" th:errors="*{description}" /></ul>
+						</div>
+					</div>
+					<div class="row mb-3">
+						<label class="col-sm-2 col-form-label text-primary" th:text="#{event.fromDateTime}"></label>
+						<div class="col-sm-4">
+							<input type="datetime-local" class="form-control required" th:field="*{fromDateTime}" th:placeholder="#{event.fromDateTime}">
+							<ul><li class="cooperror" th:errors="*{fromDateTime}" /></ul>
+						</div>
+						<label class="col-sm-2 col-form-label text-primary" th:text="#{event.toDateTime}"></label>
+						<div class="col-sm-4">
+							<input type="datetime-local" class="form-control" th:field="*{toDateTime}" th:placeholder="#{event.toDateTime}">
+							<ul><li class="cooperror" th:errors="*{toDateTime}" /></ul>
+						</div>
+					</div>
+					<div class="row mb-3">
+						<label class="col-sm-2 col-form-label text-primary" th:text="#{event.contactDetails}"></label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control required" th:field="*{contactDetails}" th:placeholder="#{event.contactDetails}">
+							<ul><li class="cooperror" th:errors="*{contactDetails}" /></ul>
+						</div>
+					</div>
+					<div class="row mb-3">
+						<div class="offset-sm-2">
+							<button type="submit" class="btn btn-sm btn-primary">Submit</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container" th:replace="~{fragments :: footer}">
+	</div>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#description').summernote({height: 200});
+		});
+    </script>
+</body>	
+</html>

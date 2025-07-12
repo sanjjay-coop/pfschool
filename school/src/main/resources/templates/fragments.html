@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head th:fragment="html_head">
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SCHOOL</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/css/all.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/jquery-ui/jquery-ui.min.css}">
+	
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+	<script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
+	
+	<link type="text/css" rel="stylesheet" th:href="@{/assets/lightGallery/dist/css/lightgallery-bundle.min.css}" />
+
+	<script th:src="@{/assets/lightGallery/dist/lightgallery.min.js}"></script>
+	<script th:src="@{/assets/lightGallery/dist/plugins/thumbnail/lg-thumbnail.min.js}"></script>
+	<script th:src="@{/assets/lightGallery/dist/plugins/zoom/lg-zoom.min.js}"></script>
+	
+	<!-- include summernote css/js-->
+	
+    <link th:href="@{/assets/summernote/summernote-bs5.min.css}" rel="stylesheet">
+    <script th:src="@{/assets/summernote/summernote-bs5.min.js}"></script>
+	
+	<style>
+		.cooperror {
+			font-size: 10px; 
+			font-style: italic; 
+			color: darkred; 
+			line-height: 12px; 
+			margin: 5px; 
+			list-style-type: none;
+		}
+		
+		.fieldvalue {
+			font-size: 12pt;
+			border-color: rgb(217, 215, 213);
+			border-width: 0pt 0pt 1pt 1pt;
+			border-radius: 2pt;
+			border-style: solid;
+			padding-bottom: 2pt;
+			padding-left: 3pt;
+		}
+
+		.fieldvalueSmall {
+			font-size: 10pt;
+		}
+		
+		.required {
+			background-color: rgb(250, 253, 189);
+		}
+		
+		.amount {
+			text-align: right;
+		}
+	</style>
+</head>
+<body>
+	<div class="container" th:fragment="header">
+		<div class="row px-2 pb-2">
+			<div class="col-12 small">
+			
+				<nav class="navbar navbar-expand-lg navbar-dark bg-light rounded-1">
+					<div class="container-fluid justify-content-end">
+				    	<div id="navbarSupportedContentMenu1">
+				    	
+				      		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				      			
+				      			<li class="nav-item small" th:classappend="${viewLeftMenu == 'academicCalendar'} ? 'bg-primary bg-opacity-10 rounded-2'">
+									<a class="nav-link small ms-2 me-2 text-primary" th:href="@{/home/academicCalendar}">
+										<img th:src="@{/images/bootstrap-icons/calendar3.svg}" height="15px;"/>
+										&nbsp;Academic Calendar
+									</a>
+								</li>	
+				      		
+								<li class="nav-item small" th:classappend="${viewLeftMenu == 'article'} ? 'bg-primary bg-opacity-10 rounded-2'">
+									<a class="nav-link small ms-2 me-2 text-primary" th:href="@{/home/article/list}">
+										<img th:src="@{/images/blog-icon.png}" height="15px;"/>
+										&nbsp;Blog
+									</a>
+								</li>
+								<li class="nav-item small" th:classappend="${viewLeftMenu == 'title'} ? 'bg-primary bg-opacity-10 rounded-2'">
+									<a class="nav-link small ms-2 me-2 text-primary" th:href="@{/home/title/list}">
+										<img th:src="@{/images/bootstrap-icons/book.svg}" height="15px;"/>
+										&nbsp;Books, etc.
+									</a>
+								</li>
+								<li class="nav-item small" th:classappend="${viewLeftMenu == 'documents'} ? 'bg-primary bg-opacity-10 rounded-2'">
+									<a class="nav-link small ms-2 me-2 text-primary" th:href="@{/home/document/list}">
+										<img th:src="@{/images/bootstrap-icons/box-arrow-down.svg}" height="15px;"/>
+										&nbsp;Download Documents
+									</a>
+								</li>
+				        		<li class="nav-item small" th:classappend="${viewLeftMenu == 'event'} ? 'bg-primary bg-opacity-10 rounded-2'">
+				          			<a class="nav-link small ms-2 me-2 text-primary" th:href="@{/home/event/list}">
+				          				<img th:src="@{/images/bootstrap-icons/bell.svg}" height="15px;"/>
+				          				&nbsp;Events
+				          			</a>
+				        		</li>
+								<li class="nav-item small" th:classappend="${viewLeftMenu == 'holidays'} ? 'bg-primary bg-opacity-10 rounded-2'">
+									<a class="nav-link small ms-2 me-2 text-primary" th:href="@{/home/holiday/list}">
+										<img th:src="@{/images/bootstrap-icons/bicycle.svg}" height="15px;"/>
+										&nbsp;Holidays
+									</a>
+								</li>
+								<li class="nav-item small" th:classappend="${viewLeftMenu == 'news'} ? 'bg-primary bg-opacity-10 rounded-2'">
+									<a class="nav-link small ms-2 me-2 text-primary" th:href="@{/home/news/list}">
+										<img th:src="@{/images/bootstrap-icons/newspaper.svg}" height="15px;"/>
+										&nbsp;News
+									</a>
+								</li>
+								<li class="nav-item small" th:classappend="${viewLeftMenu == 'gallery'} ? 'bg-primary bg-opacity-10 rounded-2'">
+									<a class="nav-link small ms-2 me-2 text-primary" th:href="@{/home/gallery/list}">
+										<img th:src="@{/images/bootstrap-icons/person-video3.svg}" height="15px;"/>
+										&nbsp;Photo Gallery
+									</a>
+								</li>
+				      			<li class="nav-item small" sec:authorize="!isAuthenticated()">
+				          			<a class="nav-link small ms-2 me-2 text-primary" th:href="@{/home/login}">
+				          				<img th:src="@{/images/bootstrap-icons/lock.svg}" height="15px;"/>
+				          				&nbsp;Sign-In
+				          			</a>
+				        		</li>
+								<li class="nav-item small" sec:authorize="isAuthenticated()">
+									<a class="nav-link small ms-2 me-2 text-primary" th:href="@{/logout}">
+										<img th:src="@{/images/bootstrap-icons/unlock.svg}" height="15px;"/>
+										&nbsp;&nbsp;Sign-Out
+									</a>
+								</li>
+			      			</ul>
+			      		</div>
+				  	</div>
+				</nav>
+			</div>
+		</div>
+		<div class="row p-2 align-items-center">
+			<div class="col-sm-1">
+				<img style="max-height: 100px; min-height: 25px;" th:src="@{/siteLogo}" alt="Site logo"/>
+			</div>
+			<div class="col-sm-4">
+				<div class="h3" th:text="${params?.header}"></div>
+				<div class="small" th:text="${params?.subHeader}"></div>
+				<div class="small fst-italic" th:text="${params?.address}"></div>
+			</div>
+			<div class="col-sm-7">
+				<div th:each="advert : ${listAdvertTop}">
+					<div th:utext="${advert.content}"></div>
+				</div>
+			</div>
+		</div>
+		<div class="row p-2">
+			<div class="col-12">
+			
+				<nav class="navbar navbar-expand-lg navbar-light bg-light rounded-1">
+					<div class="container-fluid">
+				    	<div id="navbarSupportedContentMenu2">
+				    	
+				      		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				      		
+				      			<li class="nav-item small" th:classappend="${viewLeftMenu == 'home'} ? 'bg-primary bg-opacity-10 rounded-2'" >								 
+				          			<a class="nav-link small ms-2 me-2" th:classappend="${viewLeftMenu == 'index'} ? active" th:href="@{/}">
+				          				<img th:src="@{/images/bootstrap-icons/house.svg}" height="20px;"/>
+				          				Home
+				          			</a>
+				        		</li>
+								<li class="nav-item small dropdown" th:classappend="${viewLeftMenu == 'about'} ? 'bg-primary bg-opacity-10 rounded-2'" >
+									<a class="nav-link small dropdown-toggle ms-2 me-2" th:href="@{/home}" role="button" data-bs-toggle="dropdown">
+										<img th:src="@{/images/bootstrap-icons/feather.svg}" height="20px;"/>
+										About Organization
+									</a>
+									<ul class="dropdown-menu">
+										<li th:each="ob,iterator : ${listArticleOrganization}">
+											<a class="dropdown-item" th:href="@{/home/article/view/{orderId}(orderId=${ob.id})}" th:text="${ob.linkTitle}"></a>
+										</li>
+									</ul>
+								</li>
+				        		<li class="nav-item small" th:classappend="${viewLeftMenu == 'dashboard'} ? 'bg-primary bg-opacity-10 rounded-2'" sec:authorize="hasAnyRole('STAFF_ACCOUNTS','STAFF_ADMIN','STAFF_TEACHER','STAFF_LIBRARY','STUDENT','MANAGER')">
+				          			<a class="nav-link small ms-2 me-2" th:href="@{/dashboard}">
+				          				<img th:src="@{/images/bootstrap-icons/sun.svg}" height="20px;"/>
+				          				My Dashboard
+				          			</a>
+				        		</li>
+				        		<li class="nav-item small" th:classappend="${viewLeftMenu == 'teacher'} ? 'bg-primary bg-opacity-10 rounded-2'">
+				          			<a class="nav-link small ms-2 me-2" th:href="@{/home/teacher/list}">
+				          				<img th:src="@{/images/teacher.png}" height="20px;"/>
+				          				Teaching Staff
+				          			</a>
+				        		</li>
+								<li class="nav-item small dropdown" th:classappend="${viewLeftMenu == 'library'} ? 'bg-primary bg-opacity-10 rounded-2'" sec:authorize="hasAnyRole('STAFF_LIBRARY','MANAGER')">
+									<a class="nav-link small dropdown-toggle ms-2" th:href="@{/library}" role="button" data-bs-toggle="dropdown">
+										<img th:src="@{/images/bootstrap-icons/book-half.svg}" height="20px;"/>
+										Library
+									</a>
+									<ul class="dropdown-menu">
+										<li><a class="dropdown-item" th:href="@{/library/title/addNew}">Add Title</a></li>
+										<li><a class="dropdown-item" th:href="@{/library/titleType/addNew}">Title Type</a></li>
+									  	<li><a class="dropdown-item" th:href="@{/library/library/addNew}">Library</a></li>
+										<li><a class="dropdown-item" th:href="@{/library}">Search Title</a></li>
+									</ul>
+								</li>
+								<li class="nav-item small dropdown" th:classappend="${viewLeftMenu == 'accounts'} ? 'bg-primary bg-opacity-10 rounded-2'"  sec:authorize="hasAnyRole('STAFF_ACCOUNTS','MANAGER')">
+									<a class="nav-link small dropdown-toggle ms-2 me-2" th:href="@{/accounts}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+										<img th:src="@{/images/bootstrap-icons/currency-rupee.svg}" height="20px;"/>
+										Accounts
+									</a>
+									<ul class="dropdown-menu">
+										<li><a class="dropdown-item" th:href="@{/accounts/staff/list}">Search ... Staff</a></li>
+										<li><a class="dropdown-item" th:href="@{/accounts/student/list}">Search ... Student</a></li>
+										<li><hr class="dropdown-divider"></li>
+										<li><a class="dropdown-item" th:href="@{/accounts/income/addNew}">Income</a></li>
+										<li><a class="dropdown-item" th:href="@{/accounts/expenditure/addNew}">Expenditure</a></li>
+									  	<li><a class="dropdown-item" th:href="@{/accounts/headOfAccount/list}">Head of Account</a></li>
+										<li><hr class="dropdown-divider"></li>
+										<li><a class="dropdown-item" th:href="@{/accounts/income/listRecent}">Last 50 Receipts</a></li>
+										<li><a class="dropdown-item" th:href="@{/accounts/expenditure/listRecent}">Last 50 Payments</a></li>
+										<li><a class="dropdown-item" th:href="@{/accounts/reports}">Reports</a></li>
+									</ul>
+								</li>
+								<li class="nav-item small dropdown" th:classappend="${viewLeftMenu == 'admin'} ? 'bg-primary bg-opacity-10 rounded-2'" sec:authorize="hasAnyRole('STAFF_ADMIN','MANAGER')">
+									<a class="nav-link small dropdown-toggle ms-2 me-2" th:href="@{/admin}" role="button" data-bs-toggle="dropdown">
+										<img th:src="@{/images/bootstrap-icons/person-workspace.svg}" height="20px;"/>
+										Staff Admin
+									</a>
+									<ul class="dropdown-menu" style="columns: 2; -webkit-columns: 2; -moz-columns: 2;">
+										<li><a class="dropdown-item" th:href="@{/admin/academicCalendar/list}">Academic Calendar</a></li>
+										<li><a class="dropdown-item" th:href="@{/admin/academicSession/list}">Academic Session</a></li>
+										<li><a class="dropdown-item" th:href="@{/admin/assessment/list}">Assessment</a></li>
+										<li><a class="dropdown-item" th:href="@{/admin/schoolClass/list}">Class</a></li>
+										<li><a class="dropdown-item" th:href="@{/admin/sessionDetail/list}">Session Detail</a></li>
+										<li><a class="dropdown-item" th:href="@{/admin/subject/list}">Subject</a></li>
+										<li><hr class="dropdown-divider"></li>
+										<li><a class="dropdown-item" th:href="@{/admin/article/list}">Article</a></li>
+										<li><a class="dropdown-item" th:href="@{/admin/contact/list}">Contact</a></li>
+										<li><a class="dropdown-item" th:href="@{/admin/document/list}">Document</a></li>
+										<li><a class="dropdown-item" th:href="@{/admin/event/list}">Event</a></li>
+										<li><a class="dropdown-item" th:href="@{/admin/gallery/list}">Gallery</a></li>
+										<li><a class="dropdown-item" th:href="@{/admin/holiday/list}">Holiday</a></li>
+										<li><a class="dropdown-item" th:href="@{/admin/leader/list}">Leader</a></li>
+									  	<li><a class="dropdown-item" th:href="@{/admin/news/list}">News</a></li>
+										<li><hr class="dropdown-divider"></li>
+										<li><a class="dropdown-item" th:href="@{/admin/staff/list}">Staff</a></li>
+										<li><a class="dropdown-item" th:href="@{/admin/student/list}">Student</a></li>
+									</ul>
+								</li>
+								<li class="nav-item small dropdown" th:classappend="${viewLeftMenu == 'manager'} ? 'bg-primary bg-opacity-10 rounded-2'" sec:authorize="hasAnyRole('MANAGER')">
+									<a class="nav-link small dropdown-toggle ms-2 me-2" th:href="@{/manager}" role="button" data-bs-toggle="dropdown">
+										<img th:src="@{/images/bootstrap-icons/people-fill.svg}" height="20px;"/>
+										Manager
+									</a>
+									<ul class="dropdown-menu">
+										<li><a class="dropdown-item" th:href="@{/manager/advert/list}">Advert</a></li>
+										<li><a class="dropdown-item" th:href="@{/manager/carousel/list}">Carousel</a></li>
+										<li><a class="dropdown-item" th:href="@{/manager/category/list}">Category</a></li>
+										<li><a class="dropdown-item" th:href="@{/manager/gender/list}">Gender</a></li>
+										<li><a class="dropdown-item" th:href="@{/manager/member/list}">Member</a></li>
+										<li><a class="dropdown-item" th:href="@{/manager/parameters}">Parameters</a></li>
+										<li><a class="dropdown-item" th:href="@{/manager/quotation/list}">Quotation</a></li>
+										<li><a class="dropdown-item" th:href="@{/manager/siteLogo}">Site Logo</a></li>
+										<li><a class="dropdown-item" th:href="@{/manager/role/list}">Role</a></li>
+									</ul>
+								</li>
+				      		</ul>
+				    	</div>
+				  	</div>
+				</nav>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container">
+	
+		<div class="row">
+		
+			<div class="col-2" th:fragment="left_menu">
+				
+				<nav class="navbar">
+					<h4 style="font-size: 16px; font-weight: bold;">Upcoming Events</h4>
+					<ul class="nav flex-column" th:if="${viewLeftMenu == 'index' }" >
+						<li class="nav-item dropdown bg-light">
+							<a class="nav-link" th:href="@{/contacts}">Contacts</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			
+			<div class="col-10">
+				
+				<h4 class="h4 pb-3">Title</h4>
+				
+				<div class="alert alert-warning" role="alert" th:text="${message}" th:if="${message != null }"></div>
+				
+			</div>
+		</div>
+	</div>
+	
+	<div class="container" th:fragment="footer">
+		<div class="row p-2">
+			<div class="col-12">
+			
+				<nav class="navbar navbar-expand-lg navbar-light bg-light rounded-1">
+					<div class="container-fluid">
+				    	<div id="navbarSupportedContentMenu3">
+				    	
+				      		<ul class="navbar-nav me-auto mb-2 mb-lg-0">	
+				      		
+								<li class="nav-item small" th:classappend="${viewLeftMenu == 'contacts'} ? 'bg-primary bg-opacity-10 rounded-2'">
+									<a class="nav-link small ms-3 me-3" th:href="@{/home/contacts}">
+										<img th:src="@{/images/bootstrap-icons/envelope.svg}" height="20px;"/>
+										Contacts
+									</a>
+								</li>
+								<li class="nav-item small" th:classappend="${viewLeftMenu == 'privacy'} ? 'bg-primary bg-opacity-10 rounded-2'">
+									<a class="nav-link small ms-3 me-3" th:href="@{/home/privacyPolicy}">
+										<img th:src="@{/images/bootstrap-icons/file-lock.svg}" height="20px;"/>
+										Privacy Policy
+									</a>
+								</li>
+								<li class="nav-item small" th:classappend="${viewLeftMenu == 'tandc'} ? 'bg-primary bg-opacity-10 rounded-2'">
+									<a class="nav-link small ms-3 me-3" th:href="@{/home/termsAndConditions}">
+										<img th:src="@{/images/bootstrap-icons/journal-text.svg}" height="20px;"/>
+										Terms &amp; Conditions
+									</a>
+								</li>
+								<li class="nav-item small" th:classappend="${viewLeftMenu == 'disclaimer'} ? 'bg-primary bg-opacity-10 rounded-2'">
+									<a class="nav-link small ms-3 me-3" th:href="@{/home/disclaimer}">
+										<img th:src="@{/images/bootstrap-icons/patch-exclamation.svg}" height="20px;"/>
+										Disclaimer
+									</a>
+								</li>
+				      		</ul>
+				    	</div>
+				  	</div>
+				</nav>
+			</div>
+		</div>
+		<div class="row p-2 text-end">
+			<div class="col-4" th:each="advert : ${listAdvertFooter}">
+				<div th:utext="${advert.content}"></div>
+			</div>
+		</div>
+		<div class="row p-2 text-end">
+			<div class="col-12">
+				<img th:src="@{/images/pf-logo-small.png}" height="35px;">
+				<br/><a href="https://parivrajaka.in/category/school/" target="_blank" style="font-size: 10px;" th:text="#{copyright}"></a>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

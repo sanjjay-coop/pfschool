@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: html_head}">
+</head>
+<body>
+	<div class="container text-center" th:replace="~{fragments :: header}">
+		
+	</div>
+	
+	<div class="container">
+		<div class="row px-4 py-2">
+
+			<div class="col-12">
+			
+				<h4 class="h4 pb-3">Article (View)</h4>
+				
+				<div class="alert alert-warning" role="alert" th:text="${message}" th:if="${message != null }"></div>
+				
+				<div class="row pb-3">
+					<div class="col-12">
+						<div class="d-grid gap-2 d-md-block">
+							<a class="btn btn-primary btn-sm" role="button" th:href="@{/admin/article/list/current}">&lt;&lt; Back To List</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="row mb-3">
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{article.title}"></label>
+					<div class="col-sm-10">
+						<span class="form-control border-light" th:text="${article.title}"></span>
+					</div>
+				</div>
+				<div class="row mb-3">
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{article.content}"></label>
+					<div class="col-sm-10">
+						<span class="form-control border-light" th:utext="${article.content}"></span>
+					</div>
+				</div>
+
+				<div class="row mb-3">
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{article.author}"></label>
+					<div class="col-sm-10">
+						<span class="form-control border-light" th:text="${article.author}"></span>
+					</div>
+				</div>
+				<div class="row mb-3">
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{article.orgLink}"></label>
+					<div class="col-sm-10">
+						<span class="form-control border-light" th:text="${article.orgLink}"></span>
+					</div>
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{article.linkTitle}"></label>
+					<div class="col-sm-10">
+						<span class="form-control border-light" th:text="${article.linkTitle}"></span>
+					</div>
+				</div>
+				<div class="row mb-3">
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{recordAddDate}"></label>
+					<div class="col-sm-10">
+						<span class="form-control border-light" th:text="${article.recordAddDate}"></span>
+					</div>
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{article.recordUpdateDate}"></label>
+					<div class="col-sm-10">
+						<span class="form-control border-light" th:text="${article.recordUpdateDate}"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container" th:replace="~{fragments :: footer}">
+	</div>
+</body>	
+</html>

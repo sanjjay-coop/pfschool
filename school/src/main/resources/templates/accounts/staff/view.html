@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: html_head}">
+</head>
+<body>
+	<div class="container text-center" th:replace="~{fragments :: header}">
+		
+	</div>
+	
+	<div class="container">
+		<div class="row px-4 py-2">
+
+			<div class="col-12">
+			
+				<h4 class="h4 pb-3">Staff (View Record)</h4>
+				
+				<div class="alert alert-warning" role="alert" th:text="${message}" th:if="${message != null }"></div>
+				
+				<div class="row pb-3">
+					<div class="col-12">
+						<div class="d-grid gap-2 d-md-block">
+							<a class="btn btn-primary btn-sm" role="button" th:href="@{/accounts/staff/list/current}">Back To List</a>
+							<a class="btn btn-primary btn-sm" role="button" th:href="@{/accounts/staff/receive/payment/{orderId}(orderId=${staff.id})}">Receive Payment</a>
+							<a class="btn btn-primary btn-sm" role="button" th:href="@{/accounts/staff/issue/payment/{orderId}(orderId=${staff.id})}">Issue Payment</a>
+						</div>
+					</div>
+				</div>
+			
+				<div class="row mb-3 mt-3">
+					<div class="col-sm-2">
+						<img th:if="${staff.fileData != null}" class="rounded mx-auto d-block text-center pb-3" style="max-width: 150px;" th:src="@{/home/staff/photo/download/{orderId}(orderId=${staff.id})}"/>
+					</div>
+					<div class="col-sm-10">
+						<div class="row mb-3">
+							<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.staffId}"></label>
+							<div class="col-sm-4">
+								<span class="form-control border-light" th:text="${staff.staffId}"></span>
+							</div>
+						</div>
+						<div class="row mb-3">
+							<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.name}"></label>
+							<div class="col-sm-4">
+								<span class="form-control border-light" th:text="${staff.name}"></span>
+							</div>
+							<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.designation}"></label>
+							<div class="col-sm-2">
+								<span class="form-control border-light" th:text="${staff.designation}"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row mb-3">
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.spouseName}"></label>
+					<div class="col-sm-2">
+						<span class="form-control border-light" th:text="${staff.spouseName}"></span>
+					</div>
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.dateOfBirth}"></label>
+					<div class="col-sm-2">
+						<span class="form-control border-light" th:text="${staff.dateOfBirth}"></span>
+					</div>
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.category}"></label>
+					<div class="col-sm-2">
+						<span class="form-control border-light" th:text="${staff.category.name}"></span>
+					</div>
+				</div>
+				<div class="row mb-3">
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.gender}"></label>
+					<div class="col-sm-2">
+						<span class="form-control border-light" th:text="${staff.gender.name}"></span>
+					</div>
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.aadhaar}"></label>
+					<div class="col-sm-2">
+						<span class="form-control border-light" th:text="${staff.aadhaar}"></span>
+					</div>
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.pan}"></label>
+					<div class="col-sm-2">
+						<span class="form-control border-light" th:text="${staff.pan}"></span>
+					</div>
+				</div>
+				<div class="row mb-3">
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.phone}"></label>
+					<div class="col-sm-2">
+						<span class="form-control border-light" th:text="${staff.phone}"></span>
+					</div>
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.mobile}"></label>
+					<div class="col-sm-2">
+						<span class="form-control border-light" th:text="${staff.mobile}"></span>
+					</div>
+					<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.email}"></label>
+					<div class="col-sm-2">
+						<span class="form-control border-light" th:text="${staff.email}"></span>
+					</div>
+				</div>
+				
+				<h4 class="h4 pb-3">Receipts</h4>
+				
+				<table class="table table-sm small table-bordered table-striped">
+				
+					<thead>
+						<tr>
+							<th class="col-sm-1" th:text="'S/N'"></th>
+							<th class="col-sm-1 text-end" th:text="#{income.transactionDate}"></th>
+							<th class="col-sm-1 text-end" th:text="#{income.amount}"></th>
+        					<th class="col-sm-2" th:text="#{income.towards}"></th>
+							<th class="col-sm-1 text-end" th:text="#{income.receiptNumber}"></th>
+							<th class="col-sm-1 text-end" th:text="#{income.receiptDate}"></th>
+        					<th class="col-sm-1" th:text="#{income.modeOfReceipt}"></th>
+        					<th class="col-sm-1" th:text="#{income.headOfAccount}"></th>
+        					<th th:text="#{income.narration}"></th>
+							<th style="width: 15px;"></th>
+						</tr>
+					</thead>
+					
+					<tbody>
+						<tr th:each="ob,iterator : ${listReceipt}">
+        					<td th:text="${iterator.index + 1}"></td>
+        					<td class="text-end" th:text="${#dates.format(ob.transactionDate, 'dd-MM-yyyy')}"></td>
+        					<td class="text-end" th:text="${ob.amount}"></td>
+        					<td th:text="${ob.towards}"></td>
+        					<td class="text-end" th:text="${ob.receiptNumber}"></td>
+        					<td class="text-end" th:text="${#dates.format(ob.receiptDate, 'dd-MM-yyyy')}"></td>
+        					<td th:text="${ob.modeOfReceipt}"></td>
+        					<td th:text="${ob.headOfAccount.code}"></td>
+        					<td style="max-width: 200px;" th:text="${ob.narration}"></td>
+							<td>
+		        				<a class="nav-link" th:href="@{/accounts/staff/receipt/delete/{orderId}(orderId=${ob.id})}" onclick="return confirm('Are you sure?')" title="Delete Record">
+						          	<img th:src="@{/images/bootstrap-icons/trash-fill.svg}"/>
+						        </a>
+        					</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<h4 class="h4 pb-3">Payments</h4>
+				
+				<table class="table table-sm small table-bordered table-striped">
+				
+					<thead>
+						<tr>
+							<th class="col-sm-1" th:text="'S/N'"></th>
+							<th class="col-sm-1 text-end" th:text="#{expenditure.transactionDate}"></th>
+							<th class="col-sm-1 text-end" th:text="#{expenditure.amount}"></th>
+        					<th class="col-sm-2" th:text="#{expenditure.towards}"></th>
+							<th class="col-sm-1 text-end" th:text="#{expenditure.voucherInvoiceNumber}"></th>
+							<th class="col-sm-1 text-end" th:text="#{expenditure.voucherDate}"></th>
+        					<th class="col-sm-1" th:text="#{expenditure.modeOfPayment}"></th>
+        					<th class="col-sm-1" th:text="#{expenditure.headOfAccount}"></th>
+        					<th th:text="#{expenditure.narration}"></th>
+							<th style="width: 15px;"></th>
+						</tr>
+					</thead>
+					
+					<tbody>
+						<tr th:each="ob,iterator : ${listPayment}">
+        					<td th:text="${iterator.index + 1}"></td>
+        					<td class="text-end" th:text="${#dates.format(ob.transactionDate, 'dd-MM-yyyy')}"></td>
+        					<td class="text-end" th:text="${ob.amount}"></td>
+        					<td th:text="${ob.towards}"></td>
+        					<td class="text-end" th:text="${ob.voucherInvoiceNumber}"></td>
+        					<td class="text-end" th:text="${#dates.format(ob.voucherDate, 'dd-MM-yyyy')}"></td>
+        					<td th:text="${ob.modeOfPayment}"></td>
+        					<td th:text="${ob.headOfAccount.code}"></td>
+        					<td style="max-width: 200px;" th:text="${ob.narration}"></td>
+							<td>
+        						<a class="nav-link" th:href="@{/accounts/staff/payment/delete/{orderId}(orderId=${ob.id})}" onclick="return confirm('Are you sure?')" title="Delete Record">
+						          	<img th:src="@{/images/bootstrap-icons/trash-fill.svg}"/>
+						        </a>
+        					</td>
+						</tr>
+					</tbody>
+				</table>	
+			</div>
+		</div>
+	</div>
+	
+	<div class="container" th:replace="~{fragments :: footer}">
+	</div>
+</body>	
+</html>

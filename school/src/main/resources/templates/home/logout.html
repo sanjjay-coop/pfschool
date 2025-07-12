@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: html_head}">
+</head>
+<body>
+	<div class="container text-center" th:replace="~{fragments :: header}">
+		
+	</div>
+	
+	<div class="container">
+		<div class="row px-4 py-2">
+
+			<div class="col-12">
+				
+				<h4 class="h4 mb-3">Logout success</h4>
+				
+				<div class="alert alert-warning" role="alert" th:text="${message}" th:if="${message != null }"></div>
+
+				<div>
+					You have logged out successfully.
+				</div>
+				
+				<div class="row pb-3 mt-3 mb-3 text-center" th:if="${greatLeader}">
+					<div class="col-12 mt-3 mb-3">
+						<h4 class="h4 mb-3">Great Leader</h4>
+					</div>
+					<div class="col-12 mt-3 mb-3">
+						<img class="border border-1 rounded-2" width="200" th:src="@{/home/leader/photo/download/{orderId}(orderId=${greatLeader.id})}" />
+					</div>
+					<div class="col-12 mt-3 mb-3">
+						<span th:text="${greatLeader.name}"></span>
+					</div>
+					<div class="col-12 mt-3 mb-3">
+						<span th:utext="${greatLeader.about}"></span>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	
+	<div class="container" th:replace="~{fragments :: footer}">
+	</div>
+</body>
+</html>

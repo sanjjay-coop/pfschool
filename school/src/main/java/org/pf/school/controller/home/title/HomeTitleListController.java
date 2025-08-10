@@ -49,7 +49,7 @@ public class HomeTitleListController extends HomeBaseController {
 			
 			int pageNumber = 0;
 			
-			Pageable pageable = PageRequest.of(pageNumber, 20, Sort.by(Sort.Direction.DESC, "recordAddDate"));
+			Pageable pageable = PageRequest.of(pageNumber, 20, Sort.by(Sort.Direction.ASC, "uniformTitle"));
 			
 			Page<Title> page;
 			
@@ -119,7 +119,7 @@ public class HomeTitleListController extends HomeBaseController {
 				if (pageNumber+1 < totalPages) pageNumber++;
 			}
 			
-			Pageable pageable = PageRequest.of(pageNumber, 20, Sort.by(Sort.Direction.DESC, "recordAddDate"));
+			Pageable pageable = PageRequest.of(pageNumber, 20, Sort.by(Sort.Direction.ASC, "uniformTitle"));
 			
 			Page<Title> page;
 			

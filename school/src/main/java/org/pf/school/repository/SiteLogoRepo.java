@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface SiteLogoRepo extends JpaRepository<SiteLogo, UUID>{
 	
-	@Query("select sl from SiteLogo sl order by sl.id desc limit 1")
+	@Query("select sl from SiteLogo sl order by sl.recordAddDate desc limit 1")
 	public SiteLogo getSiteLogo();
 }

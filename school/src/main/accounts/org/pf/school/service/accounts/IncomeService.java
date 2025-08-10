@@ -83,6 +83,7 @@ public class IncomeService {
 		obj.setReceiptNumber(income.getReceiptNumber());
 		obj.setReceivedFrom(income.getReceivedFrom());
 		obj.setTransactionDate(income.getTransactionDate());
+		obj.setTowards(income.getTowards());
 		
 		obj.setUpdateDefaults(updateBy);
 		

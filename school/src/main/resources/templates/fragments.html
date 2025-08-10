@@ -57,7 +57,7 @@
 	</style>
 </head>
 <body>
-	<div class="container" th:fragment="header">
+	<div class="container-fluid" th:fragment="header">
 		<div class="row px-2 pb-2">
 			<div class="col-12 small">
 			
@@ -136,14 +136,14 @@
 		</div>
 		<div class="row p-2 align-items-center">
 			<div class="col-sm-1">
-				<img style="max-height: 100px; min-height: 25px;" th:src="@{/siteLogo}" alt="Site logo"/>
+				<img class="img-fluid" th:src="@{/siteLogo}" alt="Site logo"/>
 			</div>
-			<div class="col-sm-4">
+			<div class="col-sm-5">
 				<div class="h3" th:text="${params?.header}"></div>
 				<div class="small" th:text="${params?.subHeader}"></div>
 				<div class="small fst-italic" th:text="${params?.address}"></div>
 			</div>
-			<div class="col-sm-7">
+			<div class="col-sm-6">
 				<div th:each="advert : ${listAdvertTop}">
 					<div th:utext="${advert.content}"></div>
 				</div>
@@ -268,7 +268,7 @@
 		</div>
 	</div>
 	
-	<div class="container">
+	<div class="container-fluid">
 	
 		<div class="row">
 		
@@ -294,7 +294,7 @@
 		</div>
 	</div>
 	
-	<div class="container" th:fragment="footer">
+	<div class="container-fluid" th:fragment="footer">
 		<div class="row p-2">
 			<div class="col-12">
 			

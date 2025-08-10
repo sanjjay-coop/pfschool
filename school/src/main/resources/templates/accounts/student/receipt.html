@@ -7,7 +7,7 @@
 		
 	</div>
 	
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row px-4 py-2">
 
 			<div class="col-12">
@@ -31,17 +31,22 @@
 					
 					<div class="row mb-3">
 						<label class="col-sm-2 col-form-label text-primary" th:text="#{income.receivedFrom}"></label>
-				    	<div class="col-sm-10">
+				    	<div class="col-sm-4">
 							<input type="text" readonly class="form-control required" th:field="*{receivedFrom}" th:placeholder="#{income.receivedFrom}" >
 				      		<ul><li class="cooperror" th:errors="*{receivedFrom}" /></ul>
 				    	</div>
-				    </div>
-					<div class="row mb-3">
 						<label class="col-sm-2 col-form-label text-primary" th:text="#{income.amount}"></label>
 					   	<div class="col-sm-4">
 							<input type="text" class="form-control required amount text-end" th:field="*{amount}" th:placeholder="#{income.amount}" autofocus>
 					    	<ul><li class="cooperror" th:errors="*{amount}" /></ul>
 					    </div>
+				    </div>
+					<div class="row mb-3">
+						<label class="col-sm-2 col-form-label text-primary" th:text="#{income.towards}"></label>
+				    	<div class="col-sm-4">
+							<input type="text" class="form-control required" th:field="*{towards}" th:placeholder="#{income.towards}" >
+				      		<ul><li class="cooperror" th:errors="*{towards}" /></ul>
+				    	</div>
 						<label class="col-sm-2 col-form-label text-primary" th:text="#{income.headOfAccount}"></label>
 						<div class="col-sm-4">
 							<select class="form-select required" th:field="*{headOfAccount}">

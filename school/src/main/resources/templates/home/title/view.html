@@ -7,7 +7,7 @@
 		
 	</div>
 	
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row px-4 py-2">
 
 			<div class="col-12">
@@ -78,10 +78,6 @@
 					<label class="col-sm-2 col-form-label text-primary">Due Date</label>
 					<div class="col-sm-4">
 						<span class="form-control border-light" th:text="${#dates.format(co.dueDate, 'dd/MM/yyyy')}"></span>
-					</div>
-					<label class="col-sm-2 col-form-label text-primary">Check-In</label>
-					<div class="col-sm-4">
-						<a class="form-control btn btn-primary btn-sm" role="button" th:href="@{/library/title/checkIn/{orderId}(orderId=${co.id})}" onclick="return confirm('Are you sure?')">Check-In</a>
 					</div>
 				</div>
 

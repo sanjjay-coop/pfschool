@@ -83,6 +83,7 @@ public class ExpenditureService {
 		obj.setVoucherInvoiceNumber(expenditure.getVoucherInvoiceNumber());
 		obj.setPaidTo(expenditure.getPaidTo());
 		obj.setTransactionDate(expenditure.getTransactionDate());
+		obj.setTowards(expenditure.getTowards());
 		
 		obj.setUpdateDefaults(updateBy);
 		

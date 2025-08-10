@@ -7,7 +7,7 @@
 		
 	</div>
 	
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row px-4 py-2">
 
 			<div class="col-12">
@@ -21,7 +21,7 @@
 						<div class="d-grid gap-2 d-md-block">
 							<a class="btn btn-primary btn-sm" role="button" th:href="@{/admin/sessionDetail/list/current}">&lt;&lt; Back To List</a>
 							<a class="btn btn-primary btn-sm" role="button" th:href="@{/admin/sessionDetail/register/student/{orderId}(orderId=${sessionDetail.id})}">Register Student</a>
-							<a class="btn btn-primary btn-sm" role="button" th:href="@{@{/admin/sessionDetail/register/subject/{orderId}(orderId=${sessionDetail.id})}}">Register Subject &amp; Teacher</a>
+							<a class="btn btn-primary btn-sm" role="button" th:href="@{/admin/sessionDetail/register/subject/{orderId}(orderId=${sessionDetail.id})}">Register Subject &amp; Teacher</a>
 						</div>
 					</div>
 				</div>

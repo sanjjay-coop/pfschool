@@ -7,7 +7,7 @@
 		
 	</div>
 	
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row px-4 py-2">
 
 			<div class="col-12">
@@ -15,6 +15,16 @@
 				<h4 class="h4 pb-3">Books, etc.</h4>
 				
 				<div class="alert alert-warning" role="alert" th:text="${message}" th:if="${message != null }"></div>
+				
+				<div class="row pb-3">
+					<div class="col-12">
+						<div class="d-grid gap-2 d-md-block">
+							<a class="btn btn-primary btn-sm" role="button" th:href="@{/home/title/accNum/list}">Sort by Accession Number</a>
+							<a class="btn btn-primary btn-sm" role="button" th:href="@{/home/title/author/list}">Sort by Author</a>
+							<a class="btn btn-primary btn-sm" role="button" th:href="@{/home/title/list}">Sort by Title</a>
+						</div>
+					</div>
+				</div>
 				
 				<form class="row g-3 align-items-center py-3"  th:action= "${servletRequest.requestURI}" th:object="${title}" method="POST">
 					  <div class="col-auto">

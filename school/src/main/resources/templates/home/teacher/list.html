@@ -7,7 +7,7 @@
 		
 	</div>
 	
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row px-4 py-2">
 			<div class="col-12">
 				
@@ -20,7 +20,7 @@
 						<div class="card h-100">
 							<h5 class="card-header text-center" th:text="${ob.name}"></h5>
 						  	<div class="card-body text-center">
-						  		<img th:if="${ob.fileData != null}" class="rounded mx-auto d-block text-center pb-3" style="width: 150px;" th:src="@{/home/staff/photo/download/{orderId}(orderId=${ob.id})}"/>
+						  		<img th:if="${ob.fileData != null}" class="rounded mx-auto d-block text-center pb-3" style="width: 300px;" th:src="@{/home/staff/photo/download/{orderId}(orderId=${ob.id})}"/>
 						  		<div class="small mb-3" th:text="${ob.remarks}"></div>
 						  		<div class="small" th:text="${'Mobile: ' + ob.mobile + '; Email: ' + ob.email}"></div>	  		
 						  	</div>

@@ -137,6 +137,8 @@ public class HomeTitleListAccessionNumberController extends HomeBaseController {
 				}
 			}
 			
+			totalPages = page.getTotalPages();
+			
 			request.getSession().setAttribute("homeSearch_title_accNum", obj);
 			model.addAttribute("title", obj);
 			

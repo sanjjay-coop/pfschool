@@ -137,6 +137,8 @@ public class GalleryListController extends AdminBaseController {
 				}
 			}
 			
+			totalPages = page.getTotalPages();
+			
 			request.getSession().setAttribute("adminSearch_gallery", obj);
 			model.addAttribute("gallery", obj);
 			

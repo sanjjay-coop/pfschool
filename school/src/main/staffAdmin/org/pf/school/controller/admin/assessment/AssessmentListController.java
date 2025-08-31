@@ -137,6 +137,8 @@ public class AssessmentListController extends AdminBaseController {
 				}
 			}
 			
+			totalPages = page.getTotalPages();
+			
 			request.getSession().setAttribute("adminSearch_assessment", obj);
 			model.addAttribute("assessment", obj);
 			

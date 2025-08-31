@@ -137,6 +137,8 @@ public class HomeEventListController extends HomeBaseController {
 				}
 			}
 			
+			totalPages = page.getTotalPages();
+			
 			request.getSession().setAttribute("homeSearch_event", obj);
 			model.addAttribute("event", obj);
 			

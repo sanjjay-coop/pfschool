@@ -145,6 +145,8 @@ public class HomeDocumentListController extends HomeBaseController {
 				}
 			}
 			
+			totalPages = page.getTotalPages();
+			
 			request.getSession().setAttribute("homeSearch_document", obj);
 			model.addAttribute("document", obj);
 			

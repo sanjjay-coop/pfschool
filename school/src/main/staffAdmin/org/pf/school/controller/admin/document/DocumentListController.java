@@ -137,6 +137,8 @@ public class DocumentListController extends AdminBaseController {
 				}
 			}
 			
+			totalPages = page.getTotalPages();
+			
 			request.getSession().setAttribute("adminSearch_document", obj);
 			model.addAttribute("document", obj);
 			

@@ -81,6 +81,8 @@ public class CarouselListController extends ManagerBaseController {
 			
 			Page<Carousel> page = this.carouselRepo.findAll(pageable);
 			
+			totalPages = page.getTotalPages();
+			
 			model.addAttribute("currentPage", pageNumber + 1);
 			model.addAttribute("totalPages", totalPages);
 			model.addAttribute("totalRecords", page.getTotalElements());

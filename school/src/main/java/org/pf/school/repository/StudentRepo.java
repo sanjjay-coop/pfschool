@@ -23,6 +23,8 @@ public interface StudentRepo extends JpaRepository<Student, UUID>{
 	
 	Student findByMember(Member member);
 	
+	List<Student> findByMember_Enabled(Boolean enabled);
+	
 	List<Student> findByIdNotInOrderByNameAsc(List<UUID> listStudent);
 	
 }

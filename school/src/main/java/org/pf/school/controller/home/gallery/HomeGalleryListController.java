@@ -137,6 +137,8 @@ public class HomeGalleryListController extends HomeBaseController {
 				}
 			}
 			
+			totalPages = page.getTotalPages();
+			
 			request.getSession().setAttribute("homeSearch_gallery", obj);
 			model.addAttribute("gallery", obj);
 			

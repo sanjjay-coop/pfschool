@@ -137,6 +137,8 @@ public class LeaderListController extends AdminBaseController {
 				}
 			}
 			
+			totalPages = page.getTotalPages();
+			
 			request.getSession().setAttribute("adminSearch_leader", obj);
 			model.addAttribute("leader", obj);
 			

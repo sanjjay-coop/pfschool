@@ -16,76 +16,103 @@
 				
 				<div class="alert alert-warning" role="alert" th:text="${message}" th:if="${message != null }"></div>
 				
-				<div class="accordion" id="accordionExample">
-  					<div class="accordion-item">
-    					<h2 class="accordion-header">
-	      					<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-	        					My Tasks
-	      					</button>
-    					</h2>
-    					<div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-      						<div class="accordion-body">
-        						<div class="row p-3 g-3" >
-        						
-									<div class="col-md-2 text-center">
-										<a class="nav-link" th:href="@{/dashboard/attendance}">
-					   						<img width="25px" th:src="@{/images/bootstrap-icons/person-raised-hand.svg}" alt="Attendance"/>
-					   						<br/>Attendance
-										</a>
-									</div>
-									
-									<div class="col-md-2 text-center">
-										<a class="nav-link" th:href="@{/dashboard/changePassword}">
-					   						<img width="25px" th:src="@{/images/bootstrap-icons/key.svg}" alt="Change Password"/>
-					   						<br/>Change Password
-										</a>
-									</div>
-									
-									<div class="col-md-2 text-center">
-										<a class="nav-link" th:href="@{/dashboard/profile}">
-					   						<img width="25px" th:src="@{/images/bootstrap-icons/person-vcard.svg}" alt="My Profile"/>
-										<br/>My Profile
-										</a>
-									</div>
-									
-									<div class="col-md-2 text-center">
-										<a class="nav-link" th:href="@{/dashboard/payments/list}">
-					   						<img width="25px" th:src="@{/images/bootstrap-icons/credit-card.svg}" alt="Payments"/>
-										<br/>Payments
-										</a>
-									</div>
-									
-									<div class="col-md-2 text-center">
-										<a class="nav-link" th:href="@{/dashboard/receipts/list}">
-					   						<img width="25px" th:src="@{/images/bootstrap-icons/receipt.svg}" alt="Receipts"/>
-										<br/>Receipts
-										</a>
-									</div>
-									
-									<div class="col-md-2 text-center">
-										<a class="nav-link" th:href="@{/dashboard/session/details}">
-					   						<img width="25px" th:src="@{/images/bootstrap-icons/briefcase.svg}" alt="Session Details"/>
-										<br/>Session Details
-										</a>
-									</div>
-								</div>
-        					</div>
-    					</div>
-  					</div>
-  					<!-- 
-	  				<div class="accordion-item">
-	    				<h2 class="accordion-header">
-	      					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-	        					Accordion Item #2
-	      					</button>
-	    				</h2>
-	    				<div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-	      					<div class="accordion-body">
-	        					<strong>This is the second item’s accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-	      					</div>
-	    				</div>
-	  				</div>
-	  				 -->
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="accordion" id="accordionExample">
+		  					<div class="accordion-item">
+		    					<h2 class="accordion-header">
+			      					<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+			        					My Tasks
+			      					</button>
+		    					</h2>
+		    					<div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+		      						<div class="accordion-body">
+		        						<div class="row p-3 g-3" >
+		        						
+											<div class="col-md-2 text-center">
+												<a class="nav-link" th:href="@{/dashboard/attendance}">
+							   						<img width="25px" th:src="@{/images/bootstrap-icons/person-raised-hand.svg}" alt="Attendance"/>
+							   						<br/>Attendance
+												</a>
+											</div>
+											
+											<div class="col-md-2 text-center">
+												<a class="nav-link" th:href="@{/dashboard/changePassword}">
+							   						<img width="25px" th:src="@{/images/bootstrap-icons/key.svg}" alt="Change Password"/>
+							   						<br/>Change Password
+												</a>
+											</div>
+											
+											<div class="col-md-2 text-center">
+												<a class="nav-link" th:href="@{/dashboard/profile}">
+							   						<img width="25px" th:src="@{/images/bootstrap-icons/person-vcard.svg}" alt="My Profile"/>
+												<br/>My Profile
+												</a>
+											</div>
+											
+											<div class="col-md-2 text-center">
+												<a class="nav-link" th:href="@{/dashboard/payments/list}">
+							   						<img width="25px" th:src="@{/images/bootstrap-icons/credit-card.svg}" alt="Payments"/>
+												<br/>Payments
+												</a>
+											</div>
+											
+											<div class="col-md-2 text-center">
+												<a class="nav-link" th:href="@{/dashboard/receipts/list}">
+							   						<img width="25px" th:src="@{/images/bootstrap-icons/receipt.svg}" alt="Receipts"/>
+												<br/>Receipts
+												</a>
+											</div>
+											
+											<div class="col-md-2 text-center">
+												<a class="nav-link" th:href="@{/dashboard/session/details}">
+							   						<img width="25px" th:src="@{/images/bootstrap-icons/briefcase.svg}" alt="Session Details"/>
+												<br/>Session Details
+												</a>
+											</div>
+										</div>
+		        					</div>
+		    					</div>
+		  					</div>
+						</div>
+					</div>
+					<div class="col-sm-12 py-3">
+						<div class="card" style="max-height: 300px;">
+							<h5 class="card-header" th:text="'Inbox Messages'"></h5>
+						  	<div class="card-body overflow-auto">
+						  		
+						  		<div class="row">
+						  			<div class="col-sm-2">
+						  				<span class="fw-bold">Date</span>
+						  			</div>
+						  			<div class="col-sm-3">
+						  				<span class="fw-bold">Message Subject</span>
+						  			</div>
+						  			<div class="col-sm-5">
+						  				<span class="fw-bold">Message</span>
+						  			</div>
+						  			<div class="col-sm-2">
+						  				<span class="fw-bold">Message From</span>
+						  			</div>
+						  		</div>
+						  		
+						  		<div class="row" th:each="ob : ${listSchoolMessage}">
+						  			<div class="col-sm-2 border rounded">
+						  				<span class="small" th:text="${#dates.format(ob.recordAddDate, 'dd/MM/yyyy HH:mm:ss')}"></span>
+						  			</div>
+						  			<div class="col-sm-3 border rounded">
+						  				<span class="small" th:text="${ob.subject}"></span>
+						  			</div>
+						  			<div class="col-sm-5 border rounded">
+						  				<div class="small" th:utext="${ob.content}"></div>
+						  			</div>
+						  			<div class="col-sm-2 border rounded">
+						  				<span class="small" th:text="${ob.messageFrom.name}"></span>
+						  			</div>
+						  		</div>		  		
+						  	</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

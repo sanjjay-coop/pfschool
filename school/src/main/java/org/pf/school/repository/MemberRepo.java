@@ -19,4 +19,6 @@ public interface MemberRepo extends JpaRepository<Member, UUID>{
 	Page<Member> findBySearchStringContainingIgnoreCase(String uid, Pageable pageable);
 	
 	List<Member> findByRoles(Role role);
+	
+	List<Member> findByEnabled(Boolean enabled);
 }

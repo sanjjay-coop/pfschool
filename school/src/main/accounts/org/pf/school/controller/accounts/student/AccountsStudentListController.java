@@ -137,6 +137,8 @@ public class AccountsStudentListController extends AccountsBaseController {
 				}
 			}
 			
+			totalPages = page.getTotalPages();
+			
 			request.getSession().setAttribute("accountsSearch_student", obj);
 			model.addAttribute("student", obj);
 			

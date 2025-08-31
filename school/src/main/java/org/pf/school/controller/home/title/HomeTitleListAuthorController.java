@@ -137,6 +137,8 @@ public class HomeTitleListAuthorController extends HomeBaseController {
 				}
 			}
 			
+			totalPages = page.getTotalPages();
+			
 			request.getSession().setAttribute("homeSearch_title_author", obj);
 			model.addAttribute("title", obj);
 			

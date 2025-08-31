@@ -81,6 +81,8 @@ public class SchoolClassListController extends AdminBaseController {
 			
 			Page<SchoolClass> page = this.schoolClassRepo.findAll(pageable);
 			
+			totalPages = page.getTotalPages();
+			
 			model.addAttribute("currentPage", pageNumber + 1);
 			model.addAttribute("totalPages", totalPages);
 			model.addAttribute("totalRecords", page.getTotalElements());

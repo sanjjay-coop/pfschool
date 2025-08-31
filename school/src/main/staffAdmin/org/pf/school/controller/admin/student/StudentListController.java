@@ -137,6 +137,8 @@ public class StudentListController extends AdminBaseController {
 				}
 			}
 			
+			totalPages = page.getTotalPages();
+			
 			request.getSession().setAttribute("adminSearch_student", obj);
 			model.addAttribute("student", obj);
 			

@@ -81,6 +81,8 @@ public class TitleTypeListController extends LibraryBaseController {
 			
 			Page<TitleType> page = this.titleTypeRepo.findAll(pageable);
 			
+			totalPages = page.getTotalPages();
+			
 			model.addAttribute("currentPage", pageNumber + 1);
 			model.addAttribute("totalPages", totalPages);
 			model.addAttribute("totalRecords", page.getTotalElements());

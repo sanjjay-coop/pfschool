@@ -137,6 +137,8 @@ public class EventListController extends AdminBaseController {
 				}
 			}
 			
+			totalPages = page.getTotalPages();
+			
 			request.getSession().setAttribute("adminSearch_event", obj);
 			model.addAttribute("event", obj);
 			

@@ -137,6 +137,8 @@ public class StaffListController extends AdminBaseController {
 				}
 			}
 			
+			totalPages = page.getTotalPages();
+			
 			request.getSession().setAttribute("adminSearch_staff", obj);
 			model.addAttribute("staff", obj);
 			

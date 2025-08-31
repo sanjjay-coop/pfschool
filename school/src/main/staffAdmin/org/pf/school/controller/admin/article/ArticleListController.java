@@ -137,6 +137,8 @@ public class ArticleListController extends AdminBaseController {
 				}
 			}
 			
+			totalPages = page.getTotalPages();
+			
 			request.getSession().setAttribute("adminSearch_article", obj);
 			model.addAttribute("article", obj);
 			

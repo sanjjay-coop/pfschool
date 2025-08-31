@@ -137,6 +137,8 @@ public class HomeArticleListController extends HomeBaseController {
 				}
 			}
 			
+			totalPages = page.getTotalPages();
+			
 			request.getSession().setAttribute("homeSearch_article", obj);
 			model.addAttribute("article", obj);
 			

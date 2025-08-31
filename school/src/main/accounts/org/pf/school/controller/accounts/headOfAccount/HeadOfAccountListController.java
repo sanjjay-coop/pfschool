@@ -30,7 +30,7 @@ public class HeadOfAccountListController extends AccountsBaseController {
 		
 		int pageNumber = 0;
 		
-		Pageable pageable = PageRequest.of(pageNumber, 20, Sort.by(Sort.Direction.DESC, "id"));
+		Pageable pageable = PageRequest.of(pageNumber, 20, Sort.by(Sort.Direction.ASC, "code"));
 		
 		Page<HeadOfAccount> page = this.headOfAccountRepo.findAll(pageable);
 		
@@ -77,9 +77,11 @@ public class HeadOfAccountListController extends AccountsBaseController {
 				if (pageNumber+1 < totalPages) pageNumber++;
 			}
 			
-			Pageable pageable = PageRequest.of(pageNumber, 20, Sort.by(Sort.Direction.DESC, "id"));
+			Pageable pageable = PageRequest.of(pageNumber, 20, Sort.by(Sort.Direction.ASC, "code"));
 			
 			Page<HeadOfAccount> page = this.headOfAccountRepo.findAll(pageable);
+
+			totalPages = page.getTotalPages();
 			
 			model.addAttribute("currentPage", pageNumber + 1);
 			model.addAttribute("totalPages", totalPages);

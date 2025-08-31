@@ -82,6 +82,8 @@ public class AdvertListController extends ManagerBaseController {
 			
 			Page<Advert> page = this.advertRepo.findAll(pageable);
 			
+			totalPages = page.getTotalPages();
+			
 			model.addAttribute("currentPage", pageNumber + 1);
 			model.addAttribute("totalPages", totalPages);
 			model.addAttribute("totalRecords", page.getTotalElements());

@@ -137,6 +137,8 @@ public class MemberListController extends ManagerBaseController {
 				}
 			}
 			
+			totalPages = page.getTotalPages();
+			
 			request.getSession().setAttribute("managerSearch_member", obj);
 			model.addAttribute("member", obj);
 			

@@ -57,7 +57,6 @@
 							<th class="col-sm-1 text-end" th:text="#{academicSession.endDate}"></th>
 							<th style="width: 15px;"></th>
 							<th style="width: 15px;"></th>
-							<th style="width: 15px;"></th>
 						</tr>
 					</thead>
 					
@@ -70,11 +69,6 @@
         					<td th:text="${ob.session.title}"></td>
         					<td class="text-end" th:text="${#dates.format(ob.session.startDate, 'dd-MM-yyyy')}"></td>
         					<td class="text-end" th:text="${#dates.format(ob.session.endDate, 'dd-MM-yyyy')}"></td>
-							<td>
-        						<a class="nav-link" th:href="@{/admin/assessment/view/{orderId}(orderId=${ob.id})}" title="View Record">
-						          	<img th:src="@{/images/bootstrap-icons/folder2-open.svg}"/>
-						        </a>
-        					</td>
         					<td>
         						<a class="nav-link" th:href="@{/admin/assessment/edit/{orderId}(orderId=${ob.id})}" title="Edit Record">
 						          	<img th:src="@{/images/bootstrap-icons/pencil-square.svg}"/>

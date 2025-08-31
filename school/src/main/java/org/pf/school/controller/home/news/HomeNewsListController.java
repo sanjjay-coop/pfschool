@@ -137,6 +137,8 @@ public class HomeNewsListController extends HomeBaseController {
 				}
 			}
 			
+			totalPages = page.getTotalPages();
+			
 			request.getSession().setAttribute("homeSearch_news", obj);
 			model.addAttribute("news", obj);
 			

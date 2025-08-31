@@ -22,4 +22,6 @@ public interface StaffRepo extends JpaRepository<Staff, UUID>{
 	List<Staff> findByMemberInOrderByNameAsc(List<Member> listMember);
 	
 	Staff findByMember(Member member);
+	
+	List<Staff> findByMember_Enabled(Boolean enabled);
 }

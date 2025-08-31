@@ -137,6 +137,8 @@ public class HolidayListController extends AdminBaseController {
 				}
 			}
 			
+			totalPages = page.getTotalPages();
+			
 			request.getSession().setAttribute("adminSearch_holiday", obj);
 			model.addAttribute("holiday", obj);
 			

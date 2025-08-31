@@ -76,6 +76,9 @@ public class GalleryService {
 		
 		Gallery obj = oe.get();
 		
+		obj.setDescription(gallery.getDescription());
+		obj.setTitle(gallery.getTitle());
+		obj.setDate(gallery.getDate());
 		
 		obj.setUpdateDefaults(updateBy);
 		

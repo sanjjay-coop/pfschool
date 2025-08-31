@@ -137,6 +137,8 @@ public class NewsListController extends AdminBaseController {
 				}
 			}
 			
+			totalPages = page.getTotalPages();
+			
 			request.getSession().setAttribute("adminSearch_news", obj);
 			model.addAttribute("news", obj);
 			

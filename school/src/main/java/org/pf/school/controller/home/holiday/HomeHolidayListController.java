@@ -137,6 +137,8 @@ public class HomeHolidayListController extends HomeBaseController {
 				}
 			}
 			
+			totalPages = page.getTotalPages();
+			
 			request.getSession().setAttribute("homeSearch_holiday", obj);
 			model.addAttribute("holiday", obj);
 			

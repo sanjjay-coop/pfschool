@@ -137,6 +137,8 @@ public class AccountsStaffListController extends AccountsBaseController {
 				}
 			}
 			
+			totalPages = page.getTotalPages();
+			
 			request.getSession().setAttribute("accountsSearch_staff", obj);
 			model.addAttribute("staff", obj);
 			

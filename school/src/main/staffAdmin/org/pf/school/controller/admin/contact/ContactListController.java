@@ -137,6 +137,8 @@ public class ContactListController extends AdminBaseController {
 				}
 			}
 			
+			totalPages = page.getTotalPages();
+			
 			request.getSession().setAttribute("adminSearch_contact", obj);
 			model.addAttribute("contact", obj);
 			

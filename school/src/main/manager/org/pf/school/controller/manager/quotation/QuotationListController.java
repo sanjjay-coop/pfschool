@@ -138,6 +138,8 @@ public class QuotationListController extends ManagerBaseController {
 				}
 			}
 			
+			totalPages = page.getTotalPages();
+			
 			request.getSession().setAttribute("managerSearch_quotation", obj);
 			model.addAttribute("quotation", obj);
 			

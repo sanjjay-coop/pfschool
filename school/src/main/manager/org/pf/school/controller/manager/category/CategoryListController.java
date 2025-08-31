@@ -81,6 +81,8 @@ public class CategoryListController extends ManagerBaseController {
 			
 			Page<Category> page = this.categoryRepo.findAll(pageable);
 			
+			totalPages = page.getTotalPages();
+			
 			model.addAttribute("currentPage", pageNumber + 1);
 			model.addAttribute("totalPages", totalPages);
 			model.addAttribute("totalRecords", page.getTotalElements());

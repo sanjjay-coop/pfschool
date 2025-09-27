@@ -19,7 +19,7 @@
 				<div class="row pb-3">
 					<div class="col-12">
 						<div class="d-grid gap-2 d-md-block">
-							<a class="btn btn-primary btn-sm" role="button" th:href="@{/dashboard/session/details}">&lt;&lt; Back To Session Details</a>
+							<a class="btn btn-success btn-sm" role="button" th:href="@{/dashboard/session/details}"><i class="bi bi-chevron-double-left"></i> To Session Details</a>
 						</div>
 					</div>
 				</div>
@@ -29,7 +29,7 @@
 					<input type="hidden" class="form-control" th:field="*{sessionDetailId}">
 
 					<div class="row mb-3">
-						<label class="col-sm-2 col-form-label text-primary" th:text="#{attendanceForm.date}"></label>
+						<label class="col-sm-2 col-form-label text-success" th:text="#{attendanceForm.date}"></label>
 					   	<div class="col-sm-2">
 							<input type="date" class="form-control required" th:field="*{date}" th:placeholder="#{attendanceForm.date}" autofocus >
 					    	<ul><li class="cooperror" th:errors="*{date}" /></ul>
@@ -52,7 +52,7 @@
 								<td>
 					   				<input type="hidden" class="form-control" th:field="*{data[__${iterator.index}__][0]}" >
 									<select class="form-select required" th:field="*{data[__${iterator.index}__][1]}">
-										<option class="text-primary" value="Absent" label="Absent"></option>
+										<option class="text-success" value="Absent" label="Absent"></option>
 										<option value="Present" label="Present"></option>
 										<option value="Late" label="Late"></option>
 										<option value="Leave" label="Leave"></option>
@@ -63,8 +63,8 @@
 					</table>
 					<div class="row mb-3">
 						<div class="col-sm-4">
-							<button type="reset" class="btn btn-sm btn-primary">Reset</button>
-							<button type="submit" class="btn btn-sm btn-primary" onclick="return confirm('Are you sure?')" >Submit</button>
+							<button type="reset" class="btn btn-sm btn-success">Reset</button>
+							<button type="submit" class="btn btn-sm btn-success" onclick="return confirm('Are you sure?')" >Submit</button>
 						</div>
 					</div>
 				</form>

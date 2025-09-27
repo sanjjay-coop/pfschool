@@ -7,7 +7,7 @@ import org.pf.school.common.TransactionResult;
 import org.pf.school.controller.admin.AdminBaseController;
 import org.pf.school.model.Gallery;
 import org.pf.school.service.GalleryService;
-import org.pf.school.validator.GalleryValidator;
+import org.pf.school.validator.edit.GalleryEditValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +27,7 @@ public class GalleryEditController extends AdminBaseController {
 	private GalleryService galleryService;
 	
 	@Autowired
-	private GalleryValidator galleryValidator;
+	private GalleryEditValidator galleryValidator;
 	
 	@GetMapping("/{id}")
 	public String editGallery(@PathVariable UUID id, Model model,

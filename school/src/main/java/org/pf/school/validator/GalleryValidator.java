@@ -7,9 +7,16 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
+import org.springframework.web.multipart.MultipartFile;
 
 @Component
 public class GalleryValidator extends BaseValidator implements Validator  {
+	
+	public static final String PNG_MIME_TYPE="image/png";
+	public static final String JPG_MIME_TYPE="image/jpg";
+	public static final String JPEG_MIME_TYPE="image/jpeg";
+	public static final String PDF_MIME_TYPE="application/pdf";
+	public static final long SIZE_IN_BYTES = 1097152;
 
 	@Override
 	public boolean supports(Class<?> cls) {
@@ -20,6 +27,8 @@ public class GalleryValidator extends BaseValidator implements Validator  {
 	public void validate(Object target, Errors errors) {
 		
 		Gallery obj = (Gallery) target;
+		
+		MultipartFile file = obj.getFile();
 		
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "title", "gallery.title.required");
 		
@@ -33,6 +42,16 @@ public class GalleryValidator extends BaseValidator implements Validator  {
 		
 		if (obj.getDate()==null) {
 			errors.rejectValue("date", "gallery.date.required");
+		}
+		
+		if(file.isEmpty()){
+			errors.rejectValue("file", "document.file.required");
+		} else if(!((PNG_MIME_TYPE.equalsIgnoreCase(file.getContentType())) || 
+				(JPG_MIME_TYPE.equalsIgnoreCase(file.getContentType())) || 
+				(JPEG_MIME_TYPE.equalsIgnoreCase(file.getContentType())))){
+			errors.rejectValue("file", "document.file.type");
+		} else if(file.getSize() > SIZE_IN_BYTES){
+			errors.rejectValue("file", "document.file.size");
 		}
 	}
 }

@@ -19,9 +19,9 @@
 				<div class="row pb-3">
 					<div class="col-12">
 						<div class="d-grid gap-2 d-md-block">
-							<a class="btn btn-primary btn-sm" role="button" th:href="@{/admin/staff/list/current}">Back To List</a>
-							<a class="btn btn-primary btn-sm" role="button" th:href="@{/admin/staff/edit/{orderId}(orderId=${staff.id})}">Edit Record</a>
-							<a class="btn btn-primary btn-sm" role="button" th:href="@{/admin/staff/delete/{orderId}(orderId=${staff.id})}" onclick="return confirm('Are you sure?')" >Delete Record</a>
+							<a class="btn btn-success btn-sm" role="button" th:href="@{/admin/staff/list/current}"><i class="bi bi-chevron-double-left"></i> To List</a>
+							<a class="btn btn-success btn-sm" role="button" th:href="@{/admin/staff/edit/{orderId}(orderId=${staff.id})}"><i class="bi bi-pencil-square"></i> Edit Record</a>
+							<a class="btn btn-success btn-sm" role="button" th:href="@{/admin/staff/delete/{orderId}(orderId=${staff.id})}" onclick="return confirm('Are you sure?')" ><i class="bi bi-trash-fill"></i> Delete Record</a>
 						</div>
 					</div>
 				</div>
@@ -32,13 +32,13 @@
 					</div>
 					<div class="col-sm-10">
 						<div class="row mb-3">
-							<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.staffId}"></label>
+							<label class="col-sm-2 col-form-label text-success" th:text="#{staff.staffId}"></label>
 							<div class="col-sm-4">
 								<span class="form-control border-light" th:text="${staff.staffId}"></span>
 							</div>
 						</div>
 						<div class="row mb-3">
-							<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.name}"></label>
+							<label class="col-sm-2 col-form-label text-success" th:text="#{staff.name}"></label>
 							<div class="col-sm-4">
 								<span class="form-control border-light" th:text="${staff.name}"></span>
 							</div>
@@ -46,69 +46,69 @@
 					</div>
 				</div>
 				<div class="row mb-3">
-					<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.spouseName}"></label>
+					<label class="col-sm-2 col-form-label text-success" th:text="#{staff.spouseName}"></label>
 					<div class="col-sm-4">
 						<span class="form-control border-light" th:text="${staff.spouseName}"></span>
 					</div>
-					<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.dateOfBirth}"></label>
+					<label class="col-sm-2 col-form-label text-success" th:text="#{staff.dateOfBirth}"></label>
 					<div class="col-sm-4">
 						<span class="form-control border-light" th:text="${staff.dateOfBirth}"></span>
 					</div>
 				</div>
 				<div class="row mb-3">
-					<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.category}"></label>
+					<label class="col-sm-2 col-form-label text-success" th:text="#{staff.category}"></label>
 					<div class="col-sm-4">
 						<span class="form-control border-light" th:text="${staff.category.name}"></span>
 					</div>
-					<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.gender}"></label>
+					<label class="col-sm-2 col-form-label text-success" th:text="#{staff.gender}"></label>
 					<div class="col-sm-4">
 						<span class="form-control border-light" th:text="${staff.gender.name}"></span>
 					</div>
 				</div>
 				<div class="row mb-3">
-					<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.residenceAddress}"></label>
+					<label class="col-sm-2 col-form-label text-success" th:text="#{staff.residenceAddress}"></label>
 					<div class="col-sm-4">
 						<span class="form-control border-light" th:text="${staff.residenceAddress}"></span>
 					</div>
-					<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.permanentAddress}"></label>
+					<label class="col-sm-2 col-form-label text-success" th:text="#{staff.permanentAddress}"></label>
 					<div class="col-sm-4">
 						<span class="form-control border-light" th:text="${staff.permanentAddress}"></span>
 					</div>
 				</div>
 				<div class="row mb-3">
-					<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.aadhaar}"></label>
+					<label class="col-sm-2 col-form-label text-success" th:text="#{staff.aadhaar}"></label>
 					<div class="col-sm-4">
 						<span class="form-control border-light" th:text="${staff.aadhaar}"></span>
 					</div>
-					<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.pan}"></label>
+					<label class="col-sm-2 col-form-label text-success" th:text="#{staff.pan}"></label>
 					<div class="col-sm-4">
 						<span class="form-control border-light" th:text="${staff.pan}"></span>
 					</div>
 				</div>
 				<div class="row mb-3">
-					<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.phone}"></label>
+					<label class="col-sm-2 col-form-label text-success" th:text="#{staff.phone}"></label>
 					<div class="col-sm-4">
 						<span class="form-control border-light" th:text="${staff.phone}"></span>
 					</div>
 				</div>
 					<div class="row mb-3">
-					<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.mobile}"></label>
+					<label class="col-sm-2 col-form-label text-success" th:text="#{staff.mobile}"></label>
 					<div class="col-sm-4">
 						<span class="form-control border-light" th:text="${staff.mobile}"></span>
 					</div>
-					<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.email}"></label>
+					<label class="col-sm-2 col-form-label text-success" th:text="#{staff.email}"></label>
 					<div class="col-sm-4">
 						<span class="form-control border-light" th:text="${staff.email}"></span>
 					</div>
 				</div>
 				<div class="row mb-3">
-					<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.designation}"></label>
+					<label class="col-sm-2 col-form-label text-success" th:text="#{staff.designation}"></label>
 					<div class="col-sm-4">
 						<span class="form-control border-light" th:text="${staff.designation}"></span>
 					</div>
 				</div>
 				<div class="row mb-3">
-					<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.remarks}"></label>
+					<label class="col-sm-2 col-form-label text-success" th:text="#{staff.remarks}"></label>
 					<div class="col-sm-10">
 						<span class="form-control border-light" th:text="${staff.remarks}"></span>
 					</div>

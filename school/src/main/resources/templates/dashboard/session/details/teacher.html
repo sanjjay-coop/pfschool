@@ -19,7 +19,7 @@
 				<div class="row">
 					<div class="col-md-12 p-2 mb-2 border border-light rounded-0" >
 						<div class="card h-100">
-							<h5 class="card-header">My Classes as Class Teacher</h5>
+							<h5 class="card-header bg-success-subtle bg-gradient">My Classes as Class Teacher</h5>
 						  	<div class="card-body overflow-auto">
 								<table class="table table-sm small table-bordered table-striped">
 									<thead>
@@ -41,12 +41,12 @@
 				        					<td th:text="${ob.schoolClass.name}"></td>
 				        					<td>
 						        				<a class="nav-link" th:href="@{/dashboard/class/student/list/{orderId}(orderId=${ob.id})}" title="List Students">
-										          	<img th:src="@{/images/bootstrap-icons/folder2-open.svg}"/>
+										          	<i class="bi bi-folder2-open"></i>
 										        </a>
 				        					</td>
 				        					<td>
 						        				<a class="nav-link" th:href="@{/dashboard/class/student/mark/attendance/{orderId}(orderId=${ob.id})}" title="Mark Attendance">
-										          	<img th:src="@{/images/bootstrap-icons/person-raised-hand.svg}" alt="Mark Attendance"/>
+										          	<i class="bi bi-person-raised-hand"></i>
 										        </a>
 				        					</td>
 										</tr>
@@ -58,7 +58,7 @@
 					
 					<div class="col-md-12 p-2 mb-2 border border-light rounded-0" >
 						<div class="card h-100">
-							<h5 class="card-header">My Subject Classes</h5>
+							<h5 class="card-header bg-success-subtle bg-gradient">My Subject Classes</h5>
 						  	<div class="card-body overflow-auto">
 								<table class="table table-sm small table-bordered table-striped">
 									<thead>
@@ -81,7 +81,7 @@
 				        					<td th:text="${ob.sessionDetail.schoolClass.name}"></td>
 				        					<td>
 						        				<a class="nav-link" th:href="@{/dashboard/subject/student/list/{orderId}(orderId=${ob.id})}" title="List Students">
-										          	<img th:src="@{/images/bootstrap-icons/folder2-open.svg}"/>
+										          	<i class="bi bi-folder2-open"></i>
 										        </a>
 				        					</td>
 										</tr>

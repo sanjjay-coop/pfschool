@@ -19,7 +19,7 @@
 				<div class="row py-2">
 					<div class="col-12 my-2" th:each="ob : ${listAcademicCalendarRenderer}" th:if="${!ob.listAcademicCalendar.empty}">
 						<div class="card h-100">
-							<h5 class="card-header" th:text="${ob.session.title}"></h5>
+							<h5 class="card-header bg-success-subtle bg-gradient" th:text="${ob.session.title}"></h5>
 						  	<div class="card-body">
 						  		<div th:text="'From: ' + ${#dates.format(ob.session.startDate, 'dd-MM-yyyy')} + ' To: ' + ${#dates.format(ob.session.endDate, 'dd-MM-yyyy')}"></div>
 								<div class="mt-3 mb-3">

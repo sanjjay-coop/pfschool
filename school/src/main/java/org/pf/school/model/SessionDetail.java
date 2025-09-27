@@ -89,6 +89,11 @@ public class SessionDetail extends BaseObject implements Serializable {
 	public void setFee(BigDecimal fee) {
 		this.fee = fee;
 	}
+	
+	public String getLabel() {
+		
+		return session.getTitle() + ", " + schoolClass.getLabel();
+	}
 
 	@Override
 	public String toString() {

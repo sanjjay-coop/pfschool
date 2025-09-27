@@ -16,6 +16,14 @@
 				
 				<div class="alert alert-warning" role="alert" th:text="${message}" th:if="${message != null }"></div>
 				
+				<div class="row pb-3">
+					<div class="col-12">
+						<div class="d-grid gap-2 d-md-block">
+							<a class="btn btn-success btn-sm" role="button" th:href="@{/library}"><i class="bi bi-chevron-double-left"></i> To Search</a>
+						</div>
+					</div>
+				</div>
+				
 				<table class="table table-sm small table-bordered table-striped">
 				
 					<thead>
@@ -36,7 +44,7 @@
 							<td th:text="${ob.authors}"></td>
 							<td>
 								<a class="nav-link" th:href="@{/library/title/view/{orderId}(orderId=${ob.id})}" title="View Record">
-							      	<img th:src="@{/images/bootstrap-icons/folder2-open.svg}"/>
+							      	<i class="bi bi-folder2-open"></i>
 							    </a>
 							</td>
 						</tr>

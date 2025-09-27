@@ -19,7 +19,7 @@
 				<div class="row pb-3">
 					<div class="col-12">
 						<div class="d-grid gap-2 d-md-block">
-							<a class="btn btn-primary btn-sm" role="button" th:href="@{/admin/gallery/addNew}">Add Gallery</a>
+							<a class="btn btn-success btn-sm" role="button" th:href="@{/admin/gallery/addNew}"><i class="bi bi-plus-circle"></i> Gallery</a>
 						</div>
 					</div>
 				</div>
@@ -38,49 +38,47 @@
 				</form>
 				
 				<div class="h5" th:text="'Total Records: ' + ${totalRecords}"></div>
-				<table class="table table-sm small table-bordered table-striped">
 				
-					<thead>
-						<tr>
-							<th class="col-sm-1" th:text="'S/N'"></th>
-							<th th:text="#{gallery.title}"></th>
-							<th class="col-sm-1" th:text="#{gallery.date}"></th>
-							<th style="width: 15px;"></th>
-							<th style="width: 15px;"></th>
-							<th style="width: 15px;"></th>
-						</tr>
-					</thead>
-					
-					<tbody>
-						<tr th:each="ob,iterator : ${listGallery}">
-        					<td th:text="${20 * (currentPage - 1) + iterator.index + 1}"></td>
-        					<td th:text="${ob.title}"></td>
-        					<td th:text="${#dates.format(ob.date, 'dd-MM-yyyy')}"></td>
-							<td>
-        						<a class="nav-link" th:href="@{/admin/gallery/view/{orderId}(orderId=${ob.id})}" title="View Record">
-						          	<img th:src="@{/images/bootstrap-icons/folder2-open.svg}"/>
-						        </a>
-        					</td>
-        					<td>
-        						<a class="nav-link" th:href="@{/admin/gallery/edit/{orderId}(orderId=${ob.id})}" title="Edit Record">
-						          	<img th:src="@{/images/bootstrap-icons/pencil-square.svg}"/>
-						        </a>
-        					</td>
-        					<td>
-		        				<a class="nav-link" th:href="@{/admin/gallery/delete/{orderId}(orderId=${ob.id})}" onclick="return confirm('Are you sure?')" title="Delete Record">
-						          	<img th:src="@{/images/bootstrap-icons/trash-fill.svg}"/>
-						        </a>
-        					</td>
-						</tr>
-					</tbody>
-				</table>
+				<div class="row pb-3">
+					<div class="col-3 g-3 text-center" th:each="ob,iterator : ${listGallery}">
+						
+						<div class="p-3 g-2 border border-1 border-light rounded-3">
+							<img th:src="@{/home/gallery/download/{id}(id=${ob.id})}"
+									class="border rounded rounded-3 img-fluid" th:alt="${ob.fileName}" th:title="${ob.fileName}" />
+							
+							<div class="pb-2" th:text="${ob.title}"></div>
+							
+							<div class="small pb-2" th:text="${#dates.format(ob.date, 'dd-MM-yyyy')}"></div>
+							
+							<div class="row">
+								<div class="col-9 text-center"></div>
+								<div class="col-1 text-center">
+									<a class="nav-link" th:href="@{/admin/gallery/view/{orderId}(orderId=${ob.id})}" title="View Record">
+							          	<i class="bi bi-folder2-open"></i>
+							        </a>
+								</div>
+								<div class="col-1 text-center">
+									<a class="nav-link" th:href="@{/admin/gallery/edit/{orderId}(orderId=${ob.id})}" title="Edit Record">
+							          	<i class="bi bi-pencil-square"></i>
+							        </a>
+								</div>
+								<div class="col-1 text-center">
+									<a class="nav-link" th:href="@{/admin/gallery/delete/{orderId}(orderId=${ob.id})}" onclick="return confirm('Are you sure?')" title="Delete Record">
+							          	<i class="bi bi-trash-fill"></i>
+							        </a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
 				<nav aria-label="Page navigation example" th:if="${totalPages > 0}">
 					<ul class="pagination">
-						<li class="page-item" th:if="${!firstPage}"><a class="page-link" th:href="@{/admin/gallery/list}">First</a></li>
-						<li class="page-item" th:if="${!firstPage}"><a class="page-link" th:href="@{/admin/gallery/list/previous}">Previous</a></li>
-						<li class="page-item"><a class="page-link" th:text="${currentPage + '... of ...' + totalPages}"></a></li>
-						<li class="page-item" th:if="${!lastPage}"><a class="page-link" th:href="@{/admin/gallery/list/next}">Next</a></li>
-						<li class="page-item" th:if="${!lastPage}"><a class="page-link" th:href="@{/admin/gallery/list/last}">Last</a></li>
+						<li class="page-item" th:if="${!firstPage}"><a class="page-link text-success" th:href="@{/admin/gallery/list}"><i class="bi bi-chevron-bar-left"></i></a></li>
+						<li class="page-item" th:if="${!firstPage}"><a class="page-link text-success" th:href="@{/admin/gallery/list/previous}"><i class="bi bi-chevron-left"></i></a></li>
+						<li class="page-item"><a class="page-link text-success" th:text="${currentPage + '... of ...' + totalPages}"></a></li>
+						<li class="page-item" th:if="${!lastPage}"><a class="page-link text-success" th:href="@{/admin/gallery/list/next}"><i class="bi bi-chevron-right"></i></a></li>
+						<li class="page-item" th:if="${!lastPage}"><a class="page-link text-success" th:href="@{/admin/gallery/list/last}"><i class="bi bi-chevron-bar-right"></i></a></li>
 					</ul>
 				</nav>
 			</div>

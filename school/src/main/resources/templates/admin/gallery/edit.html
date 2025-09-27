@@ -19,17 +19,17 @@
 				<div class="row pb-3">
 					<div class="col-12">
 						<div class="d-grid gap-2 d-md-block">
-							<a class="btn btn-primary btn-sm" role="button" th:href="@{/admin/gallery/list/current}">&lt;&lt; Back To List</a>
+							<a class="btn btn-success btn-sm" role="button" th:href="@{/admin/gallery/list/current}"><i class="bi bi-chevron-double-left"></i> To List</a>
 						</div>
 					</div>
 				</div>
 				
-				<form th:action= "${servletRequest.requestURI}" th:object="${gallery}" method="POST">
+				<form th:action= "${servletRequest.requestURI}" th:object="${gallery}" method="POST" enctype="multipart/form-data">
 
 					<input type="hidden" th:field="*{id}"/>
 
 					<div class="row mb-3">
-						<label class="col-sm-2 col-form-label text-primary" th:text="#{gallery.title}"></label>
+						<label class="col-sm-2 col-form-label text-success" th:text="#{gallery.title}"></label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control required" th:field="*{title}" th:placeholder="#{gallery.title}" autofocus >
 							<ul><li class="cooperror" th:errors="*{title}" /></ul>
@@ -37,7 +37,7 @@
 					</div>
 					
 					<div class="row mb-3">
-						<label class="col-sm-2 col-form-label text-primary" th:text="#{gallery.description}"></label>
+						<label class="col-sm-2 col-form-label text-success" th:text="#{gallery.description}"></label>
 						<div class="col-sm-10">
 							<textarea class="form-control required" rows="5" th:field="*{description}" th:placeholder="#{gallery.description}"></textarea>
 							<ul><li class="cooperror" th:errors="*{description}" /></ul>
@@ -45,16 +45,21 @@
 					</div>
 					
 					<div class="row mb-3">
-						<label class="col-sm-2 col-form-label text-primary" th:text="#{gallery.date}"></label>
+						<label class="col-sm-2 col-form-label text-success" th:text="#{gallery.date}"></label>
 						<div class="col-sm-4">
 							<input type="date" class="form-control required" th:field="*{date}" th:placeholder="#{gallery.date}">
 							<ul><li class="cooperror" th:errors="*{date}" /></ul>
+						</div>
+						<label class="col-sm-2 col-form-label text-success" th:text="#{gallery.file}"></label>
+						<div class="col-sm-4">
+							<input type="file" class="form-control required" th:field="*{file}" th:placeholder="#{gallery.file}">
+							<ul><li class="cooperror" th:errors="*{file}" /></ul>
 						</div>
 					</div>
 	
 					<div class="row mb-3">
 						<div class="offset-sm-2">
-							<button type="submit" class="btn btn-sm btn-primary">Submit</button>
+							<button type="submit" class="btn btn-sm btn-success">Submit</button>
 						</div>
 					</div>
 				</form>
@@ -67,7 +72,7 @@
 	
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$('#content').summernote({height: 200});
+			$('#description').summernote({height: 200});
 		});
     </script>
 </body>	

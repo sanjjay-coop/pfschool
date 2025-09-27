@@ -19,7 +19,7 @@
 				<div class="row pb-3">
 					<div class="col-12">
 						<div class="d-grid gap-2 d-md-block">
-							<a class="btn btn-primary btn-sm" role="button" th:href="@{/admin/schoolClass/list/current}">&lt;&lt; Back To List</a>
+							<a class="btn btn-success btn-sm" role="button" th:href="@{/admin/schoolClass/list/current}"><i class="bi bi-chevron-double-left"></i> To List</a>
 						</div>
 					</div>
 				</div>
@@ -29,19 +29,19 @@
 					<input type="hidden" class="form-control" th:field="*{id}">
 
 					<div class="row mb-3">
-						<label class="col-sm-2 col-form-label text-primary" th:text="#{schoolClass.code}"></label>
+						<label class="col-sm-2 col-form-label text-success" th:text="#{schoolClass.code}"></label>
 						<div class="col-sm-2">
 							<input type="text" class="form-control required" th:field="*{code}" th:placeholder="#{schoolClass.code}" autofocus >
 							<ul><li class="cooperror" th:errors="*{code}" /></ul>
 						</div>
 					</div>
 					<div class="row mb-3">
-						<label class="col-sm-2 col-form-label text-primary" th:text="#{schoolClass.name}"></label>
+						<label class="col-sm-2 col-form-label text-success" th:text="#{schoolClass.name}"></label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control required" th:field="*{name}" th:placeholder="#{schoolClass.name}" >
 							<ul><li class="cooperror" th:errors="*{name}" /></ul>
 						</div>
-						<label class="col-sm-2 col-form-label text-primary" th:text="#{seqNumber}"></label>
+						<label class="col-sm-2 col-form-label text-success" th:text="#{seqNumber}"></label>
 						<div class="col-sm-4">
 							<input type="text" class="form-control required" th:field="*{seqNumber}" th:placeholder="#{seqNumber}" >
 							<ul><li class="cooperror" th:errors="*{seqNumber}" /></ul>
@@ -49,7 +49,7 @@
 					</div>
 					<div class="row mb-3">
 						<div class="offset-sm-2">
-							<button type="submit" class="btn btn-sm btn-primary">Submit</button>
+							<button type="submit" class="btn btn-sm btn-success">Submit</button>
 						</div>
 					</div>
 				</form>

@@ -49,7 +49,7 @@ public class HomeHolidayListController extends HomeBaseController {
 			
 			int pageNumber = 0;
 			
-			Pageable pageable = PageRequest.of(pageNumber, 20, Sort.by(Sort.Direction.DESC, "date"));
+			Pageable pageable = PageRequest.of(pageNumber, 24, Sort.by(Sort.Direction.DESC, "date"));
 			
 			Page<Holiday> page;
 			
@@ -119,7 +119,7 @@ public class HomeHolidayListController extends HomeBaseController {
 				if (pageNumber+1 < totalPages) pageNumber++;
 			}
 			
-			Pageable pageable = PageRequest.of(pageNumber, 20, Sort.by(Sort.Direction.DESC, "date"));
+			Pageable pageable = PageRequest.of(pageNumber, 24, Sort.by(Sort.Direction.DESC, "date"));
 			
 			Page<Holiday> page;
 			

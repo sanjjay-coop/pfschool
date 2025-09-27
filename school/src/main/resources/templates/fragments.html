@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 	<link rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/css/all.min.css}">
 	<link rel="stylesheet" type="text/css" th:href="@{/webjars/jquery-ui/jquery-ui.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap-icons/font/bootstrap-icons.min.css}">
 	
 	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 	<script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
@@ -61,70 +62,70 @@
 		<div class="row px-2 pb-2">
 			<div class="col-12 small">
 			
-				<nav class="navbar navbar-expand-lg navbar-dark bg-light rounded-1">
+				<nav class="navbar navbar-expand-lg navbar-dark bg-success-subtle bg-gradient rounded-1">
 					<div class="container-fluid justify-content-end">
 				    	<div id="navbarSupportedContentMenu1">
 				    	
 				      		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				      			
 				      			<li class="nav-item small" th:classappend="${viewLeftMenu == 'academicCalendar'} ? 'bg-primary bg-opacity-10 rounded-2'">
-									<a class="nav-link small ms-2 me-2 text-primary" th:href="@{/home/academicCalendar}">
-										<img th:src="@{/images/bootstrap-icons/calendar3.svg}" height="15px;"/>
+									<a class="nav-link small ms-1 me-2 text-primary border-end border-primary" th:href="@{/home/academicCalendar}">
+										<i class="bi bi-calendar3"></i>
 										&nbsp;Academic Calendar
 									</a>
 								</li>	
 				      		
 								<li class="nav-item small" th:classappend="${viewLeftMenu == 'article'} ? 'bg-primary bg-opacity-10 rounded-2'">
-									<a class="nav-link small ms-2 me-2 text-primary" th:href="@{/home/article/list}">
-										<img th:src="@{/images/blog-icon.png}" height="15px;"/>
+									<a class="nav-link small ms-1 me-2 text-primary border-end border-primary" th:href="@{/home/article/list}">
+										<i class="fa-solid fa-blog"></i>
 										&nbsp;Blog
 									</a>
 								</li>
 								<li class="nav-item small" th:classappend="${viewLeftMenu == 'title'} ? 'bg-primary bg-opacity-10 rounded-2'">
-									<a class="nav-link small ms-2 me-2 text-primary" th:href="@{/home/title/list}">
-										<img th:src="@{/images/bootstrap-icons/book.svg}" height="15px;"/>
+									<a class="nav-link small ms-1 me-2 text-primary border-end border-primary" th:href="@{/home/title/list}">
+										<i class="bi bi-book"></i>
 										&nbsp;Books, etc.
 									</a>
 								</li>
 								<li class="nav-item small" th:classappend="${viewLeftMenu == 'documents'} ? 'bg-primary bg-opacity-10 rounded-2'">
-									<a class="nav-link small ms-2 me-2 text-primary" th:href="@{/home/document/list}">
-										<img th:src="@{/images/bootstrap-icons/box-arrow-down.svg}" height="15px;"/>
+									<a class="nav-link small ms-1 me-2 text-primary border-end border-primary" th:href="@{/home/document/list}">
+										<i class="bi bi-box-arrow-down"></i>
 										&nbsp;Download Documents
 									</a>
 								</li>
 				        		<li class="nav-item small" th:classappend="${viewLeftMenu == 'event'} ? 'bg-primary bg-opacity-10 rounded-2'">
-				          			<a class="nav-link small ms-2 me-2 text-primary" th:href="@{/home/event/list}">
-				          				<img th:src="@{/images/bootstrap-icons/bell.svg}" height="15px;"/>
+				          			<a class="nav-link small ms-1 me-2 text-primary border-end border-primary" th:href="@{/home/event/list}">
+				          				<i class="bi bi-bell"></i>
 				          				&nbsp;Events
 				          			</a>
 				        		</li>
 								<li class="nav-item small" th:classappend="${viewLeftMenu == 'holidays'} ? 'bg-primary bg-opacity-10 rounded-2'">
-									<a class="nav-link small ms-2 me-2 text-primary" th:href="@{/home/holiday/list}">
-										<img th:src="@{/images/bootstrap-icons/bicycle.svg}" height="15px;"/>
+									<a class="nav-link small ms-1 me-2 text-primary border-end border-primary" th:href="@{/home/holiday/list}">
+										<i class="bi bi-bicycle"></i>
 										&nbsp;Holidays
 									</a>
 								</li>
 								<li class="nav-item small" th:classappend="${viewLeftMenu == 'news'} ? 'bg-primary bg-opacity-10 rounded-2'">
-									<a class="nav-link small ms-2 me-2 text-primary" th:href="@{/home/news/list}">
-										<img th:src="@{/images/bootstrap-icons/newspaper.svg}" height="15px;"/>
+									<a class="nav-link small ms-1 me-2 text-primary border-end border-primary" th:href="@{/home/news/list}">
+										<i class="bi bi-newspaper"></i>
 										&nbsp;News
 									</a>
 								</li>
 								<li class="nav-item small" th:classappend="${viewLeftMenu == 'gallery'} ? 'bg-primary bg-opacity-10 rounded-2'">
-									<a class="nav-link small ms-2 me-2 text-primary" th:href="@{/home/gallery/list}">
-										<img th:src="@{/images/bootstrap-icons/person-video3.svg}" height="15px;"/>
+									<a class="nav-link small ms-1 me-2 text-primary border-end border-primary" th:href="@{/home/gallery/list}">
+										<i class="bi bi-person-video3"></i>
 										&nbsp;Photo Gallery
 									</a>
 								</li>
 				      			<li class="nav-item small" sec:authorize="!isAuthenticated()">
-				          			<a class="nav-link small ms-2 me-2 text-primary" th:href="@{/home/login}">
-				          				<img th:src="@{/images/bootstrap-icons/lock.svg}" height="15px;"/>
+				          			<a class="nav-link small ms-1 me-2 text-primary border-end border-primary" th:href="@{/home/login}">
+				          				<i class="bi bi-lock"></i>
 				          				&nbsp;Sign-In
 				          			</a>
 				        		</li>
 								<li class="nav-item small" sec:authorize="isAuthenticated()">
-									<a class="nav-link small ms-2 me-2 text-primary" th:href="@{/logout}">
-										<img th:src="@{/images/bootstrap-icons/unlock.svg}" height="15px;"/>
+									<a class="nav-link small ms-1 me-2 text-primary border-end border-primary" th:href="@{/logout}">
+										<i class="bi bi-unlock"></i>
 										&nbsp;&nbsp;Sign-Out
 									</a>
 								</li>
@@ -152,7 +153,7 @@
 		<div class="row p-2">
 			<div class="col-12">
 			
-				<nav class="navbar navbar-expand-lg navbar-light bg-light rounded-1">
+				<nav class="navbar navbar-expand-lg bg-success-subtle bg-gradient rounded-1">
 					<div class="container-fluid">
 				    	<div id="navbarSupportedContentMenu2">
 				    	
@@ -160,13 +161,13 @@
 				      		
 				      			<li class="nav-item small" th:classappend="${viewLeftMenu == 'home'} ? 'bg-primary bg-opacity-10 rounded-2'" >								 
 				          			<a class="nav-link small ms-2 me-2" th:classappend="${viewLeftMenu == 'index'} ? active" th:href="@{/}">
-				          				<img th:src="@{/images/bootstrap-icons/house.svg}" height="20px;"/>
+				          				<i class="bi bi-house"></i>
 				          				Home
 				          			</a>
 				        		</li>
 								<li class="nav-item small dropdown" th:classappend="${viewLeftMenu == 'about'} ? 'bg-primary bg-opacity-10 rounded-2'" >
 									<a class="nav-link small dropdown-toggle ms-2 me-2" th:href="@{/home}" role="button" data-bs-toggle="dropdown">
-										<img th:src="@{/images/bootstrap-icons/feather.svg}" height="20px;"/>
+										<i class="bi bi-feather"></i>
 										About Organization
 									</a>
 									<ul class="dropdown-menu">
@@ -177,19 +178,19 @@
 								</li>
 				        		<li class="nav-item small" th:classappend="${viewLeftMenu == 'dashboard'} ? 'bg-primary bg-opacity-10 rounded-2'" sec:authorize="hasAnyRole('STAFF_ACCOUNTS','STAFF_ADMIN','STAFF_TEACHER','STAFF_LIBRARY','STUDENT','MANAGER')">
 				          			<a class="nav-link small ms-2 me-2" th:href="@{/dashboard}">
-				          				<img th:src="@{/images/bootstrap-icons/sun.svg}" height="20px;"/>
+				          				<i class="bi bi-sun"></i>
 				          				My Dashboard
 				          			</a>
 				        		</li>
 				        		<li class="nav-item small" th:classappend="${viewLeftMenu == 'teacher'} ? 'bg-primary bg-opacity-10 rounded-2'">
 				          			<a class="nav-link small ms-2 me-2" th:href="@{/home/teacher/list}">
-				          				<img th:src="@{/images/teacher.png}" height="20px;"/>
+				          				<i class="fa-solid fa-person-chalkboard"></i>
 				          				Teaching Staff
 				          			</a>
 				        		</li>
 								<li class="nav-item small dropdown" th:classappend="${viewLeftMenu == 'library'} ? 'bg-primary bg-opacity-10 rounded-2'" sec:authorize="hasAnyRole('STAFF_LIBRARY','MANAGER')">
 									<a class="nav-link small dropdown-toggle ms-2" th:href="@{/library}" role="button" data-bs-toggle="dropdown">
-										<img th:src="@{/images/bootstrap-icons/book-half.svg}" height="20px;"/>
+										<i class="fa-solid fa-book"></i>
 										Library
 									</a>
 									<ul class="dropdown-menu">
@@ -201,7 +202,7 @@
 								</li>
 								<li class="nav-item small dropdown" th:classappend="${viewLeftMenu == 'accounts'} ? 'bg-primary bg-opacity-10 rounded-2'"  sec:authorize="hasAnyRole('STAFF_ACCOUNTS','MANAGER')">
 									<a class="nav-link small dropdown-toggle ms-2 me-2" th:href="@{/accounts}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-										<img th:src="@{/images/bootstrap-icons/currency-rupee.svg}" height="20px;"/>
+										<i class="bi bi-currency-rupee"></i>
 										Accounts
 									</a>
 									<ul class="dropdown-menu">
@@ -219,7 +220,7 @@
 								</li>
 								<li class="nav-item small dropdown" th:classappend="${viewLeftMenu == 'admin'} ? 'bg-primary bg-opacity-10 rounded-2'" sec:authorize="hasAnyRole('STAFF_ADMIN','MANAGER')">
 									<a class="nav-link small dropdown-toggle ms-2 me-2" th:href="@{/admin}" role="button" data-bs-toggle="dropdown">
-										<img th:src="@{/images/bootstrap-icons/person-workspace.svg}" height="20px;"/>
+										<i class="bi bi-person-workspace"></i>
 										Staff Admin
 									</a>
 									<ul class="dropdown-menu" style="columns: 2; -webkit-columns: 2; -moz-columns: 2;">
@@ -246,7 +247,7 @@
 								</li>
 								<li class="nav-item small dropdown" th:classappend="${viewLeftMenu == 'manager'} ? 'bg-primary bg-opacity-10 rounded-2'" sec:authorize="hasAnyRole('MANAGER')">
 									<a class="nav-link small dropdown-toggle ms-2 me-2" th:href="@{/manager}" role="button" data-bs-toggle="dropdown">
-										<img th:src="@{/images/bootstrap-icons/people-fill.svg}" height="20px;"/>
+										<i class="bi bi-people-fill"></i>
 										Manager
 									</a>
 									<ul class="dropdown-menu">
@@ -299,7 +300,7 @@
 		<div class="row p-2">
 			<div class="col-12">
 			
-				<nav class="navbar navbar-expand-lg navbar-light bg-light rounded-1">
+				<nav class="navbar navbar-expand-lg bg-success-subtle bg-gradient rounded-1">
 					<div class="container-fluid">
 				    	<div id="navbarSupportedContentMenu3">
 				    	
@@ -307,25 +308,25 @@
 				      		
 								<li class="nav-item small" th:classappend="${viewLeftMenu == 'contacts'} ? 'bg-primary bg-opacity-10 rounded-2'">
 									<a class="nav-link small ms-3 me-3" th:href="@{/home/contacts}">
-										<img th:src="@{/images/bootstrap-icons/envelope.svg}" height="20px;"/>
+										<i class="bi bi-envelope"></i>
 										Contacts
 									</a>
 								</li>
 								<li class="nav-item small" th:classappend="${viewLeftMenu == 'privacy'} ? 'bg-primary bg-opacity-10 rounded-2'">
 									<a class="nav-link small ms-3 me-3" th:href="@{/home/privacyPolicy}">
-										<img th:src="@{/images/bootstrap-icons/file-lock.svg}" height="20px;"/>
+										<i class="bi bi-file-lock"></i>
 										Privacy Policy
 									</a>
 								</li>
 								<li class="nav-item small" th:classappend="${viewLeftMenu == 'tandc'} ? 'bg-primary bg-opacity-10 rounded-2'">
 									<a class="nav-link small ms-3 me-3" th:href="@{/home/termsAndConditions}">
-										<img th:src="@{/images/bootstrap-icons/journal-text.svg}" height="20px;"/>
+										<i class="bi bi-journal-text"></i>
 										Terms &amp; Conditions
 									</a>
 								</li>
 								<li class="nav-item small" th:classappend="${viewLeftMenu == 'disclaimer'} ? 'bg-primary bg-opacity-10 rounded-2'">
 									<a class="nav-link small ms-3 me-3" th:href="@{/home/disclaimer}">
-										<img th:src="@{/images/bootstrap-icons/patch-exclamation.svg}" height="20px;"/>
+										<i class="bi bi-patch-exclamation"></i>
 										Disclaimer
 									</a>
 								</li>
@@ -343,7 +344,7 @@
 		<div class="row p-2 text-end">
 			<div class="col-12">
 				<img th:src="@{/images/pf-logo-small.png}" height="35px;">
-				<br/><a href="https://parivrajaka.in/category/school/" target="_blank" style="font-size: 10px;" th:text="#{copyright}"></a>
+				<br/><a href="https://parivrajaka.in/category/school/" class="text-success" target="_blank" style="font-size: 10px;" th:text="#{copyright}"></a>
 			</div>
 		</div>
 	</div>

@@ -1,5 +1,6 @@
 package org.pf.school.service;
 
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.Optional;
 import java.util.UUID;
@@ -11,6 +12,7 @@ import org.pf.school.repository.AuditRepo;
 import org.pf.school.repository.GalleryRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import jakarta.transaction.Transactional;
 
@@ -36,7 +38,11 @@ public class GalleryService {
 	}
 	
 	@Transactional
-	public TransactionResult addGallery(Gallery obj, String updateBy) {
+	public TransactionResult addGallery(Gallery obj, String updateBy) throws IOException {
+		
+		obj.setFileName(StringUtils.cleanPath(obj.getFile().getOriginalFilename()));
+		obj.setFileType(obj.getFile().getContentType());
+		obj.setFileData(obj.getFile().getBytes());
 		
 		obj.setAddDefaults(updateBy);
 		
@@ -68,13 +74,19 @@ public class GalleryService {
 	
 
 	@Transactional
-	public TransactionResult updateGallery(Gallery gallery, String updateBy) {
+	public TransactionResult updateGallery(Gallery gallery, String updateBy) throws IOException {
 		
 		Optional<Gallery> oe = this.galleryRepo.findById(gallery.getId());
 		
 		if (oe.isEmpty()) return new TransactionResult(false, "No such record found.");
 		
 		Gallery obj = oe.get();
+		
+		if (!gallery.getFile().isEmpty()) {
+			obj.setFileName(StringUtils.cleanPath(gallery.getFile().getOriginalFilename()));
+			obj.setFileType(gallery.getFile().getContentType());
+			obj.setFileData(gallery.getFile().getBytes());
+		}
 		
 		obj.setDescription(gallery.getDescription());
 		obj.setTitle(gallery.getTitle());

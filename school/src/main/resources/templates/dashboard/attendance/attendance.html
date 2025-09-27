@@ -23,7 +23,7 @@
 							<div class="col-4 text-start">
 								<div class="d-grid gap-2 d-md-block">
 									<a class="btn btn-tertiary btn-sm" role="button" 
-										th:href="@{/dashboard/attendance/{orderId1}/{orderId2}(orderId1=${previousMonth}, orderId2=${previousYear})}">&lt;&lt; Previous Month</a>
+										th:href="@{/dashboard/attendance/{orderId1}/{orderId2}(orderId1=${previousMonth}, orderId2=${previousYear})}"><i class="bi bi-chevron-double-left"></i> Previous Month</a>
 								</div>
 							</div>
 							<div class="col-4 text-center" th:text="${#dates.monthName(date)} + ', ' + ${#dates.year(date)}">
@@ -32,7 +32,7 @@
 							<div class="col-4 text-end">
 								<div class="d-grid gap-2 d-md-block">
 									<a class="btn btn-tertiary btn-sm" role="button" 
-										th:href="@{/dashboard/attendance/{orderId1}/{orderId2}(orderId1=${nextMonth}, orderId2=${nextYear})}">Next Month &gt;&gt;</a>
+										th:href="@{/dashboard/attendance/{orderId1}/{orderId2}(orderId1=${nextMonth}, orderId2=${nextYear})}">Next Month <i class="bi bi-chevron-double-right"></i></a>
 								</div>
 							</div>
 						</div>

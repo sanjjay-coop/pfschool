@@ -26,4 +26,6 @@ public interface SessionDetailRepo extends JpaRepository<SessionDetail, UUID>{
 	
 	public SessionDetail findByIdAndClassTeacher(UUID id, Staff classTeacher);
 	
+	public List<SessionDetail> findBySessionOrderBySchoolClass_SeqNumberAsc(AcademicSession session);
+	
 }

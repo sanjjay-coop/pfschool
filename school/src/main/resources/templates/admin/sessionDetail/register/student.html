@@ -19,8 +19,8 @@
 				<div class="row pb-3">
 					<div class="col-12">
 						<div class="d-grid gap-2 d-md-block">
-							<a class="btn btn-primary btn-sm" role="button" th:href="@{/admin/sessionDetail/list/current}">&lt;&lt; Back To List</a>
-							<a class="btn btn-primary btn-sm" role="button" th:href="@{/admin/sessionDetail/view/{orderId}(orderId=${sessionDetailStudent.sessionDetail.id})}">Back to Session Detail View</a>
+							<a class="btn btn-success btn-sm" role="button" th:href="@{/admin/sessionDetail/list/current}"><i class="bi bi-chevron-double-left"></i> To List</a>
+							<a class="btn btn-success btn-sm" role="button" th:href="@{/admin/sessionDetail/view/{orderId}(orderId=${sessionDetailStudent.sessionDetail.id})}"><i class="bi bi-arrow-counterclockwise"></i> to Session Detail View</a>
 						</div>
 					</div>
 				</div>
@@ -30,29 +30,29 @@
 					<input type="hidden" th:field="*{sessionDetail}"/>
 					
 					<div class="row mb-3">
-						<label class="col-sm-2 col-form-label text-primary" th:text="#{sessionDetail.session}"></label>
+						<label class="col-sm-2 col-form-label text-success" th:text="#{sessionDetail.session}"></label>
 						<div class="col-sm-4">
 							<span class="form-control border-light" th:text="${sessionDetailStudent.sessionDetail.session.label}"></span>
 						</div>
-						<label class="col-sm-2 col-form-label text-primary" th:text="#{sessionDetail.schoolClass}"></label>
+						<label class="col-sm-2 col-form-label text-success" th:text="#{sessionDetail.schoolClass}"></label>
 						<div class="col-sm-4">
 							<span class="form-control border-light" th:utext="${sessionDetailStudent.sessionDetail.schoolClass.label}"></span>
 						</div>
 					</div>
 	
 					<div class="row mb-3">
-						<label class="col-sm-2 col-form-label text-primary" th:text="#{academicSession.startDate}"></label>
+						<label class="col-sm-2 col-form-label text-success" th:text="#{academicSession.startDate}"></label>
 						<div class="col-sm-4">
 							<span class="form-control border-light" th:text="${#dates.format(sessionDetailStudent.sessionDetail.session.startDate, 'dd-MM-yyyy')}"></span>
 						</div>
-						<label class="col-sm-2 col-form-label text-primary" th:text="#{academicSession.endDate}"></label>
+						<label class="col-sm-2 col-form-label text-success" th:text="#{academicSession.endDate}"></label>
 						<div class="col-sm-4">
 							<span class="form-control border-light" th:utext="${#dates.format(sessionDetailStudent.sessionDetail.session.endDate, 'dd-MM-yyyy')}"></span>
 						</div>
 					</div>
 					
 					<div class="row mb-3">
-						<label class="col-sm-2 col-form-label text-primary" th:text="#{student}"></label>
+						<label class="col-sm-2 col-form-label text-success" th:text="#{student}"></label>
 						<div class="col-sm-10">
 							<select class="form-select required" th:field="*{student}">
 					            <option th:each="p : ${listStudent}" th:value="${p.id}" th:text="${p.studentId + ' : ' + p.label}" />
@@ -62,7 +62,7 @@
 					</div>
 					<div class="row mb-3">
 						<div class="offset-sm-2">
-							<button type="submit" class="btn btn-sm btn-primary">Submit</button>
+							<button type="submit" class="btn btn-sm btn-success">Submit</button>
 						</div>
 					</div>
 				</form>

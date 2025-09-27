@@ -6,6 +6,7 @@ import java.util.Set;
 import java.util.UUID;
 
 import org.pf.school.common.BaseObject;
+import org.springframework.web.multipart.MultipartFile;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -15,6 +16,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
+import jakarta.persistence.Lob;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OrderBy;
 import jakarta.persistence.Table;
@@ -49,6 +51,19 @@ public class Gallery extends BaseObject implements Serializable {
 	@OneToMany(mappedBy="gallery", cascade = CascadeType.ALL)
 	@OrderBy("recordAddDate ASC")
 	private Set<Photo> photos;
+	
+	@Column(name="f_file_name", length=255, nullable=true)
+	private String fileName;
+	
+	@Column(name="f_file_type", length=255, nullable=true)
+	private String fileType;
+	
+	@Lob
+    @Column(name = "f_file_data")
+	private byte[] fileData;
+	
+	@Transient
+	private MultipartFile file;
 
 	public UUID getId() {
 		return id;
@@ -98,7 +113,37 @@ public class Gallery extends BaseObject implements Serializable {
 		this.photos = photos;
 	}
 
-	
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public String getFileType() {
+		return fileType;
+	}
+
+	public void setFileType(String fileType) {
+		this.fileType = fileType;
+	}
+
+	public byte[] getFileData() {
+		return fileData;
+	}
+
+	public void setFileData(byte[] fileData) {
+		this.fileData = fileData;
+	}
+
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
 
 	@Override
 	public String toString() {

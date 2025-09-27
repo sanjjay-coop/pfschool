@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: html_head}">
+</head>
+<body>
+	<div class="container text-center" th:replace="~{fragments :: header}">
+		
+	</div>
+	
+	<div class="container-fluid">
+		<div class="row px-4 py-2">
+
+			<div class="col-12">
+			
+				<h4 class="h4 pb-3">Assessment - Select Session</h4>
+				
+				<div class="alert alert-warning" role="alert" th:text="${message}" th:if="${message != null }"></div>
+				
+				<form th:action= "${servletRequest.requestURI}" th:object="${assessmentForm}" method="POST" >
+
+					<div class="row mb-3">
+						<label class="col-sm-2 col-form-label text-success" th:text="#{academicSession}"></label>
+						<div class="col-sm-4">
+							<select class="form-select required" th:field="*{session}">
+					            <option th:each="p : ${listAcademicSession}" th:value="${p.id}" th:text="${p.label}" />
+					        </select>
+					        <ul><li class="cooperror" th:errors="*{session}" /></ul>
+						</div>
+					</div>
+					
+					<div class="row mb-3">
+						<div class="offset-sm-2">
+							<button type="submit" class="btn btn-sm btn-success">Submit</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container" th:replace="~{fragments :: footer}">
+	</div>
+</body>	
+</html>

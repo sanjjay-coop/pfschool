@@ -19,7 +19,7 @@
 				<form th:action= "${servletRequest.requestURI}" th:object="${schoolMessage}" method="POST">
 					
 					<div class="row mb-3">
-						<label class="col-sm-2 col-form-label text-primary" th:text="#{schoolMessage.targetAudience}"></label>
+						<label class="col-sm-2 col-form-label text-success" th:text="#{schoolMessage.targetAudience}"></label>
 				    	<div class="col-sm-2">
 							<select class="form-select required" th:field="*{targetAudience}">
 					            <option value="Student" label="Student" />
@@ -28,7 +28,7 @@
 					        </select>
 					        <ul><li class="cooperror" th:errors="*{targetAudience}" /></ul>
 				    	</div>
-						<label class="col-sm-2 col-form-label text-primary" th:text="#{schoolMessage.sendEmail}"></label>
+						<label class="col-sm-2 col-form-label text-success" th:text="#{schoolMessage.sendEmail}"></label>
 				    	<div class="col-sm-2">
 							<select class="form-select required" th:field="*{sendEmail}">
 					            <option th:each="p : ${listYesNo}" th:value="${p.value}" th:text="${p.label}" />
@@ -38,14 +38,14 @@
 					</div>
 					
 					<div class="row mb-3">
-						<label class="col-sm-2 col-form-label text-primary" th:text="#{schoolMessage.subject}"></label>
+						<label class="col-sm-2 col-form-label text-success" th:text="#{schoolMessage.subject}"></label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control required" th:field="*{subject}" th:placeholder="#{schoolMessage.subject}" autofocus >
 							<ul><li class="cooperror" th:errors="*{subject}" /></ul>
 						</div>
 					</div>
 					<div class="row mb-3">
-						<label class="col-sm-2 col-form-label text-primary" th:text="#{schoolMessage.content}"></label>
+						<label class="col-sm-2 col-form-label text-success" th:text="#{schoolMessage.content}"></label>
 						<div class="col-sm-10">
 							<textarea class="form-control required" rows="5" th:field="*{content}" th:placeholder="#{schoolMessage.content}"></textarea>
 							<ul><li class="cooperror" th:errors="*{content}" /></ul>
@@ -53,7 +53,7 @@
 					</div>
 					<div class="row mb-3">
 						<div class="offset-sm-2">
-							<button type="submit" class="btn btn-sm btn-primary">Submit</button>
+							<button type="submit" class="btn btn-sm btn-success">Submit</button>
 						</div>
 					</div>
 				</form>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: html_head}">
+</head>
+<body>
+	<div class="container text-center" th:replace="~{fragments :: header}">
+		
+	</div>
+	
+	<div class="container-fluid">
+		<div class="row px-4 py-2">
+
+			<div class="col-12">
+				
+				<h4 class="h4 pb-3">Assessment Result</h4>
+				
+				<div class="alert alert-warning" role="alert" th:text="${message}" th:if="${message != null }"></div>
+				
+				<div class="row" th:each="oa : ${listSsam}">
+				
+					<div class="col-sm-12 text-center h5 pb-3" th:text="${oa.session.label}"></div>
+					<div class="col-sm-2 pb-3"></div>
+					<div class="col-sm-8 pb-3">
+						<table class="table table-sm small table-bordered table-striped">
+							<thead>
+								<th:block th:each="ob : ${oa.listSubjectAssessmentMarks[0]}">
+									<tr>
+										<th class="col-sm-2"></th>
+										<th class="text-center" colspan="2" th:text="${oc.assessment.name}" th:each="oc : ${ob.listAssessmentMarks}"></th>
+									</tr>
+									<tr>
+										<th class="col-sm-2"></th>
+										<th:block th:each="oc : ${ob.listAssessmentMarks}">
+											<th class="text-center">Max. Marks</th>
+											<th class="text-center">Marks Obtained</th>
+										</th:block>
+									</tr>
+								</th:block>
+							</thead>
+							
+							<tbody>
+								<tr th:each="ob : ${oa.listSubjectAssessmentMarks}">
+		        					<td th:text="${ob.subject.name}"></td>
+		        					<th:block th:each="oc : ${ob.listAssessmentMarks}">
+		        						<td class="text-center" th:text=${oc.maxMarks}></td>
+		        						<td class="text-center" th:text=${oc.marksObtained}></td>
+		        					</th:block>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				
+				
+			</div>
+		</div>
+	</div>
+	
+	<div class="container" th:replace="~{fragments :: footer}">
+	</div>
+</body>
+</html>

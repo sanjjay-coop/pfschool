@@ -1,10 +1,11 @@
 package org.pf.school.model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.UUID;
 
 import org.pf.school.common.BaseObject;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 import jakarta.persistence.Column;
@@ -16,8 +17,6 @@ import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 import jakarta.persistence.Transient;
 
 @Entity
@@ -38,8 +37,8 @@ public class Document extends BaseObject implements Serializable {
 	private String title;
 	
 	@Column(name="f_pub_end_date", nullable=true)
-	@Temporal(TemporalType.DATE)
-	private Date pubEndDate;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private LocalDate pubEndDate;
 	
 	@Column(name="f_file_name", length=255, nullable=true)
 	private String fileName;
@@ -73,11 +72,11 @@ public class Document extends BaseObject implements Serializable {
 		this.title = title;
 	}
 
-	public Date getPubEndDate() {
+	public LocalDate getPubEndDate() {
 		return pubEndDate;
 	}
 
-	public void setPubEndDate(Date pubEndDate) {
+	public void setPubEndDate(LocalDate pubEndDate) {
 		this.pubEndDate = pubEndDate;
 	}
 

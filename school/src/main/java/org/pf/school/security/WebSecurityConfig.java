@@ -10,7 +10,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -32,8 +31,7 @@ public class WebSecurityConfig {
 
         return provider;
     }
-
-	@SuppressWarnings({ "removal", "deprecation" })
+    
 	@Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		
@@ -88,7 +86,8 @@ public class WebSecurityConfig {
                         .defaultSuccessUrl("/dashboard", true))
                 .logout(logout -> logout.invalidateHttpSession(true)
                         .clearAuthentication(true)
-                        .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                        //.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                        .logoutUrl("/logout")
                         .logoutSuccessUrl("/home/logout-success").permitAll());
 
         return http.build();

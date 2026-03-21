@@ -1,6 +1,8 @@
 package org.pf.school.controller.dashboard.session.student;
 
 import java.security.Principal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Calendar;
 
 import org.pf.school.model.Attendance;
@@ -68,7 +70,9 @@ public class DashboardStudentAttendanceController {
 		
 		while(cal1.compareTo(cal2)<0) {
 			
-			Attendance attendance = this.attendanceRepo.findByDateAndMember(cal1.getTime(), member);
+			LocalDate localDate = LocalDateTime.ofInstant(cal1.toInstant(), cal1.getTimeZone().toZoneId()).toLocalDate();
+			
+			Attendance attendance = this.attendanceRepo.findByDateAndMember(localDate, member);
 			
 			col = cal1.get(Calendar.DAY_OF_WEEK)-1;
 			

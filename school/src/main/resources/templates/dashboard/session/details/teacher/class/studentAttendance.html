@@ -67,7 +67,7 @@
 											th:classappend="${#strings.contains(data[__${rowIterator.index}__][__${colIterator.index}__], 'Present')} ? 'text-success' : 
 											(${#strings.contains(data[__${rowIterator.index}__][__${colIterator.index}__], 'Absent')} ? 'text-danger' : 
 											(${#strings.contains(data[__${rowIterator.index}__][__${colIterator.index}__], 'Late')} ? 'text-warning' :
-											(${#strings.contains(data[__${rowIterator.index}__][__${colIterator.index}__], 'Leave')} ? 'text-primary')))" 
+											(${#strings.contains(data[__${rowIterator.index}__][__${colIterator.index}__], 'Leave')} ? 'text-success')))" 
 											th:if="${not #strings.isEmpty(data[__${rowIterator.index}__][__${colIterator.index}__])}"
 										></span>
 										<span class="text-center" th:utext="${data[__${rowIterator.index}__][__${colIterator.index}__]}"

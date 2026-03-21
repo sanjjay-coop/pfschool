@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: html_head}">
+</head>
+<body>
+	<div class="container text-center" th:replace="~{fragments :: header}">
+		
+	</div>
+	
+	<div class="container-fluid">
+		<div class="row px-4 py-2">
+
+			<div class="col-12">
+			
+				<h4 class="h4 pb-3">Assessment (Step - 4) - Select Student</h4>
+				
+				<div class="alert alert-warning" role="alert" th:text="${message}" th:if="${message != null }"></div>
+				
+				<div class="row pb-3">
+					<div class="col-12">
+						<div class="d-grid gap-2 d-md-block">
+							<a class="btn btn-success btn-sm" role="button" th:href="@{/dashboard/assessment}"><i class="bi bi-chevron-double-left"></i> To Step - 1</a>
+						</div>
+					</div>
+				</div>
+				
+				<form th:action= "${servletRequest.requestURI}" th:object="${assessmentForm}" method="POST" >
+				
+					<input type="hidden" th:field="*{session}"/>
+					<input type="hidden" th:field="*{assessment}"/>
+					<input type="hidden" th:field="*{sessionDetail}"/>
+
+					<div class="row mb-3">
+						<label class="col-sm-2 col-form-label text-success" th:text="#{academicSession}"></label>
+						<div class="col-sm-4">
+							<div class="form-control" th:text="${assessmentForm.session.label}"></div>
+					        <ul><li class="cooperror" th:errors="*{session}" /></ul>
+						</div>
+						<label class="col-sm-2 col-form-label text-success" th:text="#{assessment}"></label>
+						<div class="col-sm-4">
+							<div class="form-control" th:text="${assessmentForm.assessment.name}"></div>
+					        <ul><li class="cooperror" th:errors="*{assessment}" /></ul>
+						</div>
+					</div>
+
+					<div class="row mb-3">
+	
+						<label class="col-sm-2 col-form-label text-success" th:text="#{sessionDetail}"></label>
+						<div class="col-sm-4">
+							<div class="form-control" th:text="${assessmentForm.sessionDetail.label}"></div>
+					        <ul><li class="cooperror" th:errors="*{sessionDetail}" /></ul>
+						</div>
+	
+						<label class="col-sm-2 col-form-label text-success" th:text="#{student}"></label>
+						<div class="col-sm-4">
+							
+							<select class="form-select required" th:field="*{student}">
+					            <option th:each="p : ${listStudent}" th:value="${p.id}" th:text="${p.label}" />
+					        </select>
+					        <ul><li class="cooperror" th:errors="*{student}" /></ul>
+						</div>
+					</div>
+					
+					<div class="row mb-3">
+						<div class="offset-sm-2 col-sm-2">
+							<button type="submit" class="btn btn-sm btn-success">Submit</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container" th:replace="~{fragments :: footer}">
+	</div>
+</body>	
+</html>

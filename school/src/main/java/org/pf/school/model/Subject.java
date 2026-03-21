@@ -80,6 +80,10 @@ public class Subject extends BaseObject implements Serializable {
 	public void setSearchFor(String searchFor) {
 		this.searchFor = searchFor;
 	}
+	
+	public String getLabel() {
+		return this.getName() + " [ " + this.getCode() + " ]";
+	}
 
 	@Override
 	public String toString() {

@@ -1,10 +1,11 @@
 package org.pf.school.model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.UUID;
 
 import org.pf.school.common.BaseObject;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,8 +17,6 @@ import jakarta.persistence.InheritanceType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 import jakarta.persistence.UniqueConstraint;
 
 @Entity
@@ -42,8 +41,9 @@ public class Attendance extends BaseObject implements Serializable {
 	private Member member;
 	
 	@Column(name="f_date", nullable=false)
-	@Temporal(TemporalType.DATE)
-	private Date date;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	//@Temporal(TemporalType.DATE)
+	private LocalDate date;
 	
 	@Column(name="f_status", length=20, nullable=false)
 	private String status;
@@ -64,11 +64,11 @@ public class Attendance extends BaseObject implements Serializable {
 		this.member = member;
 	}
 
-	public Date getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 

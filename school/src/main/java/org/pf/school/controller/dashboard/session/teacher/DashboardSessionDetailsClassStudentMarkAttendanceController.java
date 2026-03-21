@@ -1,8 +1,7 @@
 package org.pf.school.controller.dashboard.session.teacher;
 
 import java.security.Principal;
-import java.util.Calendar;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -87,14 +86,7 @@ public class DashboardSessionDetailsClassStudentMarkAttendanceController extends
 		AttendanceForm attendanceForm = new AttendanceForm();
 		attendanceForm.setSessionDetailId(id);
 		
-
-		Calendar cal = Calendar.getInstance();
-		//cal.clear(Calendar.HOUR_OF_DAY);
-		//cal.clear(Calendar.MINUTE);
-		//cal.clear(Calendar.SECOND);
-		//cal.clear(Calendar.MILLISECOND);
-		
-		Date date = cal.getTime();
+		LocalDate date = LocalDate.now();
 		
 		attendanceForm.setDate(date);
 		

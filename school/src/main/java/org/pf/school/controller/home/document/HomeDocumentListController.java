@@ -182,8 +182,6 @@ public class HomeDocumentListController extends HomeBaseController {
 	
 	@GetMapping("/download/{id}")
 	public ResponseEntity<byte[]> getSiteLogo(@PathVariable UUID id) {
-	    
-		System.out.println("Downloading document");
 		
 		Document document = (Document) this.documentService.getById(id);
 

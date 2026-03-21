@@ -13,6 +13,8 @@ public interface AssessmentRepo extends JpaRepository<Assessment, UUID>{
 	
 	public List<Assessment> findAllBySession(AcademicSession session);
 	
+	public List<Assessment> findBySessionOrderByNameAsc(AcademicSession session);
+	
 	public Assessment findBySessionAndNameIgnoreCase(AcademicSession session, String name);
 	
 	Page<Assessment> findBySearchStringContainingIgnoreCase(String searchString, Pageable pageable);

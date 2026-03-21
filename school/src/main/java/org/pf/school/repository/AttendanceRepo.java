@@ -1,6 +1,6 @@
 package org.pf.school.repository;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -12,5 +12,5 @@ public interface AttendanceRepo extends JpaRepository<Attendance, UUID>{
 	
 	public List<Attendance> findAllByMemberOrderByDateAsc(Member member);
 	
-	public Attendance findByDateAndMember(Date date, Member member);
+	public Attendance findByDateAndMember(LocalDate date, Member member);
 }

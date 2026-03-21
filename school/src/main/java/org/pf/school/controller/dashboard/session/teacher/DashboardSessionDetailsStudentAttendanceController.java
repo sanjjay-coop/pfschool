@@ -1,6 +1,8 @@
 package org.pf.school.controller.dashboard.session.teacher;
 
 import java.security.Principal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.UUID;
 
@@ -62,7 +64,9 @@ public class DashboardSessionDetailsStudentAttendanceController extends Dashboar
 		
 		while(cal1.compareTo(cal2)<0) {
 			
-			Attendance attendance = this.attendanceRepo.findByDateAndMember(cal1.getTime(), student.getMember());
+			LocalDate localDate = LocalDateTime.ofInstant(cal1.toInstant(), cal1.getTimeZone().toZoneId()).toLocalDate();
+			
+			Attendance attendance = this.attendanceRepo.findByDateAndMember(localDate, student.getMember());
 			
 			col = cal1.get(Calendar.DAY_OF_WEEK)-1;
 			

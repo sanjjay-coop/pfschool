@@ -4,14 +4,14 @@
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>SCHOOL</title>
-	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
-	<link rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/css/all.min.css}">
-	<link rel="stylesheet" type="text/css" th:href="@{/webjars/jquery-ui/jquery-ui.min.css}">
-	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap-icons/font/bootstrap-icons.min.css}">
-	
-	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-	<script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
-	<script th:src="@{/webjars/jquery-ui/jquery-ui.min.js}"></script>
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.3.8/css/bootstrap.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/7.0.1/css/all.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/jquery-ui/1.14.1/jquery-ui.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css}">
+		
+	<script th:src="@{/webjars/jquery/3.7.1/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/5.3.8/js/bootstrap.bundle.min.js}"></script>
+	<script th:src="@{/webjars/jquery-ui/1.14.1/jquery-ui.min.js}"></script>
 	
 	<link type="text/css" rel="stylesheet" th:href="@{/assets/lightGallery/dist/css/lightgallery-bundle.min.css}" />
 
@@ -69,62 +69,62 @@
 				      		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				      			
 				      			<li class="nav-item small" th:classappend="${viewLeftMenu == 'academicCalendar'} ? 'bg-primary bg-opacity-10 rounded-2'">
-									<a class="nav-link small ms-1 me-2 text-primary border-end border-primary" th:href="@{/home/academicCalendar}">
+									<a class="nav-link small ms-1 me-2 text-success border-end border-primary" th:href="@{/home/academicCalendar}">
 										<i class="bi bi-calendar3"></i>
 										&nbsp;Academic Calendar
 									</a>
 								</li>	
 				      		
 								<li class="nav-item small" th:classappend="${viewLeftMenu == 'article'} ? 'bg-primary bg-opacity-10 rounded-2'">
-									<a class="nav-link small ms-1 me-2 text-primary border-end border-primary" th:href="@{/home/article/list}">
+									<a class="nav-link small ms-1 me-2 text-success border-end border-primary" th:href="@{/home/article/list}">
 										<i class="fa-solid fa-blog"></i>
 										&nbsp;Blog
 									</a>
 								</li>
 								<li class="nav-item small" th:classappend="${viewLeftMenu == 'title'} ? 'bg-primary bg-opacity-10 rounded-2'">
-									<a class="nav-link small ms-1 me-2 text-primary border-end border-primary" th:href="@{/home/title/list}">
+									<a class="nav-link small ms-1 me-2 text-success border-end border-primary" th:href="@{/home/title/list}">
 										<i class="bi bi-book"></i>
 										&nbsp;Books, etc.
 									</a>
 								</li>
 								<li class="nav-item small" th:classappend="${viewLeftMenu == 'documents'} ? 'bg-primary bg-opacity-10 rounded-2'">
-									<a class="nav-link small ms-1 me-2 text-primary border-end border-primary" th:href="@{/home/document/list}">
+									<a class="nav-link small ms-1 me-2 text-success border-end border-primary" th:href="@{/home/document/list}">
 										<i class="bi bi-box-arrow-down"></i>
 										&nbsp;Download Documents
 									</a>
 								</li>
 				        		<li class="nav-item small" th:classappend="${viewLeftMenu == 'event'} ? 'bg-primary bg-opacity-10 rounded-2'">
-				          			<a class="nav-link small ms-1 me-2 text-primary border-end border-primary" th:href="@{/home/event/list}">
+				          			<a class="nav-link small ms-1 me-2 text-success border-end border-primary" th:href="@{/home/event/list}">
 				          				<i class="bi bi-bell"></i>
 				          				&nbsp;Events
 				          			</a>
 				        		</li>
 								<li class="nav-item small" th:classappend="${viewLeftMenu == 'holidays'} ? 'bg-primary bg-opacity-10 rounded-2'">
-									<a class="nav-link small ms-1 me-2 text-primary border-end border-primary" th:href="@{/home/holiday/list}">
+									<a class="nav-link small ms-1 me-2 text-success border-end border-primary" th:href="@{/home/holiday/list}">
 										<i class="bi bi-bicycle"></i>
 										&nbsp;Holidays
 									</a>
 								</li>
 								<li class="nav-item small" th:classappend="${viewLeftMenu == 'news'} ? 'bg-primary bg-opacity-10 rounded-2'">
-									<a class="nav-link small ms-1 me-2 text-primary border-end border-primary" th:href="@{/home/news/list}">
+									<a class="nav-link small ms-1 me-2 text-success border-end border-primary" th:href="@{/home/news/list}">
 										<i class="bi bi-newspaper"></i>
 										&nbsp;News
 									</a>
 								</li>
 								<li class="nav-item small" th:classappend="${viewLeftMenu == 'gallery'} ? 'bg-primary bg-opacity-10 rounded-2'">
-									<a class="nav-link small ms-1 me-2 text-primary border-end border-primary" th:href="@{/home/gallery/list}">
+									<a class="nav-link small ms-1 me-2 text-success border-end border-primary" th:href="@{/home/gallery/list}">
 										<i class="bi bi-person-video3"></i>
 										&nbsp;Photo Gallery
 									</a>
 								</li>
 				      			<li class="nav-item small" sec:authorize="!isAuthenticated()">
-				          			<a class="nav-link small ms-1 me-2 text-primary border-end border-primary" th:href="@{/home/login}">
+				          			<a class="nav-link small ms-1 me-2 text-success border-end border-primary" th:href="@{/home/login}">
 				          				<i class="bi bi-lock"></i>
 				          				&nbsp;Sign-In
 				          			</a>
 				        		</li>
 								<li class="nav-item small" sec:authorize="isAuthenticated()">
-									<a class="nav-link small ms-1 me-2 text-primary border-end border-primary" th:href="@{/logout}">
+									<a class="nav-link small ms-1 me-2 text-success border-end border-primary" th:href="@{/logout}">
 										<i class="bi bi-unlock"></i>
 										&nbsp;&nbsp;Sign-Out
 									</a>
@@ -347,6 +347,9 @@
 				<br/><a href="https://parivrajaka.in/category/school/" class="text-success" target="_blank" style="font-size: 10px;" th:text="#{copyright}"></a>
 			</div>
 		</div>
+		
+		<form id="logoutForm" th:action="@{/logout}" method="POST" style="display: none;"></form>
+		
 	</div>
 
 </body>

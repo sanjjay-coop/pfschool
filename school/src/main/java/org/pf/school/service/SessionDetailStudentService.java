@@ -8,7 +8,9 @@ import java.util.UUID;
 
 import org.pf.school.common.TransactionResult;
 import org.pf.school.model.Audit;
+import org.pf.school.model.SessionDetail;
 import org.pf.school.model.SessionDetailStudent;
+import org.pf.school.model.Student;
 import org.pf.school.repository.AuditRepo;
 import org.pf.school.repository.SessionDetailStudentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +37,19 @@ public class SessionDetailStudentService {
 		
 		if (oe.isEmpty()) return null;
 		else return oe.get();
+	}
+	
+	@Transactional 
+	public List<Student> getStudent(SessionDetail sessionDetail) {
+		
+		List<Student> listStudent = new ArrayList<Student>();
+		
+		List<SessionDetailStudent> listSessionDetailStudent = this.sessionDetailStudentRepo.findBySessionDetailOrderByStudent_nameAsc(sessionDetail);
+		
+		for (SessionDetailStudent sds : listSessionDetailStudent) {
+			listStudent.add(sds.getStudent());
+		}
+		return listStudent;
 	}
 	
 	@Transactional 

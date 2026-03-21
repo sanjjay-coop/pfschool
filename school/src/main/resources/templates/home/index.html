@@ -20,7 +20,7 @@
 							<h5 class="card-header bg-success-subtle bg-gradient">Latest News</h5>
 						  	<div class="card-body overflow-auto">
 								<div class="text-center p-2 g-2 m-2 border border-light rounded-1" th:each="obj : ${listNewsLatest}">
-									<div class="text-primary h5" >
+									<div class="text-success h5" >
 										<a class="text-decoration-none" th:href="@{/home/news/list}" th:text="${obj.title}"></a>
 									</div>							
 									<small class="text-secondary" th:utext="${obj.content}"></small>

@@ -53,13 +53,20 @@
 				
 					<thead>
 						<tr>
+							<th class="col-sm-1"></th>
+							<th class="text-center" colspan="3">Subject</th>
+							<th class="text-center" colspan="4">Teacher</th>
+							<th style="width: 15px;"></th>
+						</tr>
+						<tr>
 							<th class="col-sm-1" th:text="'S/N'"></th>
-							<th class="col-sm-1" th:text="'Subject: ' + #{subject.code}"></th>
-							<th class="col-sm-2" th:text="'Subject: ' + #{subject.name}"></th>
-							<th class="col-sm-1" th:text="'Teacher: ' + #{staff.staffId}"></th>
-							<th th:text="'Teacher: ' + #{staff.name}"></th>
-							<th class="col-sm-2" th:text="'Teacher: ' + #{staff.designation}"></th>
-        					<th class="col-sm-2" th:text="'Teacher: ' + #{staff.email}"></th>
+							<th class="col-sm-1" th:text="#{subject.code}"></th>
+							<th class="col-sm-2" th:text="#{subject.name}"></th>
+							<th class="col-sm-1" th:text="#{sessionDetailSubjectTeacher.maxMarks}"></th>
+							<th class="col-sm-1" th:text="#{staff.staffId}"></th>
+							<th th:text="#{staff.name}"></th>
+							<th class="col-sm-1" th:text="#{staff.designation}"></th>
+        					<th class="col-sm-2" th:text="#{staff.email}"></th>
 							<th style="width: 15px;"></th>
 						</tr>
 					</thead>
@@ -69,6 +76,7 @@
         					<td th:text="${iterator.index + 1}"></td>
         					<td th:text="${ob.subject.code}"></td>
         					<td th:text="${ob.subject.name}"></td>
+        					<td th:text="${ob.maxMarks}"></td>
         					<td th:text="${ob.teacher.staffId}"></td>
         					<td th:text="${ob.teacher.name}"></td>
         					<td th:text="${ob.teacher.designation}"></td>

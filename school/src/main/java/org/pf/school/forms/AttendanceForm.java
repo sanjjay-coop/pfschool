@@ -1,21 +1,24 @@
 package org.pf.school.forms;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.UUID;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class AttendanceForm {
 
-	private Date date;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate date;
 	
 	private String[][] data;
 	
 	private UUID sessionDetailId;
 
-	public Date getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 

@@ -53,5 +53,8 @@ public class SessionDetailSubjectTeacherValidator extends BaseValidator implemen
 			}
 		}
 		
+		if (obj.getMaxMarks()==null) {
+			errors.rejectValue("maxMarks", "sessionDetailSubjectTeacher.maxMarks.required");
+		}
 	}
 }

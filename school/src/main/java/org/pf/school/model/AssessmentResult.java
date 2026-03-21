@@ -44,7 +44,7 @@ public class AssessmentResult extends BaseObject implements Serializable {
 	
 	@ManyToOne()
     @JoinColumn(name = "f_subject", nullable=false)
-	private Student subject;
+	private Subject subject;
 	
 	@Column(name="f_max_marks", nullable=false)
 	private Integer maxMarks;
@@ -76,11 +76,11 @@ public class AssessmentResult extends BaseObject implements Serializable {
 		this.student = student;
 	}
 
-	public Student getSubject() {
+	public Subject getSubject() {
 		return subject;
 	}
 
-	public void setSubject(Student subject) {
+	public void setSubject(Subject subject) {
 		this.subject = subject;
 	}
 

@@ -1,14 +1,18 @@
 package org.pf.school.service;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 import org.pf.school.common.TransactionResult;
-import org.pf.school.model.SessionDetailSubjectTeacher;
 import org.pf.school.model.Audit;
-import org.pf.school.repository.SessionDetailSubjectTeacherRepo;
+import org.pf.school.model.SessionDetail;
+import org.pf.school.model.SessionDetailSubjectTeacher;
+import org.pf.school.model.Subject;
 import org.pf.school.repository.AuditRepo;
+import org.pf.school.repository.SessionDetailSubjectTeacherRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,6 +37,19 @@ public class SessionDetailSubjectTeacherService {
 		
 		if (oe.isEmpty()) return null;
 		else return oe.get();
+	}
+	
+	@Transactional 
+	public List<Subject> getSubject(SessionDetail sessionDetail) {
+		
+		List<Subject> listSubject = new ArrayList<Subject>();
+		
+		List<SessionDetailSubjectTeacher> listSessionDetailSubjectTeacher = this.sessionDetailSubjectTeacherRepo.findBySessionDetailOrderBySubject_nameAsc(sessionDetail);
+		
+		for (SessionDetailSubjectTeacher sds : listSessionDetailSubjectTeacher) {
+			listSubject.add(sds.getSubject());
+		}
+		return listSubject;
 	}
 	
 	@Transactional

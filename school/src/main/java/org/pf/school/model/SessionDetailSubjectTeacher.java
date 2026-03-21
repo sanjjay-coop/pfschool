@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.pf.school.common.BaseObject;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -44,6 +45,9 @@ public class SessionDetailSubjectTeacher extends BaseObject implements Serializa
 	@ManyToOne()
     @JoinColumn(name = "f_teacher", nullable=false)
 	private Staff teacher;
+	
+	@Column(name="f_max_marks", nullable=true)
+	private Integer maxMarks;
 
 	public UUID getId() {
 		return id;
@@ -75,6 +79,14 @@ public class SessionDetailSubjectTeacher extends BaseObject implements Serializa
 
 	public void setTeacher(Staff teacher) {
 		this.teacher = teacher;
+	}
+
+	public Integer getMaxMarks() {
+		return maxMarks;
+	}
+
+	public void setMaxMarks(Integer maxMarks) {
+		this.maxMarks = maxMarks;
 	}
 
 	@Override

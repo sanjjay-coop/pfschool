@@ -348,7 +348,7 @@
 			</div>
 		</div>
 		
-		<form id="logoutForm" th:action="@{/logout}" method="POST" style="display: none;"></form>
+		<form id="logoutForm" th:action="@{/logout}" method="POST" style="display: none;" sec:authorize="isAuthenticated()"></form>
 		
 	</div>
 

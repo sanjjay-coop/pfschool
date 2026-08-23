@@ -1,69 +1,80 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments :: html_head}">
-</head>
+
+<head th:replace="~{fragments :: html_head}"></head>
+
 <body>
-	<div class="container text-center" th:replace="~{fragments :: header}">
-		
-	</div>
-	
+	<div class="container text-center" th:replace="~{fragments :: header}"></div>
+
 	<div class="container-fluid">
-		<div class="row px-4 py-2">
 
+		<h4 class="h4 p-2">Leader (Add New)</h4>
+
+		<div class="alert alert-warning p-2" role="alert" th:text="${message}"
+			th:if="${message != null }"></div>
+
+		<div class="row p-2">
 			<div class="col-12">
-			
-				<h4 class="h4 p-2">Leader (Add New)</h4>
-				
-				<div class="alert alert-warning p-2" role="alert" th:text="${message}" th:if="${message != null }"></div>
-				
-				<div class="row p-2">
-					<div class="col-12">
-						<div class="d-grid gap-2 d-md-block">
-							<a class="btn btn-primary btn-sm" role="button" th:href="@{/admin/leader/list/current}"><i class="bi bi-chevron-double-left"></i> To List</a>
-						</div>
-					</div>
+				<div class="d-grid gap-2 d-md-block">
+					<a class="btn btn-primary btn-sm" role="button"
+						th:href="@{/admin/leader/list/current}"><i
+						class="bi bi-chevron-double-left"></i> To List</a>
 				</div>
-				
-				<form class="p-2" th:action="${servletRequest.requestURI}" th:object="${leader}" method="POST" enctype="multipart/form-data">
-
-					<div class="row p-2">
-						<label class="col-sm-2 col-form-label text-primary" th:text="#{leader.name}"></label>
-						<div class="col-sm-10">
-							<input type="text" class="form-control required" th:field="*{name}" th:placeholder="#{leader.name}" autofocus >
-							<ul><li class="cooperror" th:errors="*{name}" /></ul>
-						</div>
-					</div>
-					<div class="row p-2">
-						<label class="col-sm-2 col-form-label text-primary" th:text="#{leader.about}"></label>
-						<div class="col-sm-10">
-							<textarea class="form-control required" rows="5" th:field="*{about}" th:placeholder="#{leader.about}"></textarea>
-							<ul><li class="cooperror" th:errors="*{about}" /></ul>
-						</div>
-					</div>
-					<div class="row p-2">
-						<label class="col-sm-2 col-form-label text-primary" th:text="#{leader.file}"></label>
-						<div class="col-sm-4">
-							<input type="file" class="form-control required" th:field="*{file}" th:placeholder="#{leader.file}" >
-							<ul><li class="cooperror" th:errors="*{file}" /></ul>
-						</div>
-					</div>
-					<div class="row p-2">
-						<div class="offset-sm-2 col-sm-2">
-							<button type="submit" class="btn btn-sm btn-primary">Submit</button>
-						</div>
-					</div>
-					<div id="testsummernote"></div>
-				</form>
 			</div>
 		</div>
+
+		<form class="p-2" th:action="${servletRequest.requestURI}"
+			th:object="${leader}" method="POST" enctype="multipart/form-data">
+
+			<div class="row p-2">
+				<label class="col-sm-2 col-form-label text-primary"
+					th:text="#{leader.name}"></label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control required" th:field="*{name}"
+						th:placeholder="#{leader.name}" autofocus>
+					<ul>
+						<li class="cooperror" th:errors="*{name}" />
+					</ul>
+				</div>
+			</div>
+			<div class="row p-2">
+				<label class="col-sm-2 col-form-label text-primary"
+					th:text="#{leader.about}"></label>
+				<div class="col-sm-10">
+					<textarea class="form-control required" rows="5"
+						th:field="*{about}" th:placeholder="#{leader.about}"></textarea>
+					<ul>
+						<li class="cooperror" th:errors="*{about}" />
+					</ul>
+				</div>
+			</div>
+			<div class="row p-2">
+				<label class="col-sm-2 col-form-label text-primary"
+					th:text="#{leader.file}"></label>
+				<div class="col-sm-4">
+					<input type="file" class="form-control required" th:field="*{file}"
+						th:placeholder="#{leader.file}">
+					<ul>
+						<li class="cooperror" th:errors="*{file}" />
+					</ul>
+				</div>
+			</div>
+			<div class="row p-2">
+				<div class="offset-sm-2 col-sm-2">
+					<button type="submit" class="btn btn-sm btn-primary">Submit</button>
+				</div>
+			</div>
+			<div id="testsummernote"></div>
+		</form>
 	</div>
-	
-	<div class="container" th:replace="~{fragments :: footer}">
-	</div>
+
+	<div class="container" th:replace="~{fragments :: footer}"></div>
+
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#about').summernote({height: 200});
 		});
     </script>
-</body>	
+
+</body>
 </html>

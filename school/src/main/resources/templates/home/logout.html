@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-	
-	<head th:replace="~{fragments :: html_head}"></head>
-	
-	<body>
-	
-		<div class="container text-center" th:replace="~{fragments :: header}"></div>
-		
-		<div class="container-fluid">
-		
-					
-			<h4 class="h4 p-2">Logout success</h4>
-			
-			<div class="alert alert-warning p-2" role="alert" th:text="${message}" th:if="${message != null }"></div>
-	
-			<div class="p-2">
-				You have logged out successfully.
+
+<head th:replace="~{fragments :: html_head}"></head>
+
+<body>
+
+	<div class="container text-center" th:replace="~{fragments :: header}"></div>
+
+	<div class="container-fluid">
+
+
+		<h4 class="h4 p-2">Logout success</h4>
+
+		<div class="alert alert-warning p-2" role="alert" th:text="${message}"
+			th:if="${message != null }"></div>
+
+		<div class="p-2">You have logged out successfully.</div>
+
+		<div class="row p-2" th:if="${greatLeader}">
+			<div class="col-12 text-center">
+				<h4 class="h4 p-2">Great Leader</h4>
 			</div>
-			
-			<div class="row p-2" th:if="${greatLeader}">
-				<div class="col-12 text-center">
-					<h4 class="h4 p-2">Great Leader</h4>
-				</div>
-				<div class="col-12 text-center">
-					<img class="border border-1 rounded-2 p-2" width="200" th:src="@{/home/leader/photo/download/{orderId}(orderId=${greatLeader.id})}" />
-				</div>
-				<div class="col-12 text-center">
-					<span th:text="${greatLeader.name}" class="p-2"></span>
-				</div>
-				<div class="col-12">
-					<span th:utext="${greatLeader.about}" class="p-2"></span>
-				</div>
+			<div class="col-12 text-center">
+				<img class="border border-1 rounded-2 p-2" width="200"
+					th:src="@{/home/leader/photo/download/{orderId}(orderId=${greatLeader.id})}" />
+			</div>
+			<div class="col-12 text-center">
+				<span th:text="${greatLeader.name}" class="p-2"></span>
+			</div>
+			<div class="col-12">
+				<span th:utext="${greatLeader.about}" class="p-2"></span>
 			</div>
 		</div>
-				
-		
-		<div class="container" th:replace="~{fragments :: footer}"></div>
-		
-	</body>
+	</div>
+
+
+	<div class="container" th:replace="~{fragments :: footer}"></div>
+
+</body>
 
 </html>

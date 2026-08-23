@@ -1,60 +1,73 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-	<head th:replace="~{fragments :: html_head}"></head>
+<head th:replace="~{fragments :: html_head}"></head>
 
-	<body>
-	
-		<div class="container text-center" th:replace="~{fragments :: header}"></div>
-		
-		<div class="container-fluid">
-			
-			<h4 class="h4 p-2">Gallery (View)</h4>
-			
-			<div class="alert alert-warning p-2" role="alert" th:text="${message}" th:if="${message != null }"></div>
-			
-			<div class="row p-2">
-				<div class="col-12">
-					<div class="d-grid gap-2 d-md-block">
-						<a class="btn btn-primary btn-sm" role="button" th:href="@{/home/gallery/list/current}"><i class="bi bi-chevron-double-left"></i> To List</a>
-					</div>
+<body>
+
+	<div class="container text-center" th:replace="~{fragments :: header}"></div>
+
+	<div class="container-fluid">
+
+		<h4 class="h4 p-2">Gallery (View)</h4>
+
+		<div class="alert alert-warning p-2" role="alert" th:text="${message}"
+			th:if="${message != null }"></div>
+
+		<div class="row p-2">
+			<div class="col-12">
+				<div class="d-grid gap-2 d-md-block">
+					<a class="btn btn-primary btn-sm" role="button"
+						th:href="@{/home/gallery/list/current}"><i
+						class="bi bi-chevron-double-left"></i> To List</a>
 				</div>
-			</div>
-	
-			<div class="row p-2">
-				<label class="col-sm-2 col-form-label text-primary" th:text="#{gallery.title}"></label>
-				<div class="col-sm-10">
-					<span class="form-control border-light" th:text="${gallery.title}"></span>
-				</div>
-			</div>
-			<div class="row p-2">
-				<label class="col-sm-2 col-form-label text-primary" th:text="#{gallery.description}"></label>
-				<div class="col-sm-10">
-					<span class="form-control border-light" th:utext="${gallery.description}"></span>
-				</div>
-			</div>
-	
-			<div class="row p-2">
-				<label class="col-sm-2 col-form-label text-primary" th:text="#{gallery.date}"></label>
-				<div class="col-sm-10">
-					<span class="form-control border-light" th:text="${#dates.format(gallery.date, 'dd-MM-yyyy')}"></span>
-				</div>
-			</div>
-		
-			<div class="row m-3 p-2 bg-light border border-primary border-1 rounded-3" style="max-height: 600px; overflow: scroll;"  id="bootstrap-image-gallery">
-			    <div class="col-sm-3 p-2 text-center border rounded rounded-3" th:each="obj,iterator : ${gallery.photos}">
-			        <a class="lg-item p-2" 
-			            th:data-src="@{/home/gallery/photo/download/{id}(id=${obj.id})}">
-						<img th:src="@{/home/gallery/photo/download/{id}(id=${obj.id})}"
-							class="img-fluid" th:alt="${obj.fileName}" style="height: 200px;" th:title="${obj.fileName}" />
-			        </a>
-			    </div>
 			</div>
 		</div>
-		
-		<div class="container" th:replace="~{fragments :: footer}"></div>
-		
-		<script type="text/javascript">
+
+		<div class="row p-2">
+			<label class="col-sm-2 col-form-label text-primary"
+				th:text="#{gallery.title}"></label>
+			<div class="col-sm-10">
+				<span class="form-control border-light" th:text="${gallery.title}"></span>
+			</div>
+		</div>
+		<div class="row p-2">
+			<label class="col-sm-2 col-form-label text-primary"
+				th:text="#{gallery.description}"></label>
+			<div class="col-sm-10">
+				<span class="form-control border-light"
+					th:utext="${gallery.description}"></span>
+			</div>
+		</div>
+
+		<div class="row p-2">
+			<label class="col-sm-2 col-form-label text-primary"
+				th:text="#{gallery.date}"></label>
+			<div class="col-sm-10">
+				<span class="form-control border-light"
+					th:text="${#dates.format(gallery.date, 'dd-MM-yyyy')}"></span>
+			</div>
+		</div>
+
+		<div
+			class="row m-3 p-2 bg-light border border-primary border-1 rounded-3"
+			style="max-height: 600px; overflow: scroll;"
+			id="bootstrap-image-gallery">
+			<div class="col-sm-3 p-2 text-center border rounded rounded-3"
+				th:each="obj,iterator : ${gallery.photos}">
+				<a class="lg-item p-2"
+					th:data-src="@{/home/gallery/photo/download/{id}(id=${obj.id})}">
+					<img th:src="@{/home/gallery/photo/download/{id}(id=${obj.id})}"
+					class="img-fluid" th:alt="${obj.fileName}" style="height: 200px;"
+					th:title="${obj.fileName}" />
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="container" th:replace="~{fragments :: footer}"></div>
+
+	<script type="text/javascript">
 			
 			window.lightGallery(document.querySelector('#bootstrap-image-gallery'), {
 			    selector: '.lg-item',
@@ -64,7 +77,7 @@
 			    ],
 			});
 		</script>
-		
-	</body>	
+
+</body>
 
 </html>

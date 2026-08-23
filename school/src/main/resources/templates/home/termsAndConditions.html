@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-	<head th:replace="~{fragments :: html_head}"></head>
-	
-	<body>
-	
-		<div class="container text-center" th:replace="~{fragments :: header}"></div>
-		
-		
-		<div class="container-fluid">
-		
-			<h4 class="h4 p-2">Terms &amp; Conditions</h4>
-			
-			<div class="alert alert-warning p-2" role="alert" th:text="${message}" th:if="${message != null }"></div>
-	
-			<div th:utext="${params?.termsAndConditions}" class="p-2"></div>
-			
-		</div>
-		
-		<div class="container" th:replace="~{fragments :: footer}"></div>
-		
-	</body>
+<head th:replace="~{fragments :: html_head}"></head>
+
+<body>
+
+	<div class="container text-center" th:replace="~{fragments :: header}"></div>
+
+
+	<div class="container-fluid">
+
+		<h4 class="h4 p-2">Terms &amp; Conditions</h4>
+
+		<div class="alert alert-warning p-2" role="alert" th:text="${message}"
+			th:if="${message != null }"></div>
+
+		<div th:utext="${params?.termsAndConditions}" class="p-2"></div>
+
+	</div>
+
+	<div class="container" th:replace="~{fragments :: footer}"></div>
+
+</body>
 
 </html>

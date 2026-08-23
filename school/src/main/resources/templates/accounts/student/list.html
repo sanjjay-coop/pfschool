@@ -12,11 +12,11 @@
 
 			<div class="col-12">
 				
-				<h4 class="h4 pb-3">Student</h4>
+				<h4 class="h4 p-2">Student</h4>
 				
-				<div class="alert alert-warning" role="alert" th:text="${message}" th:if="${message != null }"></div>
+				<div class="alert alert-warning p-2" role="alert" th:text="${message}" th:if="${message != null }"></div>
 
-				<form class="row g-3 align-items-center py-3"  th:action= "${servletRequest.requestURI}" th:object="${student}" method="POST">
+				<form class="row g-3 align-items-center p-2"  th:action= "${servletRequest.requestURI}" th:object="${student}" method="POST">
 					  <div class="col-auto">
 					    <div class="input-group">
 					      <div class="input-group-text">Search String</div>
@@ -29,7 +29,7 @@
 					  </div>
 				</form>
 				
-				<div class="h5" th:text="'Total Records: ' + ${totalRecords}"></div>
+				<div class="h5 p-2" th:text="'Total Records: ' + ${totalRecords}"></div>
 				<table class="table table-sm small table-bordered table-striped">
 				
 					<thead>

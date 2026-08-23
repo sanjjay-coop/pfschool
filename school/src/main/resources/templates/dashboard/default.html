@@ -1,131 +1,129 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments :: html_head}">
-</head>
-<body>
-	<div class="container text-center" th:replace="~{fragments :: header}">
-		
-	</div>
-	
-	<div class="container-fluid">
-		<div class="row px-4 py-2">
 
-			<div class="col-12">
-				
-				<h4 class="h4 mb-3">My Dashboard</h4>
-				
-				<div class="alert alert-warning" role="alert" th:text="${message}" th:if="${message != null }"></div>
-				
-				<div class="row">
-					<div class="col-sm-12">
-						<div class="accordion" id="accordionExample">
-		  					<div class="accordion-item">
-		    					<h2 class="accordion-header">
-			      					<button class="accordion-button bg-success-subtle bg-gradient" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-			        					My Tasks
-			      					</button>
-		    					</h2>
-		    					<div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-		      						<div class="accordion-body">
-		        						<div class="row p-3 g-3" >
-		        						
-											<div class="col-md-2 text-center pb-3">
-												<a class="nav-link" th:href="@{/dashboard/attendance}">
-							   						<i class="bi bi-person-raised-hand" style="font-size: 2rem;"></i>
-							   						<br/>Attendance
-												</a>
-											</div>
-		        						
-											<div class="col-md-2 text-center pb-3">
-												<a class="nav-link" th:href="@{/dashboard/assessment}">
-													<i class="bi bi-binoculars" style="font-size: 2rem;"></i>
-							   						<br/>Assessment
-												</a>
-											</div>
-											
-											<div class="col-md-2 text-center pb-3">
-												<a class="nav-link" th:href="@{/dashboard/changePassword}">
-							   						<i class="fa-solid fa-key" style="font-size: 2.2rem;"></i>
-							   						<br/>Change Password
-												</a>
-											</div>
-											
-											<div class="col-md-2 text-center pb-3">
-												<a class="nav-link" th:href="@{/dashboard/profile}">
-							   						<i class="bi bi-person-vcard" style="font-size: 2rem;"></i>
-													<br/>My Profile
-												</a>
-											</div>
-											
-											<div class="col-md-2 text-center pb-3">
-												<a class="nav-link" th:href="@{/dashboard/payments/list}">
-							   						<i class="bi bi-credit-card" style="font-size: 2rem;"></i>
-													<br/>Payments
-												</a>
-											</div>
-											
-											<div class="col-md-2 text-center pb-3">
-												<a class="nav-link" th:href="@{/dashboard/receipts/list}">
-							   						<i class="bi bi-receipt" style="font-size: 2rem;"></i>
-													<br/>Receipts
-												</a>
-											</div>
-											
-											<div class="col-md-2 text-center pb-3">
-												<a class="nav-link" th:href="@{/dashboard/session/details}">
-							   						<i class="bi bi-briefcase" style="font-size: 2rem;"></i>
-													<br/>Session Details
-												</a>
-											</div>
-										</div>
-		        					</div>
-		    					</div>
-		  					</div>
+<head th:replace="~{fragments :: html_head}"></head>
+
+<body>
+
+	<div class="container text-center" th:replace="~{fragments :: header}"></div>
+
+	<div class="container-fluid">
+
+		<h4 class="h4 mb-3">My Dashboard</h4>
+
+		<div class="alert alert-warning p-2" role="alert" th:text="${message}"
+			th:if="${message != null }"></div>
+
+		<div class="row p-2">
+			<div class="col-sm-12">
+				<div class="accordion" id="accordionExample">
+					<div class="accordion-item">
+						<h2 class="accordion-header">
+							<button class="accordion-button bg-primary-subtle bg-gradient"
+								type="button" data-bs-toggle="collapse"
+								data-bs-target="#collapseOne" aria-expanded="true"
+								aria-controls="collapseOne">My Tasks</button>
+						</h2>
+						<div id="collapseOne" class="accordion-collapse collapse show"
+							data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+								<div class="row p-3 g-3">
+
+									<div class="col-md-2 text-center pb-3">
+										<a class="nav-link" th:href="@{/dashboard/attendance}"> <i
+											class="bi bi-person-raised-hand" style="font-size: 2rem;"></i>
+											<br />Attendance
+										</a>
+									</div>
+
+									<div class="col-md-2 text-center pb-3">
+										<a class="nav-link" th:href="@{/dashboard/assessment}"> <i
+											class="bi bi-binoculars" style="font-size: 2rem;"></i> <br />Assessment
+										</a>
+									</div>
+
+									<div class="col-md-2 text-center pb-3">
+										<a class="nav-link" th:href="@{/dashboard/changePassword}">
+											<i class="fa-solid fa-key" style="font-size: 2.2rem;"></i> <br />Change
+											Password
+										</a>
+									</div>
+
+									<div class="col-md-2 text-center pb-3">
+										<a class="nav-link" th:href="@{/dashboard/profile}"> <i
+											class="bi bi-person-vcard" style="font-size: 2rem;"></i> <br />My
+											Profile
+										</a>
+									</div>
+
+									<div class="col-md-2 text-center pb-3">
+										<a class="nav-link" th:href="@{/dashboard/payments/list}">
+											<i class="bi bi-credit-card" style="font-size: 2rem;"></i> <br />Payments
+										</a>
+									</div>
+
+									<div class="col-md-2 text-center pb-3">
+										<a class="nav-link" th:href="@{/dashboard/receipts/list}">
+											<i class="bi bi-receipt" style="font-size: 2rem;"></i> <br />Receipts
+										</a>
+									</div>
+
+									<div class="col-md-2 text-center pb-3">
+										<a class="nav-link" th:href="@{/dashboard/session/details}">
+											<i class="bi bi-briefcase" style="font-size: 2rem;"></i> <br />Session
+											Details
+										</a>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
-					<div class="col-sm-12 py-3">
-						<div class="card" style="max-height: 300px;">
-							<h5 class="card-header bg-success-subtle bg-gradient" th:text="'Inbox Messages'"></h5>
-						  	<div class="card-body overflow-auto">
-						  		
-						  		<div class="row">
-						  			<div class="col-sm-2">
-						  				<span class="fw-bold">Date</span>
-						  			</div>
-						  			<div class="col-sm-3">
-						  				<span class="fw-bold">Message Subject</span>
-						  			</div>
-						  			<div class="col-sm-5">
-						  				<span class="fw-bold">Message</span>
-						  			</div>
-						  			<div class="col-sm-2">
-						  				<span class="fw-bold">Message From</span>
-						  			</div>
-						  		</div>
-						  		
-						  		<div class="row" th:each="ob : ${listSchoolMessage}">
-						  			<div class="col-sm-2 border rounded">
-						  				<span class="small" th:text="${#dates.format(ob.recordAddDate, 'dd/MM/yyyy HH:mm:ss')}"></span>
-						  			</div>
-						  			<div class="col-sm-3 border rounded">
-						  				<span class="small" th:text="${ob.subject}"></span>
-						  			</div>
-						  			<div class="col-sm-5 border rounded">
-						  				<div class="small" th:utext="${ob.content}"></div>
-						  			</div>
-						  			<div class="col-sm-2 border rounded">
-						  				<span class="small" th:text="${ob.messageFrom.name}"></span>
-						  			</div>
-						  		</div>		  		
-						  	</div>
+				</div>
+			</div>
+			<div class="col-sm-12 py-3">
+				<div class="card" style="max-height: 300px;">
+					<h5 class="card-header bg-primary-subtle bg-gradient"
+						th:text="'Inbox Messages'"></h5>
+					<div class="card-body overflow-auto">
+
+						<div class="row">
+							<div class="col-sm-2">
+								<span class="fw-bold">Date</span>
+							</div>
+							<div class="col-sm-3">
+								<span class="fw-bold">Message Subject</span>
+							</div>
+							<div class="col-sm-5">
+								<span class="fw-bold">Message</span>
+							</div>
+							<div class="col-sm-2">
+								<span class="fw-bold">Message From</span>
+							</div>
+						</div>
+
+						<div class="row" th:each="ob : ${listSchoolMessage}">
+							<div class="col-sm-2 border rounded">
+								<span class="small"
+									th:text="${#dates.format(ob.recordAddDate, 'dd/MM/yyyy HH:mm:ss')}"></span>
+							</div>
+							<div class="col-sm-3 border rounded">
+								<span class="small" th:text="${ob.subject}"></span>
+							</div>
+							<div class="col-sm-5 border rounded">
+								<div class="small" th:utext="${ob.content}"></div>
+							</div>
+							<div class="col-sm-2 border rounded">
+								<span class="small" th:text="${ob.messageFrom.name}"></span>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	
-	<div class="container" th:replace="~{fragments :: footer}">
-	</div>
+
+	<div class="container" th:replace="~{fragments :: footer}"></div>
+
 </body>
+
 </html>

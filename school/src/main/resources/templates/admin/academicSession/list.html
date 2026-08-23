@@ -12,19 +12,19 @@
 
 			<div class="col-12">
 				
-				<h4 class="h4 pb-3">Academic Session (List)</h4>
+				<h4 class="h4 p-2">Academic Session (List)</h4>
 				
-				<div class="alert alert-warning" role="alert" th:text="${message}" th:if="${message != null }"></div>
+				<div class="alert alert-warning p-2" role="alert" th:text="${message}" th:if="${message != null }"></div>
 
 				<div class="row p-2">
 					<div class="col-12">
 						<div class="d-grid gap-2 d-md-block">
-							<a class="btn btn-success btn-sm" role="button" th:href="@{/admin/academicSession/addNew}"><i class="bi bi-plus-circle"></i> Academic Session</a>
+							<a class="btn btn-primary btn-sm" role="button" th:href="@{/admin/academicSession/addNew}"><i class="bi bi-plus-circle"></i> Academic Session</a>
 						</div>
 					</div>
 				</div>
 				
-				<div class="h5" th:text="'Total Records: ' + ${totalRecords}"></div>
+				<div class="h5 p-2" th:text="'Total Records: ' + ${totalRecords}"></div>
 				<table class="table table-sm small table-bordered table-striped">
 				
 					<thead>

@@ -1,45 +1,50 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments :: html_head}">
-</head>
+
+<head th:replace="~{fragments :: html_head}"></head>
+
 <body>
-	<div class="container text-center" th:replace="~{fragments :: header}">
-		
-	</div>
-	
+
+	<div class="container text-center" th:replace="~{fragments :: header}"></div>
+
 	<div class="container-fluid">
-		<div class="row px-4 py-2">
 
+		<h4 class="h4 p-2">Student</h4>
+
+		<div class="alert alert-warning p-2" role="alert" th:text="${message}"
+			th:if="${message != null }"></div>
+
+		<div class="row p-2">
 			<div class="col-12">
-				
-				<h4 class="h4 pb-3">Student</h4>
-				
-				<div class="alert alert-warning" role="alert" th:text="${message}" th:if="${message != null }"></div>
-
-				<div class="row p-2">
-					<div class="col-12">
-						<div class="d-grid gap-2 d-md-block">
-							<a class="btn btn-success btn-sm" role="button" th:href="@{/admin/student/addNew}"><i class="bi bi-plus-circle"></i> Student</a>
-						</div>
-					</div>
+				<div class="d-grid gap-2 d-md-block">
+					<a class="btn btn-primary btn-sm" role="button"
+						th:href="@{/admin/student/addNew}"><i
+						class="bi bi-plus-circle"></i> Student</a>
 				</div>
+			</div>
+		</div>
 
-				<form class="row g-3 align-items-center py-3"  th:action= "${servletRequest.requestURI}" th:object="${student}" method="POST">
-					  <div class="col-auto">
-					    <div class="input-group">
-					      <div class="input-group-text">Search String</div>
-					      <input type="text" class="form-control" th:field="*{searchFor}" placeholder="Search for...">
-					    </div>
-					  </div>
-					
-					  <div class="col-auto">
-					    <button type="submit" class="btn btn-sm btn-secondary">Submit</button>
-					  </div>
-				</form>
-				
-				<div class="h5" th:text="'Total Records: ' + ${totalRecords}"></div>
+		<form class="row g-3 align-items-center p-2"
+			th:action="${servletRequest.requestURI}" th:object="${student}"
+			method="POST">
+			<div class="col-auto">
+				<div class="input-group">
+					<div class="input-group-text">Search String</div>
+					<input type="text" class="form-control" th:field="*{searchFor}"
+						placeholder="Search for...">
+				</div>
+			</div>
+
+			<div class="col-auto">
+				<button type="submit" class="btn btn-sm btn-secondary">Submit</button>
+			</div>
+		</form>
+
+		<div class="h5 p-2" th:text="'Total Records: ' + ${totalRecords}"></div>
+		<div class="row p-2">
+			<div class="col-12">
 				<table class="table table-sm small table-bordered table-striped">
-				
+
 					<thead>
 						<tr>
 							<th class="col-sm-1" th:text="'S/N'"></th>
@@ -51,37 +56,49 @@
 							<th style="width: 15px;"></th>
 						</tr>
 					</thead>
-					
+
 					<tbody>
 						<tr th:each="ob,iterator : ${listStudent}">
-        					<td th:text="${20 * (currentPage - 1) + iterator.index + 1}"></td>
-        					<td th:text="${ob.studentId}"></td>
-        					<td th:text="${ob.name}"></td>
-        					<td th:text="${ob.nameOfFather}"></td>
-        					<td th:text="${ob.nameOfMother}"></td>
-        					<td th:text="${ob.mobile}"></td>
-							<td>
-        						<a class="nav-link" th:href="@{/admin/student/view/{orderId}(orderId=${ob.id})}" title="View Record">
-						          	<i class="bi bi-folder2-open"></i>
-						        </a>
-        					</td>
+							<td th:text="${20 * (currentPage - 1) + iterator.index + 1}"></td>
+							<td th:text="${ob.studentId}"></td>
+							<td th:text="${ob.name}"></td>
+							<td th:text="${ob.nameOfFather}"></td>
+							<td th:text="${ob.nameOfMother}"></td>
+							<td th:text="${ob.mobile}"></td>
+							<td><a class="nav-link"
+								th:href="@{/admin/student/view/{orderId}(orderId=${ob.id})}"
+								title="View Record"> <i class="bi bi-folder2-open"></i>
+							</a></td>
 						</tr>
 					</tbody>
 				</table>
 				<nav aria-label="Page navigation example" th:if="${totalPages > 0}">
 					<ul class="pagination">
-						<li class="page-item" th:if="${!firstPage}"><a class="page-link text-success" th:href="@{/admin/student/list}"><i class="bi bi-chevron-bar-left"></i></a></li>
-						<li class="page-item" th:if="${!firstPage}"><a class="page-link text-success" th:href="@{/admin/student/list/previous}"><i class="bi bi-chevron-left"></i></a></li>
-						<li class="page-item"><a class="page-link text-success" th:text="${currentPage + '... of ...' + totalPages}"></a></li>
-						<li class="page-item" th:if="${!lastPage}"><a class="page-link text-success" th:href="@{/admin/student/list/next}"><i class="bi bi-chevron-right"></i></a></li>
-						<li class="page-item" th:if="${!lastPage}"><a class="page-link text-success" th:href="@{/admin/student/list/last}"><i class="bi bi-chevron-bar-right"></i></a></li>
+						<li class="page-item" th:if="${!firstPage}"><a
+							class="page-link text-success" th:href="@{/admin/student/list}"><i
+								class="bi bi-chevron-bar-left"></i></a></li>
+						<li class="page-item" th:if="${!firstPage}"><a
+							class="page-link text-success"
+							th:href="@{/admin/student/list/previous}"><i
+								class="bi bi-chevron-left"></i></a></li>
+						<li class="page-item"><a class="page-link text-success"
+							th:text="${currentPage + '... of ...' + totalPages}"></a></li>
+						<li class="page-item" th:if="${!lastPage}"><a
+							class="page-link text-success"
+							th:href="@{/admin/student/list/next}"><i
+								class="bi bi-chevron-right"></i></a></li>
+						<li class="page-item" th:if="${!lastPage}"><a
+							class="page-link text-success"
+							th:href="@{/admin/student/list/last}"><i
+								class="bi bi-chevron-bar-right"></i></a></li>
 					</ul>
 				</nav>
 			</div>
 		</div>
 	</div>
-	
-	<div class="container" th:replace="~{fragments :: footer}">
-	</div>
+
+	<div class="container" th:replace="~{fragments :: footer}"></div>
+
 </body>
+
 </html>

@@ -15,9 +15,9 @@
 				<div th:text="${'Data between ' + #dates.format(reportForm.startDate, 'dd/MM/yyyy') + ' - ' + #dates.format(reportForm.endDate, 'dd/MM/yyyy')}"></div>
 				<br/>
 				
-				<h4 class="h4 pb-3">Income (Receipts)</h4>
+				<h4 class="h4 p-2">Income (Receipts)</h4>
 				
-				<div class="alert alert-warning" role="alert" th:text="${message}" th:if="${message != null }"></div>
+				<div class="alert alert-warning p-2" role="alert" th:text="${message}" th:if="${message != null }"></div>
 								
 				<table class="table table-sm small table-bordered table-striped">
 				
@@ -58,7 +58,7 @@
 					</tbody>
 				</table>
 				<br/>
-				<h4 class="h4 pb-3">Expenditure (Payments)</h4>
+				<h4 class="h4 p-2">Expenditure (Payments)</h4>
 												
 				<table class="table table-sm small table-bordered table-striped">
 								

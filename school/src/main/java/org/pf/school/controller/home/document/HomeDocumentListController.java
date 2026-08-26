@@ -1,7 +1,7 @@
 package org.pf.school.controller.home.document;
 
 import java.security.Principal;
-import java.util.Calendar;
+import java.time.LocalDate;
 import java.util.UUID;
 
 import org.pf.school.controller.home.HomeBaseController;
@@ -64,14 +64,14 @@ public class HomeDocumentListController extends HomeBaseController {
 			Document obj = (Document) request.getSession().getAttribute("homeSearch_document");
 			
 			if (obj == null) {
-				page = this.documentRepo.findAllByPubEndDateAfter(Calendar.getInstance().getTime(), pageable);
+				page = this.documentRepo.findAllByPubEndDateAfter(LocalDate.now(), pageable);
 				obj = new Document();
 				obj.setSearchString("");
 			} else {
 				if (obj.getSearchFor()==null || obj.getSearchFor().isBlank()) {
-					page = this.documentRepo.findAllByPubEndDateAfter(Calendar.getInstance().getTime(), pageable);
+					page = this.documentRepo.findAllByPubEndDateAfter(LocalDate.now(), pageable);
 				} else {
-					page = this.documentRepo.findByPubEndDateAfterAndSearchStringContainingIgnoreCase(Calendar.getInstance().getTime(), obj.getSearchFor(), pageable);
+					page = this.documentRepo.findByPubEndDateAfterAndSearchStringContainingIgnoreCase(LocalDate.now(), obj.getSearchFor(), pageable);
 				}
 			}
 			
@@ -134,14 +134,14 @@ public class HomeDocumentListController extends HomeBaseController {
 			Document obj = (Document) request.getSession().getAttribute("homeSearch_document");
 			
 			if (obj == null) {
-				page = this.documentRepo.findAllByPubEndDateAfter(Calendar.getInstance().getTime(), pageable);
+				page = this.documentRepo.findAllByPubEndDateAfter(LocalDate.now(), pageable);
 				obj = new Document();
 				obj.setSearchString("");
 			} else {
 				if (obj.getSearchFor()==null || obj.getSearchFor().isBlank()) {
-					page = this.documentRepo.findAllByPubEndDateAfter(Calendar.getInstance().getTime(), pageable);
+					page = this.documentRepo.findAllByPubEndDateAfter(LocalDate.now(), pageable);
 				} else {
-					page = this.documentRepo.findByPubEndDateAfterAndSearchStringContainingIgnoreCase(Calendar.getInstance().getTime(), obj.getSearchFor(), pageable);
+					page = this.documentRepo.findByPubEndDateAfterAndSearchStringContainingIgnoreCase(LocalDate.now(), obj.getSearchFor(), pageable);
 				}
 			}
 			

@@ -38,7 +38,7 @@
 				<div class="col-sm-4">
 					<div class="form-control" th:text="${assessmentForm.session.label}"></div>
 					<ul>
-						<li class="cooperror" th:errors="*{session}" />
+						<li class="text-danger" th:errors="*{session}" />
 					</ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary"
@@ -47,7 +47,7 @@
 					<div class="form-control"
 						th:text="${assessmentForm.assessment.name}"></div>
 					<ul>
-						<li class="cooperror" th:errors="*{assessment}" />
+						<li class="text-danger" th:errors="*{assessment}" />
 					</ul>
 				</div>
 			</div>
@@ -60,7 +60,7 @@
 					<div class="form-control"
 						th:text="${assessmentForm.sessionDetail.label}"></div>
 					<ul>
-						<li class="cooperror" th:errors="*{sessionDetail}" />
+						<li class="text-danger" th:errors="*{sessionDetail}" />
 					</ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary"
@@ -68,7 +68,7 @@
 				<div class="col-sm-4">
 					<div class="form-control" th:text="${assessmentForm.student.label}"></div>
 					<ul>
-						<li class="cooperror" th:errors="*{student}" />
+						<li class="text-danger" th:errors="*{student}" />
 					</ul>
 				</div>
 			</div>
@@ -79,7 +79,7 @@
 				<div class="col-sm-4">
 					<div class="form-control" th:text="${assessmentForm.subject.label}"></div>
 					<ul>
-						<li class="cooperror" th:errors="*{subject}" />
+						<li class="text-danger" th:errors="*{subject}" />
 					</ul>
 				</div>
 			</div>
@@ -88,20 +88,20 @@
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{assessmentForm.maxMarks}"></label>
 				<div class="col-sm-2">
-					<input type="text" readonly class="form-control text-end required"
+					<input type="text" readonly class="form-control text-end  bg-warning-subtle"
 						th:field="*{maxMarks}" th:placeholder="#{assessmentForm.maxMarks}">
 					<ul>
-						<li class="cooperror" th:errors="*{maxMarks}" />
+						<li class="text-danger" th:errors="*{maxMarks}" />
 					</ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{assessmentForm.marksObtained}"></label>
 				<div class="col-sm-2">
-					<input type="text" class="form-control text-end required"
+					<input type="text" class="form-control text-end  bg-warning-subtle"
 						th:field="*{marksObtained}"
 						th:placeholder="#{assessmentForm.marksObtained}">
 					<ul>
-						<li class="cooperror" th:errors="*{marksObtained}" />
+						<li class="text-danger" th:errors="*{marksObtained}" />
 					</ul>
 				</div>
 			</div>

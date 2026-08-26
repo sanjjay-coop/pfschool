@@ -21,12 +21,12 @@
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{academicSession}"></label>
 				<div class="col-sm-4">
-					<select class="form-select required" th:field="*{session}">
+					<select class="form-select  bg-warning-subtle" th:field="*{session}">
 						<option th:each="p : ${listAcademicSession}" th:value="${p.id}"
 							th:text="${p.label}" />
 					</select>
 					<ul>
-						<li class="cooperror" th:errors="*{session}" />
+						<li class="text-danger" th:errors="*{session}" />
 					</ul>
 				</div>
 			</div>

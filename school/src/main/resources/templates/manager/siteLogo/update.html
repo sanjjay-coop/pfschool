@@ -30,7 +30,7 @@
 					<input type="file" class="form-control" th:field="*{file}"
 						th:placeholder="#{fileUploadForm.file}" autofocus>
 					<ul>
-						<li class="cooperror" th:errors="*{file}" />
+						<li class="text-danger" th:errors="*{file}" />
 					</ul>
 				</div>
 				<div class="col-md-12">

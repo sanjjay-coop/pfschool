@@ -27,7 +27,7 @@
     <script th:src="@{/assets/summernote/summernote-bs5.min.js}"></script>
 	
 	<style>
-		.cooperror {
+		.text-danger {
 			font-size: 10px; 
 			font-style: italic; 
 			color: darkred; 
@@ -56,6 +56,11 @@
 		
 		.amount {
 			text-align: right;
+		}
+		
+		body {
+			max-width: 1600px;
+			margin: 0 auto;
 		}
 	</style>
 </head>
@@ -173,7 +178,7 @@
 										<i class="bi bi-feather"></i>
 										About Organization
 									</a>
-									<ul class="dropdown-menu">
+									<ul class="dropdown-menu bg-secondary-subtle">
 										<li th:each="ob,iterator : ${listArticleOrganization}">
 											<a class="dropdown-item text-primary" th:href="@{/home/article/view/{orderId}(orderId=${ob.id})}" th:text="${ob.linkTitle}"></a>
 										</li>
@@ -196,7 +201,7 @@
 										<i class="fa-solid fa-book"></i>
 										Library
 									</a>
-									<ul class="dropdown-menu">
+									<ul class="dropdown-menu bg-secondary-subtle">
 										<li><a class="dropdown-item text-primary" th:href="@{/library/title/addNew}">Add Title</a></li>
 										<li><a class="dropdown-item text-primary" th:href="@{/library/titleType/addNew}">Title Type</a></li>
 									  	<li><a class="dropdown-item text-primary" th:href="@{/library/library/addNew}">Library</a></li>
@@ -208,7 +213,7 @@
 										<i class="bi bi-currency-rupee"></i>
 										Accounts
 									</a>
-									<ul class="dropdown-menu">
+									<ul class="dropdown-menu bg-secondary-subtle">
 										<li><a class="dropdown-item text-primary" th:href="@{/accounts/staff/list}">Search ... Staff</a></li>
 										<li><a class="dropdown-item text-primary" th:href="@{/accounts/student/list}">Search ... Student</a></li>
 										<li><hr class="dropdown-divider text-primary"></li>
@@ -226,7 +231,7 @@
 										<i class="bi bi-person-workspace"></i>
 										Staff Admin
 									</a>
-									<ul class="dropdown-menu" style="columns: 2; -webkit-columns: 2; -moz-columns: 2;">
+									<ul class="dropdown-menu bg-secondary-subtle" style="columns: 2; -webkit-columns: 2; -moz-columns: 2;">
 										<li><a class="dropdown-item text-primary" th:href="@{/admin/academicCalendar/list}">Academic Calendar</a></li>
 										<li><a class="dropdown-item text-primary" th:href="@{/admin/academicSession/list}">Academic Session</a></li>
 										<li><a class="dropdown-item text-primary" th:href="@{/admin/assessment/list}">Assessment</a></li>
@@ -253,7 +258,7 @@
 										<i class="bi bi-people-fill"></i>
 										Manager
 									</a>
-									<ul class="dropdown-menu">
+									<ul class="dropdown-menu bg-secondary-subtle">
 										<li><a class="dropdown-item text-primary" th:href="@{/manager/advert/list}">Advert</a></li>
 										<li><a class="dropdown-item text-primary" th:href="@{/manager/carousel/list}">Carousel</a></li>
 										<li><a class="dropdown-item text-primary" th:href="@{/manager/category/list}">Category</a></li>

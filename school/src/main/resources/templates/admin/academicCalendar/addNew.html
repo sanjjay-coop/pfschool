@@ -32,22 +32,22 @@
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{sessionDetail.session}"></label>
 				<div class="col-sm-4">
-					<select class="form-select required" th:field="*{session}">
+					<select class="form-select  bg-warning-subtle" th:field="*{session}">
 						<option th:each="p : ${listAcademicSession}" th:value="${p.id}"
 							th:text="${p.label}" />
 					</select>
 					<ul>
-						<li class="cooperror" th:errors="*{session}" />
+						<li class="text-danger" th:errors="*{session}" />
 					</ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{academicCalendar.event}"></label>
 				<div class="col-sm-4">
-					<input type="text" class="form-control required"
+					<input type="text" class="form-control  bg-warning-subtle"
 						th:field="*{event}" th:placeholder="#{academicCalendar.event}"
 						autofocus>
 					<ul>
-						<li class="cooperror" th:errors="*{event}" />
+						<li class="text-danger" th:errors="*{event}" />
 					</ul>
 				</div>
 			</div>
@@ -55,20 +55,20 @@
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{academicCalendar.eventDate}"></label>
 				<div class="col-sm-4">
-					<input type="date" class="form-control required"
+					<input type="date" class="form-control  bg-warning-subtle"
 						th:field="*{eventDate}"
 						th:placeholder="#{academicCalendar.eventDate}">
 					<ul>
-						<li class="cooperror" th:errors="*{eventDate}" />
+						<li class="text-danger" th:errors="*{eventDate}" />
 					</ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{academicCalendar.color}"></label>
 				<div class="col-sm-4">
-					<input type="color" class="form-control required"
+					<input type="color" class="form-control  bg-warning-subtle"
 						th:field="*{color}" th:placeholder="#{academicCalendar.color}">
 					<ul>
-						<li class="cooperror" th:errors="*{color}" />
+						<li class="text-danger" th:errors="*{color}" />
 					</ul>
 				</div>
 			</div>

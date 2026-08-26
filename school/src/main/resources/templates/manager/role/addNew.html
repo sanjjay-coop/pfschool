@@ -26,15 +26,15 @@
 					<div class="row p-2">
 						<label class="col-sm-2 col-form-label text-primary" th:text="#{role.code}"></label>
 						<div class="col-sm-2">
-							<input type="text" class="form-control required" th:field="*{code}" th:placeholder="#{role.code}" autofocus >
-							<ul><li class="cooperror" th:errors="*{code}" /></ul>
+							<input type="text" class="form-control  bg-warning-subtle" th:field="*{code}" th:placeholder="#{role.code}" autofocus >
+							<ul><li class="text-danger" th:errors="*{code}" /></ul>
 						</div>
 					</div>
 					<div class="row p-2">
 						<label class="col-sm-2 col-form-label text-primary" th:text="#{role.description}"></label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control required" th:field="*{description}" th:placeholder="#{role.description}" >
-							<ul><li class="cooperror" th:errors="*{description}" /></ul>
+							<input type="text" class="form-control  bg-warning-subtle" th:field="*{description}" th:placeholder="#{role.description}" >
+							<ul><li class="text-danger" th:errors="*{description}" /></ul>
 						</div>
 					</div>
 					<div class="row p-2">

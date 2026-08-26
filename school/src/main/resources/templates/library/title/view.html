@@ -126,12 +126,12 @@
 						<input type="hidden" class="form-control" th:field="*{title}">
 						<label class="col-2 col-form-label" th:text="#{checkOut.member}"></label>
 						<div class="col-2">
-							<input type="text" class="form-control required"
+							<input type="text" class="form-control  bg-warning-subtle"
 								th:field="*{member.uid}" th:placeholder="#{member.uid}" />
 						</div>
 						<label class="col-2 col-form-label" th:text="#{checkOut.dueDate}"></label>
 						<div class="col-3">
-							<input type="date" class="form-control required"
+							<input type="date" class="form-control  bg-warning-subtle"
 								th:field="*{dueDate}" th:placeholder="#{checkOut.dueDate}">
 						</div>
 						<div class="col-3">

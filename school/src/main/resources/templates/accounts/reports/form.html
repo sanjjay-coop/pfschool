@@ -24,7 +24,7 @@
 					<input type="date" class="form-control" th:field="*{startDate}"
 						th:placeholder="#{reportForm.startDate}">
 					<ul>
-						<li class="cooperror" th:errors="*{startDate}" />
+						<li class="text-danger" th:errors="*{startDate}" />
 					</ul>
 				</div>
 			</div>
@@ -36,7 +36,7 @@
 					<input type="date" class="form-control" th:field="*{endDate}"
 						th:placeholder="#{reportForm.endDate}">
 					<ul>
-						<li class="cooperror" th:errors="*{endDate}" />
+						<li class="text-danger" th:errors="*{endDate}" />
 					</ul>
 				</div>
 			</div>
@@ -45,12 +45,12 @@
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{reportForm.reportType}"></label>
 				<div class="col-sm-4">
-					<select class="form-select required" th:field="*{reportType}">
+					<select class="form-select  bg-warning-subtle" th:field="*{reportType}">
 						<option value="HTML" th:text="HTML" />
 						<option value="EXCEL" th:text="EXCEL" />
 					</select>
 					<ul>
-						<li class="cooperror" th:errors="*{reportType}" />
+						<li class="text-danger" th:errors="*{reportType}" />
 					</ul>
 				</div>
 			</div>

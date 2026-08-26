@@ -67,12 +67,12 @@
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{subject}"></label>
 				<div class="col-sm-4">
-					<select class="form-select required" th:field="*{subject}">
+					<select class="form-select  bg-warning-subtle" th:field="*{subject}">
 						<option th:each="p : ${listSubject}" th:value="${p.id}"
 							th:text="${p.code + ' : ' + p.name}" />
 					</select>
 					<ul>
-						<li class="cooperror" th:errors="*{subject}" />
+						<li class="text-danger" th:errors="*{subject}" />
 					</ul>
 				</div>
 			</div>
@@ -81,12 +81,12 @@
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{sessionDetailSubjectTeacher.teacher}"></label>
 				<div class="col-sm-8">
-					<select class="form-select required" th:field="*{teacher}">
+					<select class="form-select  bg-warning-subtle" th:field="*{teacher}">
 						<option th:each="p : ${listStaff}" th:value="${p.id}"
 							th:text="${p.staffId + ' : ' + p.label}" />
 					</select>
 					<ul>
-						<li class="cooperror" th:errors="*{teacher}" />
+						<li class="text-danger" th:errors="*{teacher}" />
 					</ul>
 				</div>
 			</div>
@@ -95,11 +95,11 @@
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{sessionDetailSubjectTeacher.maxMarks}"></label>
 				<div class="col-sm-2">
-					<input type="text" class="form-control required"
+					<input type="text" class="form-control  bg-warning-subtle"
 						th:field="*{maxMarks}"
 						th:placeholder="#{sessionDetailSubjectTeacher.maxMarks}">
 					<ul>
-						<li class="cooperror" th:errors="*{maxMarks}" />
+						<li class="text-danger" th:errors="*{maxMarks}" />
 					</ul>
 				</div>
 			</div>

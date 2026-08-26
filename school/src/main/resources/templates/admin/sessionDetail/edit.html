@@ -28,32 +28,32 @@
 			<div class="row p-2">
 				<label class="col-sm-2 col-form-label text-primary" th:text="#{sessionDetail.session}"></label>
 				<div class="col-sm-4">
-					<select class="form-select required" th:field="*{session}">
+					<select class="form-select  bg-warning-subtle" th:field="*{session}">
 			            <option th:each="p : ${listAcademicSession}" th:value="${p.id}" th:text="${p.label}" />
 			        </select>
-			        <ul><li class="cooperror" th:errors="*{session}" /></ul>
+			        <ul><li class="text-danger" th:errors="*{session}" /></ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary" th:text="#{sessionDetail.schoolClass}"></label>
 				<div class="col-sm-4">
-					<select class="form-select required" th:field="*{schoolClass}">
+					<select class="form-select  bg-warning-subtle" th:field="*{schoolClass}">
 			            <option th:each="p : ${listSchoolClass}" th:value="${p.id}" th:text="${p.label}" />
 			        </select>
-					<ul><li class="cooperror" th:errors="*{schoolClass}" /></ul>
+					<ul><li class="text-danger" th:errors="*{schoolClass}" /></ul>
 				</div>
 			</div>
 			<div class="row p-2">
 				<label class="col-sm-2 col-form-label text-primary" th:text="#{sessionDetail.classTeacher}"></label>
 				<div class="col-sm-4">
 					<select class="form-select" th:field="*{classTeacher}">
-			            <option value="0" label="- Select, if required -" />
+			            <option value="0" label="- Select, if  bg-warning-subtle -" />
 			            <option th:each="p : ${listStaff}" th:value="${p.id}" th:text="${p.label}" />
 			        </select>
-					<ul><li class="cooperror" th:errors="*{classTeacher}" /></ul>
+					<ul><li class="text-danger" th:errors="*{classTeacher}" /></ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary" th:text="#{sessionDetail.fee}"></label>
 				<div class="col-sm-4">
 					<input type="text" class="form-control text-end" th:field="*{fee}" th:placeholder="#{sessionDetail.fee}">
-					<ul><li class="cooperror" th:errors="*{fee}" /></ul>
+					<ul><li class="text-danger" th:errors="*{fee}" /></ul>
 				</div>
 			</div>
 			<div class="row p-2">

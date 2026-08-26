@@ -66,12 +66,12 @@
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{student}"></label>
 				<div class="col-sm-10">
-					<select class="form-select required" th:field="*{student}">
+					<select class="form-select  bg-warning-subtle" th:field="*{student}">
 						<option th:each="p : ${listStudent}" th:value="${p.id}"
 							th:text="${p.studentId + ' : ' + p.label}" />
 					</select>
 					<ul>
-						<li class="cooperror" th:errors="*{student}" />
+						<li class="text-danger" th:errors="*{student}" />
 					</ul>
 				</div>
 			</div>

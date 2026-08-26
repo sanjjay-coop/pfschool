@@ -31,20 +31,20 @@
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{student.studentId}"></label>
 				<div class="col-sm-4">
-					<input type="text" class="form-control required"
+					<input type="text" class="form-control  bg-warning-subtle"
 						th:field="*{studentId}" th:placeholder="#{student.studentId}"
 						autofocus>
 					<ul>
-						<li class="cooperror" th:errors="*{studentId}" />
+						<li class="text-danger" th:errors="*{studentId}" />
 					</ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{student.name}"></label>
 				<div class="col-sm-4">
-					<input type="text" class="form-control required" th:field="*{name}"
+					<input type="text" class="form-control  bg-warning-subtle" th:field="*{name}"
 						th:placeholder="#{student.name}">
 					<ul>
-						<li class="cooperror" th:errors="*{name}" />
+						<li class="text-danger" th:errors="*{name}" />
 					</ul>
 				</div>
 			</div>
@@ -52,11 +52,11 @@
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{student.dateOfAdmission}"></label>
 				<div class="col-sm-4">
-					<input type="date" class="form-control required"
+					<input type="date" class="form-control  bg-warning-subtle"
 						th:field="*{dateOfAdmission}"
 						th:placeholder="#{student.dateOfAdmission}">
 					<ul>
-						<li class="cooperror" th:errors="*{dateOfAdmission}" />
+						<li class="text-danger" th:errors="*{dateOfAdmission}" />
 					</ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary"
@@ -67,7 +67,7 @@
 							th:text="${p.name}" />
 					</select>
 					<ul>
-						<li class="cooperror" th:errors="*{admissionClass}" />
+						<li class="text-danger" th:errors="*{admissionClass}" />
 					</ul>
 				</div>
 			</div>
@@ -75,20 +75,20 @@
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{student.dateOfBirth}"></label>
 				<div class="col-sm-4">
-					<input type="date" class="form-control required"
+					<input type="date" class="form-control  bg-warning-subtle"
 						th:field="*{dateOfBirth}" th:placeholder="#{student.dateOfBirth}">
 					<ul>
-						<li class="cooperror" th:errors="*{dateOfBirth}" />
+						<li class="text-danger" th:errors="*{dateOfBirth}" />
 					</ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{student.placeOfBirth}"></label>
 				<div class="col-sm-4">
-					<input type="text" class="form-control required"
+					<input type="text" class="form-control  bg-warning-subtle"
 						th:field="*{placeOfBirth}"
 						th:placeholder="#{student.placeOfBirth}">
 					<ul>
-						<li class="cooperror" th:errors="*{placeOfBirth}" />
+						<li class="text-danger" th:errors="*{placeOfBirth}" />
 					</ul>
 				</div>
 			</div>
@@ -101,7 +101,7 @@
 							th:text="${p.name}" />
 					</select>
 					<ul>
-						<li class="cooperror" th:errors="*{category}" />
+						<li class="text-danger" th:errors="*{category}" />
 					</ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary"
@@ -112,7 +112,7 @@
 							th:text="${p.name}" />
 					</select>
 					<ul>
-						<li class="cooperror" th:errors="*{gender}" />
+						<li class="text-danger" th:errors="*{gender}" />
 					</ul>
 				</div>
 			</div>
@@ -123,7 +123,7 @@
 					<input type="text" class="form-control" th:field="*{bloodGroup}"
 						th:placeholder="#{student.bloodGroup}">
 					<ul>
-						<li class="cooperror" th:errors="*{bloodGroup}" />
+						<li class="text-danger" th:errors="*{bloodGroup}" />
 					</ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary"
@@ -132,7 +132,7 @@
 					<input type="text" class="form-control" th:field="*{aadhaar}"
 						th:placeholder="#{student.aadhaar}">
 					<ul>
-						<li class="cooperror" th:errors="*{aadhaar}" />
+						<li class="text-danger" th:errors="*{aadhaar}" />
 					</ul>
 				</div>
 			</div>
@@ -140,21 +140,21 @@
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{student.nameOfFather}"></label>
 				<div class="col-sm-4">
-					<input type="text" class="form-control required"
+					<input type="text" class="form-control  bg-warning-subtle"
 						th:field="*{nameOfFather}"
 						th:placeholder="#{student.nameOfFather}">
 					<ul>
-						<li class="cooperror" th:errors="*{nameOfFather}" />
+						<li class="text-danger" th:errors="*{nameOfFather}" />
 					</ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{student.nameOfMother}"></label>
 				<div class="col-sm-4">
-					<input type="text" class="form-control required"
+					<input type="text" class="form-control  bg-warning-subtle"
 						th:field="*{nameOfMother}"
 						th:placeholder="#{student.nameOfMother}">
 					<ul>
-						<li class="cooperror" th:errors="*{nameOfMother}" />
+						<li class="text-danger" th:errors="*{nameOfMother}" />
 					</ul>
 				</div>
 			</div>
@@ -166,7 +166,7 @@
 						th:field="*{officeAddressOfParent}"
 						th:placeholder="#{student.officeAddressOfParent}">
 					<ul>
-						<li class="cooperror" th:errors="*{officeAddressOfParent}" />
+						<li class="text-danger" th:errors="*{officeAddressOfParent}" />
 					</ul>
 				</div>
 			</div>
@@ -174,11 +174,11 @@
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{student.residenceAddress}"></label>
 				<div class="col-sm-10">
-					<input type="text" class="form-control required"
+					<input type="text" class="form-control  bg-warning-subtle"
 						th:field="*{residenceAddress}"
 						th:placeholder="#{student.residenceAddress}">
 					<ul>
-						<li class="cooperror" th:errors="*{residenceAddress}" />
+						<li class="text-danger" th:errors="*{residenceAddress}" />
 					</ul>
 				</div>
 			</div>
@@ -189,7 +189,7 @@
 					<input type="text" class="form-control text-end"
 						th:field="*{phoneOffice}" th:placeholder="#{student.phoneOffice}">
 					<ul>
-						<li class="cooperror" th:errors="*{phoneOffice}" />
+						<li class="text-danger" th:errors="*{phoneOffice}" />
 					</ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary"
@@ -199,7 +199,7 @@
 						th:field="*{phoneResidence}"
 						th:placeholder="#{student.phoneResidence}">
 					<ul>
-						<li class="cooperror" th:errors="*{phoneResidence}" />
+						<li class="text-danger" th:errors="*{phoneResidence}" />
 					</ul>
 				</div>
 			</div>
@@ -207,10 +207,10 @@
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{student.mobile}"></label>
 				<div class="col-sm-4">
-					<input type="text" class="form-control required text-end"
+					<input type="text" class="form-control  bg-warning-subtle text-end"
 						th:field="*{mobile}" th:placeholder="#{student.mobile}">
 					<ul>
-						<li class="cooperror" th:errors="*{mobile}" />
+						<li class="text-danger" th:errors="*{mobile}" />
 					</ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary"
@@ -219,7 +219,7 @@
 					<input type="text" class="form-control" th:field="*{email}"
 						th:placeholder="#{student.email}">
 					<ul>
-						<li class="cooperror" th:errors="*{email}" />
+						<li class="text-danger" th:errors="*{email}" />
 					</ul>
 				</div>
 			</div>
@@ -230,7 +230,7 @@
 					<input type="text" class="form-control" th:field="*{motherTongue}"
 						th:placeholder="#{student.motherTongue}">
 					<ul>
-						<li class="cooperror" th:errors="*{motherTongue}" />
+						<li class="text-danger" th:errors="*{motherTongue}" />
 					</ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary"
@@ -240,7 +240,7 @@
 						th:field="*{emergencyContact}"
 						th:placeholder="#{student.emergencyContact}">
 					<ul>
-						<li class="cooperror" th:errors="*{emergencyContact}" />
+						<li class="text-danger" th:errors="*{emergencyContact}" />
 					</ul>
 				</div>
 			</div>
@@ -252,7 +252,7 @@
 						th:field="*{identificationMarkOne}"
 						th:placeholder="#{student.identificationMarkOne}">
 					<ul>
-						<li class="cooperror" th:errors="*{identificationMarkOne}" />
+						<li class="text-danger" th:errors="*{identificationMarkOne}" />
 					</ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary"
@@ -262,7 +262,7 @@
 						th:field="*{identificationMarkTwo}"
 						th:placeholder="#{student.identificationMarkTwo}">
 					<ul>
-						<li class="cooperror" th:errors="*{identificationMarkTwo}" />
+						<li class="text-danger" th:errors="*{identificationMarkTwo}" />
 					</ul>
 				</div>
 			</div>
@@ -273,7 +273,7 @@
 					<textarea class="form-control" rows="5" th:field="*{remarks}"
 						th:placeholder="#{student.remarks}"></textarea>
 					<ul>
-						<li class="cooperror" th:errors="*{remarks}" />
+						<li class="text-danger" th:errors="*{remarks}" />
 					</ul>
 				</div>
 			</div>
@@ -281,10 +281,10 @@
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{student.file}"></label>
 				<div class="col-sm-4">
-					<input type="file" class="form-control required" th:field="*{file}"
+					<input type="file" class="form-control  bg-warning-subtle" th:field="*{file}"
 						th:placeholder="#{student.file}">
 					<ul>
-						<li class="cooperror" th:errors="*{file}" />
+						<li class="text-danger" th:errors="*{file}" />
 					</ul>
 				</div>
 			</div>

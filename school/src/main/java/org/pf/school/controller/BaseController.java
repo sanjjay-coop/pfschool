@@ -3,6 +3,7 @@ package org.pf.school.controller;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Random;
 
 import org.pf.school.common.YesNo;
 import org.pf.school.model.Advert;
@@ -17,6 +18,17 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import jakarta.servlet.http.HttpServletRequest;
 
 public class BaseController {
+	
+	public enum Theme {
+		cerulean, cosmo, flatly, journal, lumen, pulse, sandstone, simplex, sketchy, slate, solar, spacelab, united, vapor, yeti, zephyr;
+		
+		private static final Random PRNG = new Random();
+
+	    public static Theme randomTheme()  {
+	        Theme[] themes = values();
+	        return themes[PRNG.nextInt(themes.length)];
+	    }
+	}
 	
 	@Autowired
 	private ParametersService paramsService;
@@ -65,6 +77,20 @@ public class BaseController {
 	public List<Article> getListArticleOrganization(){
 		
 		return this.articleRepo.findByOrgLinkOrderByLinkTitleAsc(true);
+	}
+	
+	@ModelAttribute("colorTheme")
+	public String getColorTheme(HttpServletRequest request) {
+		
+		String sessionColorTheme = (String) request.getSession().getAttribute("sessionColorTheme");
+		
+		if (sessionColorTheme == null) {
+			Theme theme = Theme.randomTheme();
+			sessionColorTheme = theme.toString();
+			request.getSession().setAttribute("sessionColorTheme", sessionColorTheme);
+		}
+		
+		return sessionColorTheme;
 	}
 	
 }

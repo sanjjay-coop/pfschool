@@ -33,13 +33,13 @@
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{member.uid}"></label>
 				<div class="col-sm-4">
-					<input type="text" readonly class="form-control required"
+					<input type="text" readonly class="form-control  bg-warning-subtle"
 						th:field="*{uid}" th:placeholder="#{member.uid}">
 				</div>
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{member.name}"></label>
 				<div class="col-sm-4">
-					<input type="text" readonly class="form-control required"
+					<input type="text" readonly class="form-control  bg-warning-subtle"
 						th:field="*{name}" th:placeholder="#{member.name}">
 				</div>
 			</div>
@@ -47,7 +47,7 @@
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{member.accountNonExpired}"></label>
 				<div class="col-sm-4">
-					<select class="form-select required"
+					<select class="form-select  bg-warning-subtle"
 						th:field="*{accountNonExpired}">
 						<option th:each="p : ${listYesNo}" th:value="${p.value}"
 							th:text="${p.label}" />
@@ -56,7 +56,7 @@
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{member.accountNonLocked}"></label>
 				<div class="col-sm-4">
-					<select class="form-select required" th:field="*{accountNonLocked}">
+					<select class="form-select  bg-warning-subtle" th:field="*{accountNonLocked}">
 						<option th:each="p : ${listYesNo}" th:value="${p.value}"
 							th:text="${p.label}" />
 					</select>
@@ -66,7 +66,7 @@
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{member.credentialsNonExpired}"></label>
 				<div class="col-sm-4">
-					<select class="form-select required"
+					<select class="form-select  bg-warning-subtle"
 						th:field="*{credentialsNonExpired}">
 						<option th:each="p : ${listYesNo}" th:value="${p.value}"
 							th:text="${p.label}" />
@@ -75,7 +75,7 @@
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{member.enabled}"></label>
 				<div class="col-sm-4">
-					<select class="form-select required" th:field="*{enabled}">
+					<select class="form-select  bg-warning-subtle" th:field="*{enabled}">
 						<option th:each="p : ${listYesNo}" th:value="${p.value}"
 							th:text="${p.label}" />
 					</select>

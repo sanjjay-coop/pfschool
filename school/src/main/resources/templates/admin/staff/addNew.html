@@ -26,25 +26,25 @@
 			<div class="row p-2">
 				<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.staffId}"></label>
 				<div class="col-sm-4">
-					<input type="text" class="form-control required" th:field="*{staffId}" th:placeholder="#{staff.staffId}" autofocus >
-					<ul><li class="cooperror" th:errors="*{staffId}" /></ul>
+					<input type="text" class="form-control  bg-warning-subtle" th:field="*{staffId}" th:placeholder="#{staff.staffId}" autofocus >
+					<ul><li class="text-danger" th:errors="*{staffId}" /></ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.name}"></label>
 				<div class="col-sm-4">
-					<input type="text" class="form-control required" th:field="*{name}" th:placeholder="#{staff.name}" >
-					<ul><li class="cooperror" th:errors="*{name}" /></ul>
+					<input type="text" class="form-control  bg-warning-subtle" th:field="*{name}" th:placeholder="#{staff.name}" >
+					<ul><li class="text-danger" th:errors="*{name}" /></ul>
 				</div>
 			</div>
 			<div class="row p-2">
 				<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.spouseName}"></label>
 				<div class="col-sm-4">
 					<input type="text" class="form-control" th:field="*{spouseName}" th:placeholder="#{staff.spouseName}" >
-					<ul><li class="cooperror" th:errors="*{spouseName}" /></ul>
+					<ul><li class="text-danger" th:errors="*{spouseName}" /></ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.dateOfBirth}"></label>
 				<div class="col-sm-4">
-					<input type="date" class="form-control required" th:field="*{dateOfBirth}" th:placeholder="#{staff.dateOfBirth}">
-					<ul><li class="cooperror" th:errors="*{dateOfBirth}" /></ul>
+					<input type="date" class="form-control  bg-warning-subtle" th:field="*{dateOfBirth}" th:placeholder="#{staff.dateOfBirth}">
+					<ul><li class="text-danger" th:errors="*{dateOfBirth}" /></ul>
 				</div>
 			</div>
 			<div class="row p-2">
@@ -53,85 +53,85 @@
 					<select class="form-select" th:field="*{category}">
 			            <option th:each="p : ${listCategory}" th:value="${p.id}" th:text="${p.name}" />
 			        </select>
-			        <ul><li class="cooperror" th:errors="*{category}" /></ul>
+			        <ul><li class="text-danger" th:errors="*{category}" /></ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.gender}"></label>
 				<div class="col-sm-4">
 					<select class="form-select" th:field="*{gender}">
 			            <option th:each="p : ${listGender}" th:value="${p.id}" th:text="${p.name}" />
 			        </select>
-					<ul><li class="cooperror" th:errors="*{gender}" /></ul>
+					<ul><li class="text-danger" th:errors="*{gender}" /></ul>
 				</div>
 			</div>
 			<div class="row p-2">
 				<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.residenceAddress}"></label>
 				<div class="col-sm-4">
-					<input type="text" class="form-control required" th:field="*{residenceAddress}" th:placeholder="#{staff.residenceAddress}">
-					<ul><li class="cooperror" th:errors="*{residenceAddress}" /></ul>
+					<input type="text" class="form-control  bg-warning-subtle" th:field="*{residenceAddress}" th:placeholder="#{staff.residenceAddress}">
+					<ul><li class="text-danger" th:errors="*{residenceAddress}" /></ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.permanentAddress}"></label>
 				<div class="col-sm-4">
 					<input type="text" class="form-control" th:field="*{permanentAddress}" th:placeholder="#{staff.permanentAddress}" >
-					<ul><li class="cooperror" th:errors="*{permanentAddress}" /></ul>
+					<ul><li class="text-danger" th:errors="*{permanentAddress}" /></ul>
 				</div>
 			</div>
 			<div class="row p-2">
 				<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.aadhaar}"></label>
 				<div class="col-sm-4">
 					<input type="text" class="form-control" th:field="*{aadhaar}" th:placeholder="#{staff.aadhaar}">
-					<ul><li class="cooperror" th:errors="*{aadhaar}" /></ul>
+					<ul><li class="text-danger" th:errors="*{aadhaar}" /></ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.pan}"></label>
 				<div class="col-sm-4">
 					<input type="text" class="form-control" th:field="*{pan}" th:placeholder="#{staff.pan}" >
-					<ul><li class="cooperror" th:errors="*{pan}" /></ul>
+					<ul><li class="text-danger" th:errors="*{pan}" /></ul>
 				</div>
 			</div>
 			<div class="row p-2">
 				<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.phone}"></label>
 				<div class="col-sm-4">
 					<input type="text" class="form-control text-end" th:field="*{phone}" th:placeholder="#{staff.phone}">
-					<ul><li class="cooperror" th:errors="*{phone}" /></ul>
+					<ul><li class="text-danger" th:errors="*{phone}" /></ul>
 				</div>
 			</div>
 			<div class="row p-2">
 				<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.mobile}"></label>
 				<div class="col-sm-4">
-					<input type="text" class="form-control required text-end" th:field="*{mobile}" th:placeholder="#{staff.mobile}">
-					<ul><li class="cooperror" th:errors="*{mobile}" /></ul>
+					<input type="text" class="form-control  bg-warning-subtle text-end" th:field="*{mobile}" th:placeholder="#{staff.mobile}">
+					<ul><li class="text-danger" th:errors="*{mobile}" /></ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.email}"></label>
 				<div class="col-sm-4">
-					<input type="text" class="form-control required" th:field="*{email}" th:placeholder="#{staff.email}" >
-					<ul><li class="cooperror" th:errors="*{email}" /></ul>
+					<input type="text" class="form-control  bg-warning-subtle" th:field="*{email}" th:placeholder="#{staff.email}" >
+					<ul><li class="text-danger" th:errors="*{email}" /></ul>
 				</div>
 			</div>
 			<div class="row p-2">
 				<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.designation}"></label>
 				<div class="col-sm-4">
 					<input type="text" class="form-control" th:field="*{designation}" th:placeholder="#{staff.designation}">
-					<ul><li class="cooperror" th:errors="*{designation}" /></ul>
+					<ul><li class="text-danger" th:errors="*{designation}" /></ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.role}"></label>
 				<div class="col-sm-4">
 					<select class="form-select" th:field="*{role}">
 			            <option th:each="ob : ${listRole}" th:value="${ob.code}" th:label="${ob.code}"/>
 			        </select>
-			        <ul><li class="cooperror" th:errors="*{role}" /></ul>
+			        <ul><li class="text-danger" th:errors="*{role}" /></ul>
 				</div>
 			</div>
 			<div class="row p-2">
 				<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.remarks}"></label>
 				<div class="col-sm-10">
 					<textarea class="form-control" rows="5" th:field="*{remarks}" th:placeholder="#{staff.remarks}"></textarea>
-					<ul><li class="cooperror" th:errors="*{remarks}" /></ul>
+					<ul><li class="text-danger" th:errors="*{remarks}" /></ul>
 				</div>
 			</div>
 			<div class="row p-2">
 				<label class="col-sm-2 col-form-label text-primary" th:text="#{staff.file}"></label>
 				<div class="col-sm-4">
-					<input type="file" class="form-control required" th:field="*{file}" th:placeholder="#{staff.file}" >
-					<ul><li class="cooperror" th:errors="*{file}" /></ul>
+					<input type="file" class="form-control  bg-warning-subtle" th:field="*{file}" th:placeholder="#{staff.file}" >
+					<ul><li class="text-danger" th:errors="*{file}" /></ul>
 				</div>
 			</div>
 			<div class="row p-2">

@@ -18,26 +18,26 @@
 			method="POST">
 
 			<ul>
-				<li class="cooperror" th:errors="*{all}" />
+				<li class="text-danger" th:errors="*{all}" />
 			</ul>
 
 			<div class="row p-2">
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{staff.staffId}"></label>
 				<div class="col-sm-4">
-					<input type="text" class="form-control required"
+					<input type="text" class="form-control  bg-warning-subtle"
 						th:field="*{staffId}" th:placeholder="#{staff.staffId}" autofocus>
 					<ul>
-						<li class="cooperror" th:errors="*{staffId}" />
+						<li class="text-danger" th:errors="*{staffId}" />
 					</ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{staff.password}"></label>
 				<div class="col-sm-4">
-					<input type="password" class="form-control required"
+					<input type="password" class="form-control  bg-warning-subtle"
 						th:field="*{password}" th:placeholder="#{staff.password}">
 					<ul>
-						<li class="cooperror" th:errors="*{password}" />
+						<li class="text-danger" th:errors="*{password}" />
 					</ul>
 				</div>
 			</div>
@@ -46,10 +46,10 @@
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{staff.name}"></label>
 				<div class="col-sm-4">
-					<input type="text" class="form-control required" th:field="*{name}"
+					<input type="text" class="form-control  bg-warning-subtle" th:field="*{name}"
 						th:placeholder="#{staff.name}">
 					<ul>
-						<li class="cooperror" th:errors="*{name}" />
+						<li class="text-danger" th:errors="*{name}" />
 					</ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary"
@@ -58,7 +58,7 @@
 					<input type="text" class="form-control" th:field="*{spouseName}"
 						th:placeholder="#{staff.spouseName}">
 					<ul>
-						<li class="cooperror" th:errors="*{spouseName}" />
+						<li class="text-danger" th:errors="*{spouseName}" />
 					</ul>
 				</div>
 			</div>
@@ -67,10 +67,10 @@
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{staff.dateOfBirth}"></label>
 				<div class="col-sm-4">
-					<input type="date" class="form-control text-end required"
+					<input type="date" class="form-control text-end  bg-warning-subtle"
 						th:field="*{dateOfBirth}" th:placeholder="#{staff.dateOfBirth}">
 					<ul>
-						<li class="cooperror" th:errors="*{dateOfBirth}" />
+						<li class="text-danger" th:errors="*{dateOfBirth}" />
 					</ul>
 				</div>
 			</div>
@@ -79,11 +79,11 @@
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{staff.residenceAddress}"></label>
 				<div class="col-sm-4">
-					<textarea class="form-control required" rows="5"
+					<textarea class="form-control  bg-warning-subtle" rows="5"
 						th:field="*{residenceAddress}"
 						th:placeholder="#{staff.residenceAddress}"></textarea>
 					<ul>
-						<li class="cooperror" th:errors="*{residenceAddress}" />
+						<li class="text-danger" th:errors="*{residenceAddress}" />
 					</ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary"
@@ -93,7 +93,7 @@
 						th:field="*{permanentAddress}"
 						th:placeholder="#{staff.permanentAddress}"></textarea>
 					<ul>
-						<li class="cooperror" th:errors="*{permanentAddress}" />
+						<li class="text-danger" th:errors="*{permanentAddress}" />
 					</ul>
 				</div>
 			</div>
@@ -105,7 +105,7 @@
 					<input type="text" class="form-control" th:field="*{aadhaar}"
 						th:placeholder="#{staff.aadhaar}">
 					<ul>
-						<li class="cooperror" th:errors="*{aadhaar}" />
+						<li class="text-danger" th:errors="*{aadhaar}" />
 					</ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary"
@@ -114,7 +114,7 @@
 					<input type="text" class="form-control" th:field="*{pan}"
 						th:placeholder="#{staff.pan}">
 					<ul>
-						<li class="cooperror" th:errors="*{pan}" />
+						<li class="text-danger" th:errors="*{pan}" />
 					</ul>
 				</div>
 			</div>
@@ -126,16 +126,16 @@
 					<input type="text" class="form-control text-end"
 						th:field="*{phone}" th:placeholder="#{staff.phone}">
 					<ul>
-						<li class="cooperror" th:errors="*{phone}" />
+						<li class="text-danger" th:errors="*{phone}" />
 					</ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{staff.mobile}"></label>
 				<div class="col-sm-4">
-					<input type="text" class="form-control text-end required"
+					<input type="text" class="form-control text-end  bg-warning-subtle"
 						th:field="*{mobile}" th:placeholder="#{staff.mobile}">
 					<ul>
-						<li class="cooperror" th:errors="*{mobile}" />
+						<li class="text-danger" th:errors="*{mobile}" />
 					</ul>
 				</div>
 			</div>
@@ -144,10 +144,10 @@
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{staff.email}"></label>
 				<div class="col-sm-4">
-					<input type="text" class="form-control required"
+					<input type="text" class="form-control  bg-warning-subtle"
 						th:field="*{email}" th:placeholder="#{staff.email}">
 					<ul>
-						<li class="cooperror" th:errors="*{email}" />
+						<li class="text-danger" th:errors="*{email}" />
 					</ul>
 				</div>
 			</div>

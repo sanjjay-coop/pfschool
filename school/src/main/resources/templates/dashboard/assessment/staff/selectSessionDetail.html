@@ -36,7 +36,7 @@
 				<div class="col-sm-4">
 					<div class="form-control" th:text="${assessmentForm.session.label}"></div>
 					<ul>
-						<li class="cooperror" th:errors="*{session}" />
+						<li class="text-danger" th:errors="*{session}" />
 					</ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary"
@@ -45,7 +45,7 @@
 					<div class="form-control"
 						th:text="${assessmentForm.assessment.name}"></div>
 					<ul>
-						<li class="cooperror" th:errors="*{assessment}" />
+						<li class="text-danger" th:errors="*{assessment}" />
 					</ul>
 				</div>
 			</div>
@@ -55,12 +55,12 @@
 					th:text="#{sessionDetail}"></label>
 				<div class="col-sm-4">
 
-					<select class="form-select required" th:field="*{sessionDetail}">
+					<select class="form-select  bg-warning-subtle" th:field="*{sessionDetail}">
 						<option th:each="p : ${listSessionDetail}" th:value="${p.id}"
 							th:text="${p.label}" />
 					</select>
 					<ul>
-						<li class="cooperror" th:errors="*{sessionDetail}" />
+						<li class="text-danger" th:errors="*{sessionDetail}" />
 					</ul>
 				</div>
 			</div>

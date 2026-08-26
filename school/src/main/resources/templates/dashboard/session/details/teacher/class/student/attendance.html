@@ -34,10 +34,10 @@
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{attendanceForm.date}"></label>
 				<div class="col-sm-2">
-					<input type="date" class="form-control required" th:field="*{date}"
+					<input type="date" class="form-control  bg-warning-subtle" th:field="*{date}"
 						th:placeholder="#{attendanceForm.date}" autofocus>
 					<ul>
-						<li class="cooperror" th:errors="*{date}" />
+						<li class="text-danger" th:errors="*{date}" />
 					</ul>
 				</div>
 			</div>
@@ -57,7 +57,7 @@
 						<td th:text="${ob.student.name}"></td>
 						<td><input type="hidden" class="form-control"
 							th:field="*{data[__${iterator.index}__][0]}"> <select
-							class="form-select required"
+							class="form-select  bg-warning-subtle"
 							th:field="*{data[__${iterator.index}__][1]}">
 								<option class="text-success" value="Absent" label="Absent"></option>
 								<option value="Present" label="Present"></option>

@@ -15,7 +15,7 @@
 
 		<div class="row p-2">
 
-			<div class="col-md-12 p-2 border border-light rounded-0">
+			<div class="col-md-12">
 				<div id="carouselExampleCaptions" class="carousel slide"
 					data-bs-ride="carousel">
 					<div class="carousel-indicators">
@@ -32,7 +32,7 @@
 						<div class="carousel-item active">
 							<img
 								th:src="@{/home/carousel/download/{orderId}(orderId=${carouselActive.id})}"
-								style="max-height: 600px;" class="d-block w-100 rounded-2"
+								style="max-height: 600px;" class="d-block w-100 border rounded rounded-2 p-2"
 								alt="...">
 							<div class="carousel-caption d-none d-md-block">
 								<h5 th:text="${carouselActive.title}"></h5>
@@ -42,7 +42,7 @@
 						<div class="carousel-item" th:each="obj : ${listCarouselDisplay}">
 							<img
 								th:src="@{/home/carousel/download/{orderId}(orderId=${obj.id})}"
-								style="max-height: 600px;" class="d-block w-100 rounded-2"
+								style="max-height: 600px;" class="d-block w-100 border rounded rounded-2 p-2"
 								alt="...">
 							<div class="carousel-caption d-none d-md-block">
 								<h5 th:text="${obj.title}"></h5>
@@ -65,7 +65,7 @@
 		</div>
 
 		<div class="row p-2">
-			<div class="col-md-3 p-2 rounded-0" th:each="obj : ${listNewsLatest}">
+			<div class="col-3 rounded-0" th:each="obj : ${listNewsLatest}">
 				<div class="card h-100">
 					<div class="card-body overflow-auto">
 						<div class="text-primary h4">
@@ -83,7 +83,7 @@
 		</div>
 
 		<div class="row p-2">
-			<div class="col-md-3 p-2 rounded-0">
+			<div class="col-md-3 rounded-0">
 				<div class="card h-100">
 					<h5 class="card-header text-center bg-primary-subtle bg-gradient">Classes
 						Running</h5>
@@ -122,9 +122,11 @@
 		</div>
 
 		<div class="row p-2">
-			<div class="card p-2 mb-2 border-light mt-2">
-				<div class="card-body">
-					<p th:utext="${params?.about}"></p>
+			<div class="col-12">
+				<div class="card p-2 mb-2 border-light mt-2">
+					<div class="card-body">
+						<p th:utext="${params?.about}"></p>
+					</div>
 				</div>
 			</div>
 		</div>

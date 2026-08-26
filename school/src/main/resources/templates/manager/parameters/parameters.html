@@ -26,7 +26,7 @@
 					<input type="text" class="form-control" th:field="*{siteUrl}"
 						th:placeholder="#{parameters.siteUrl}" autofocus>
 					<ul>
-						<li class="cooperror" th:errors="*{siteUrl}" />
+						<li class="text-danger" th:errors="*{siteUrl}" />
 					</ul>
 				</div>
 			</div>
@@ -37,7 +37,7 @@
 					<input type="text" class="form-control" th:field="*{header}"
 						th:placeholder="#{parameters.header}" autofocus>
 					<ul>
-						<li class="cooperror" th:errors="*{header}" />
+						<li class="text-danger" th:errors="*{header}" />
 					</ul>
 				</div>
 			</div>
@@ -48,7 +48,7 @@
 					<input type="text" class="form-control" th:field="*{subHeader}"
 						th:placeholder="#{parameters.subHeader}" autofocus>
 					<ul>
-						<li class="cooperror" th:errors="*{subHeader}" />
+						<li class="text-danger" th:errors="*{subHeader}" />
 					</ul>
 				</div>
 			</div>
@@ -59,7 +59,7 @@
 					<input type="text" class="form-control" th:field="*{address}"
 						th:placeholder="#{parameters.address}" autofocus>
 					<ul>
-						<li class="cooperror" th:errors="*{address}" />
+						<li class="text-danger" th:errors="*{address}" />
 					</ul>
 				</div>
 			</div>
@@ -72,7 +72,7 @@
 							th:text="${p.label}" />
 					</select>
 					<ul>
-						<li class="cooperror" th:errors="*{mailEnable}" />
+						<li class="text-danger" th:errors="*{mailEnable}" />
 					</ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary"
@@ -81,7 +81,7 @@
 					<input type="text" class="form-control" th:field="*{mailHost}"
 						th:placeholder="#{parameters.mailHost}">
 					<ul>
-						<li class="cooperror" th:errors="*{mailHost}" />
+						<li class="text-danger" th:errors="*{mailHost}" />
 					</ul>
 				</div>
 			</div>
@@ -92,7 +92,7 @@
 					<input type="text" class="form-control" th:field="*{mailPort}"
 						th:placeholder="#{parameters.mailPort}">
 					<ul>
-						<li class="cooperror" th:errors="*{mailPort}" />
+						<li class="text-danger" th:errors="*{mailPort}" />
 					</ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary"
@@ -102,7 +102,7 @@
 						th:field="*{mailTransportProtocol}"
 						th:placeholder="#{parameters.mailTransportProtocol}">
 					<ul>
-						<li class="cooperror" th:errors="*{mailTransportProtocol}" />
+						<li class="text-danger" th:errors="*{mailTransportProtocol}" />
 					</ul>
 				</div>
 			</div>
@@ -113,7 +113,7 @@
 					<input type="text" class="form-control" th:field="*{mailSmtpPort}"
 						th:placeholder="#{parameters.mailSmtpPort}">
 					<ul>
-						<li class="cooperror" th:errors="*{mailSmtpPort}" />
+						<li class="text-danger" th:errors="*{mailSmtpPort}" />
 					</ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary"
@@ -124,7 +124,7 @@
 							th:text="${p.label}" />
 					</select>
 					<ul>
-						<li class="cooperror" th:errors="*{mailSmtpAuth}" />
+						<li class="text-danger" th:errors="*{mailSmtpAuth}" />
 					</ul>
 				</div>
 			</div>
@@ -137,7 +137,7 @@
 							th:text="${p.label}" />
 					</select>
 					<ul>
-						<li class="cooperror" th:errors="*{mailSmtpStarttlsEnable}" />
+						<li class="text-danger" th:errors="*{mailSmtpStarttlsEnable}" />
 					</ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary"
@@ -148,7 +148,7 @@
 							th:text="${p.label}" />
 					</select>
 					<ul>
-						<li class="cooperror" th:errors="*{mailSmtpStarttlsRequired}" />
+						<li class="text-danger" th:errors="*{mailSmtpStarttlsRequired}" />
 					</ul>
 				</div>
 			</div>
@@ -159,7 +159,7 @@
 					<input type="text" class="form-control" th:field="*{mailUsername}"
 						th:placeholder="#{parameters.mailUsername}">
 					<ul>
-						<li class="cooperror" th:errors="*{mailUsername}" />
+						<li class="text-danger" th:errors="*{mailUsername}" />
 					</ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary"
@@ -168,7 +168,7 @@
 					<input type="text" class="form-control" th:field="*{mailPassword}"
 						th:placeholder="#{parameters.mailPassword}">
 					<ul>
-						<li class="cooperror" th:errors="*{mailPassword}" />
+						<li class="text-danger" th:errors="*{mailPassword}" />
 					</ul>
 				</div>
 			</div>
@@ -179,7 +179,7 @@
 					<input type="text" class="form-control" th:field="*{emailDayLimit}"
 						th:placeholder="#{parameters.emailDayLimit}">
 					<ul>
-						<li class="cooperror" th:errors="*{emailDayLimit}" />
+						<li class="text-danger" th:errors="*{emailDayLimit}" />
 					</ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary"
@@ -188,7 +188,7 @@
 					<input type="text" class="form-control" th:field="*{dataDirectory}"
 						th:placeholder="#{parameters.dataDirectory}">
 					<ul>
-						<li class="cooperror" th:errors="*{dataDirectory}" />
+						<li class="text-danger" th:errors="*{dataDirectory}" />
 					</ul>
 				</div>
 			</div>
@@ -199,7 +199,7 @@
 					<input type="text" class="form-control" th:field="*{fromEmail}"
 						th:placeholder="#{parameters.fromEmail}">
 					<ul>
-						<li class="cooperror" th:errors="*{fromEmail}" />
+						<li class="text-danger" th:errors="*{fromEmail}" />
 					</ul>
 				</div>
 				<label class="col-sm-2 col-form-label text-primary"
@@ -209,7 +209,7 @@
 						th:field="*{emailSignature}"
 						th:placeholder="#{parameters.emailSignature}"></textarea>
 					<ul>
-						<li class="cooperror" th:errors="*{emailSignature}" />
+						<li class="text-danger" th:errors="*{emailSignature}" />
 					</ul>
 				</div>
 			</div>
@@ -220,7 +220,7 @@
 					<textarea class="form-control" rows="5" th:field="*{about}"
 						th:placeholder="#{parameters.about}"></textarea>
 					<ul>
-						<li class="cooperror" th:errors="*{about}" />
+						<li class="text-danger" th:errors="*{about}" />
 					</ul>
 				</div>
 			</div>
@@ -231,7 +231,7 @@
 					<textarea class="form-control" rows="5" th:field="*{privacyPolicy}"
 						th:placeholder="#{parameters.privacyPolicy}"></textarea>
 					<ul>
-						<li class="cooperror" th:errors="*{privacyPolicy}" />
+						<li class="text-danger" th:errors="*{privacyPolicy}" />
 					</ul>
 				</div>
 			</div>
@@ -242,7 +242,7 @@
 					<textarea class="form-control" rows="5" th:field="*{disclaimer}"
 						th:placeholder="#{parameters.disclaimer}"></textarea>
 					<ul>
-						<li class="cooperror" th:errors="*{disclaimer}" />
+						<li class="text-danger" th:errors="*{disclaimer}" />
 					</ul>
 				</div>
 			</div>
@@ -254,7 +254,7 @@
 						th:field="*{termsAndConditions}"
 						th:placeholder="#{parameters.termsAndConditions}"></textarea>
 					<ul>
-						<li class="cooperror" th:errors="*{termsAndConditions}" />
+						<li class="text-danger" th:errors="*{termsAndConditions}" />
 					</ul>
 				</div>
 			</div>

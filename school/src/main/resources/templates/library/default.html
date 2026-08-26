@@ -21,10 +21,10 @@
 				<label class="col-sm-2 col-form-label text-primary"
 					th:text="#{ssf.searchString}"></label>
 				<div class="col-sm-4">
-					<input type="text" class="form-control required"
+					<input type="text" class="form-control  bg-warning-subtle"
 						th:field="*{searchString}" th:placeholder="#{ssf.searchString}">
 					<ul>
-						<li class="cooperror" th:errors="*{searchString}" />
+						<li class="text-danger" th:errors="*{searchString}" />
 					</ul>
 				</div>
 			</div>

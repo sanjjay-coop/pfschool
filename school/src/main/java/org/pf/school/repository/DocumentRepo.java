@@ -1,6 +1,6 @@
 package org.pf.school.repository;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.UUID;
 
 import org.pf.school.model.Document;
@@ -11,8 +11,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface DocumentRepo extends JpaRepository<Document, UUID>{
 	
 	Page<Document> findBySearchStringContainingIgnoreCase(String searchString, Pageable pageable);
-	Page<Document> findByPubEndDateAfterAndSearchStringContainingIgnoreCase(Date date, String searchString, Pageable pageable);
+	Page<Document> findByPubEndDateAfterAndSearchStringContainingIgnoreCase(LocalDate date, String searchString, Pageable pageable);
 	
-	Page<Document> findAllByPubEndDateAfter(Date date, Pageable pageable);
+	Page<Document> findAllByPubEndDateAfter(LocalDate date, Pageable pageable);
 	
 }
